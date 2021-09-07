@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ScreenFadeManager : MonoBehaviour
+public class SceneFadeManager : MonoBehaviour
 {
     private PlayerManager playerManager;
     [SerializeField] private float fadeInDuration = 1f;

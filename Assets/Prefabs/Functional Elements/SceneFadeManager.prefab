@@ -84,9 +84,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5972921696100017284}
-  - component: {fileID: 5972921696100017287}
+  - component: {fileID: 5330436414890484449}
   m_Layer: 0
-  m_Name: LevelFadeManager
+  m_Name: SceneFadeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5972921696100017287
+--- !u!114 &5330436414890484449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,9 +116,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5972921696100017286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ff55a97658aef40829b0b9488bf784, type: 3}
+  m_Script: {fileID: 11500000, guid: 81f51b9d3e3ce30419b8c98445f71451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeInDuration: 1
 --- !u!1 &8572410900228543978
 GameObject:
   m_ObjectHideFlags: 0

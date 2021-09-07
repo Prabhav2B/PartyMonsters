@@ -16,7 +16,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private float _lastCollisionNormal;
     private int _movementTweenFlag;
     private PlayerInput _input;
-    private ScreenFadeManager _screenFadeManager;
+    private SceneFadeManager _sceneFadeManager;
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
     private bool _pause;
@@ -34,7 +34,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
         _input = GetComponent<PlayerInput>();
 
         _characterController = GetComponent<CharController>();
-        _screenFadeManager = FindObjectOfType<ScreenFadeManager>();
+        _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _mainMenu = FindObjectOfType<MainMenu>();
 
         _characterSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -65,9 +65,9 @@ public class PlayerManager : SingleInstance<PlayerManager>
     public void ResetScene()
     {
         Deactivate(); //Turn of input from user
-        ScreenFadeManager.PostFadeOut fadeOutAction = _screenFadeManager.FadeIn;
+        SceneFadeManager.PostFadeOut fadeOutAction = _sceneFadeManager.FadeIn;
         fadeOutAction += Activate;
-        _screenFadeManager.FadeOut(fadeOutAction);
+        _sceneFadeManager.FadeOut(fadeOutAction);
         fadeOutAction = null;
     }
 
@@ -101,7 +101,6 @@ public class PlayerManager : SingleInstance<PlayerManager>
             return;
         
         ReceivedInput = input.Get<Vector2>();
-        //PlayerInput = Vector2.ClampMagnitude(PlayerInput, 1f);
         _characterController.Move(ReceivedInput);
     }
 

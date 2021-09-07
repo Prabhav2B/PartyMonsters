@@ -1,10 +1,10 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransitionManagement : SingleInstance<SceneTransitionManagement>
+public class LevelTransitionManager : SingleInstance<LevelTransitionManager>
 {
-    
     public void LoadNextLevel()
     {
         var nextSceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -13,8 +13,10 @@ public class SceneTransitionManagement : SingleInstance<SceneTransitionManagemen
         {
             return;
         }
+
         SceneManager.LoadScene(nextSceneBuildIndex);
     }
+
     public void LoadLevel(int buildIndex)
     {
         Debug.Assert(buildIndex >= SceneManager.sceneCount, this.gameObject);
@@ -22,6 +24,7 @@ public class SceneTransitionManagement : SingleInstance<SceneTransitionManagemen
         {
             return;
         }
+
         SceneManager.LoadScene(buildIndex);
     }
 

@@ -67,7 +67,7 @@ public class CharController : MonoBehaviour
     {
         _fastFall = true;
     }
-    
+
     private void Update()
     {
         _isStill = false;
@@ -82,7 +82,7 @@ public class CharController : MonoBehaviour
         {
             _facingRight = false;
         }
-        else 
+        else
         {
             _isStill = true;
         }
@@ -90,13 +90,12 @@ public class CharController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         UpdateState();
-        
+
         if (_desiredJump || _jumpBuffer)
         {
             _desiredJump = false;
-            
+
             if (_jumpPhase > _maxAirJumps) //check for steep proximity here itself
             {
                 if (!_jumpBuffer)
@@ -105,7 +104,7 @@ public class CharController : MonoBehaviour
                     _stepsSinceJumpBuffer = 0;
                 }
             }
-            else if(_jumpPhase <= _maxAirJumps )
+            else if (_jumpPhase <= _maxAirJumps)
             {
                 _jumpBuffer = false;
                 Jump();
@@ -143,7 +142,7 @@ public class CharController : MonoBehaviour
         }
 
         _velocity.y = Mathf.MoveTowards(_velocity.y, _desiredGravityVelocity, maxGravityChange);
-        
+
         _velocity.x = Mathf.Min(_velocity.x, 30f);
         _velocity.y = Mathf.Min(_velocity.y, 30f);
 
@@ -184,7 +183,7 @@ public class CharController : MonoBehaviour
         }
     }
 
-    void AdjustVelocity()
+    private void AdjustVelocity()
     {
         Vector2 xAxis = Vector2.right.normalized;
 
@@ -247,17 +246,15 @@ public class CharController : MonoBehaviour
         {
             _velocity.y = (_jumpVelocity + 1.5f);
         }
-        
+
         switch (_jumpPhase)
         {
             case 1:
                 OnJump?.Invoke();
                 break;
         }
-
-
     }
-    
+
 
     public void ClearState()
     {
@@ -318,5 +315,4 @@ public class CharController : MonoBehaviour
         {
         }
     }
-    
 }
