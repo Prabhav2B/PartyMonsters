@@ -133,6 +133,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5972921696100017284, guid: c004722fc16a82241a435efbf9014995, type: 3}
   m_PrefabInstance: {fileID: 5972921695094778618}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &159868211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159868212}
+  - component: {fileID: 159868213}
+  m_Layer: 0
+  m_Name: SceneChangeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &159868212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159868211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 96.22477, y: 13.994371, z: -29.779085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &159868213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159868211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f61523eb73e124186bad2b1a5e3615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  station: {fileID: 675444019}
+  trainExterior: {fileID: 1031857721}
+  trainInterior: {fileID: 721982475}
 --- !u!1 &302524487
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +411,33 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &675444019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8655193872774751040, guid: f98a0e5dc0da4f9498097b91c6aa2663, type: 3}
+  m_PrefabInstance: {fileID: 8655193873173321331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &721982475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8959599745128778880, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
+  m_PrefabInstance: {fileID: 8959599745515149451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &721982476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721982475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6b3cd2bc9606f4da4d8dbbba8f0892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1031857721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5140524516295472208, guid: e96fade5493a12b4388317dd39262f99, type: 3}
+  m_PrefabInstance: {fileID: 5140524516602608423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189234230
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,10 +1059,6 @@ PrefabInstance:
     - target: {fileID: 8959599745128778880, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: m_Name
       value: Train Interior
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959599745128778880, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8959599745128778887, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: m_RootOrder
