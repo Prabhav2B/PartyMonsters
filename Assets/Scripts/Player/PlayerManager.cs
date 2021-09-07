@@ -16,9 +16,10 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private float _lastCollisionNormal;
     private int _movementTweenFlag;
     private PlayerInput _input;
-    private ScreenFadeManager _screenFadeManager;
+    private SceneFadeManager _sceneFadeManager;
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
+    private bool _pause;
 
     protected Vector2 MoveVector;
     public Vector2 ReceivedInput { get; private set; }
@@ -33,7 +34,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
         _input = GetComponent<PlayerInput>();
 
         _characterController = GetComponent<CharController>();
-        _screenFadeManager = FindObjectOfType<ScreenFadeManager>();
+        _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _mainMenu = FindObjectOfType<MainMenu>();
 
         _characterSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -64,9 +65,9 @@ public class PlayerManager : SingleInstance<PlayerManager>
     public void ResetScene()
     {
         Deactivate(); //Turn of input from user
-        ScreenFadeManager.PostFadeOut fadeOutAction = _screenFadeManager.FadeIn;
+        SceneFadeManager.PostFadeOut fadeOutAction = _sceneFadeManager.FadeIn;
         fadeOutAction += Activate;
-        _screenFadeManager.FadeOut(fadeOutAction);
+        _sceneFadeManager.FadeOut(fadeOutAction);
         fadeOutAction = null;
     }
 
@@ -96,13 +97,18 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     private void OnMove(InputValue input)
     {
+        if(_pause)
+            return;
+        
         ReceivedInput = input.Get<Vector2>();
-        //PlayerInput = Vector2.ClampMagnitude(PlayerInput, 1f);
         _characterController.Move(ReceivedInput);
     }
 
     private void OnJump(InputValue input)
     {
+        if(_pause)
+            return;
+        
         if (Math.Abs(input.Get<float>() - 1f) < 0.5f)
         {
             _characterController.JumpInitiate();
@@ -111,7 +117,8 @@ public class PlayerManager : SingleInstance<PlayerManager>
         {
             _characterController.JumpEnd();
         }
-    } 
+    }
+
     void Update()
     {
         if (_characterController.IsStill)
@@ -207,6 +214,16 @@ public class PlayerManager : SingleInstance<PlayerManager>
     {
         KeyboardAndMouse,
         Gamepad
+    }
+
+    public void Pause()
+    {
+        _pause = true;
+    }
+
+    public void UnPause()
+    {
+        _pause = false;
     }
 
     public void Deactivate()

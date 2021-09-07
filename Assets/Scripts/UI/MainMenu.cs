@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
             var tScale = Time.timeScale;
             DOTween.To(() => tScale, x => Time.timeScale = x, 0f, 0.5f).SetUpdate((true));
             transitionImage.DOFade(.95f, fadeInDuration).SetUpdate(true).OnComplete(ActiveMainMenu);
-            _playerManager.Deactivate();
+            _playerManager.Pause();
         }
         else
         {
@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
             DOTween.To(() => tScale, x => Time.timeScale = x, 1f, 0.5f).SetUpdate(true);
             DeactiveMainMenu();
             transitionImage.DOFade(0f, fadeInDuration).SetUpdate(true);
-            _playerManager.Activate();
+            _playerManager.UnPause();
         }
     }
 
