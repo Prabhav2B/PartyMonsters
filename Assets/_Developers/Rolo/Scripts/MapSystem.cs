@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MapSystem : MonoBehaviour
 {
     [SerializeField] private int tokenAmount;
 
-    [Range(2, 64)]
+    [Range(2, 20)]
     [SerializeField] private int gridWidth = 2;
 
-    [Range(2, 64)]
+    [Range(2, 10)]
     [SerializeField] private int gridHeight = 2;
 
     [SerializeField] GameObject mapBackgrouund;
@@ -18,27 +17,17 @@ public class MapSystem : MonoBehaviour
     [SerializeField] GameObject gridHolder;
     [SerializeField] GameObject tokenHolder;
 
-    private float mapWidth;
-    private float mapHeight;
     private float offsetX;
     private float offsetY;
 
-    // Start is called before the first frame update
     void Start()
-    {        
-        mapWidth =  Screen.width * mapBackgrouund.transform.localScale.x;
-        mapHeight = Screen.height * mapBackgrouund.transform.localScale.y;
+    {
+        mapBackgrouund.transform.localScale = new Vector2(gridWidth, gridHeight);
 
-        offsetX = (Screen.width - mapWidth) / 2;
-        offsetY = (Screen.height - mapHeight) / 2;
+        offsetX = -gridWidth / 2;
+        offsetY = -gridHeight / 2;
 
         DrawGrid();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void DrawGrid()
@@ -49,8 +38,8 @@ public class MapSystem : MonoBehaviour
             {
                 GameObject go = Instantiate(dot, gridHolder.transform);
 
-                float posX = (offsetX + (mapWidth / gridWidth) / 2) + x * (mapWidth / gridWidth);
-                float posY = (offsetY + (mapHeight / gridHeight)  / 2) + y * (mapHeight / gridHeight);
+                float posX = offsetX + x + 0.5f;
+                float posY = offsetY + y + 0.5f;
                 Vector2 pos = new Vector2(posX, posY);
 
                 go.transform.position = pos;
