@@ -19,6 +19,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private ScreenFadeManager _screenFadeManager;
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
+    private bool _pause;
 
     protected Vector2 MoveVector;
     public Vector2 ReceivedInput { get; private set; }
@@ -96,6 +97,9 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     private void OnMove(InputValue input)
     {
+        if(_pause)
+            return;
+        
         ReceivedInput = input.Get<Vector2>();
         //PlayerInput = Vector2.ClampMagnitude(PlayerInput, 1f);
         _characterController.Move(ReceivedInput);
@@ -103,6 +107,9 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     private void OnJump(InputValue input)
     {
+        if(_pause)
+            return;
+        
         if (Math.Abs(input.Get<float>() - 1f) < 0.5f)
         {
             _characterController.JumpInitiate();
@@ -111,7 +118,8 @@ public class PlayerManager : SingleInstance<PlayerManager>
         {
             _characterController.JumpEnd();
         }
-    } 
+    }
+
     void Update()
     {
         if (_characterController.IsStill)
@@ -207,6 +215,16 @@ public class PlayerManager : SingleInstance<PlayerManager>
     {
         KeyboardAndMouse,
         Gamepad
+    }
+
+    public void Pause()
+    {
+        _pause = true;
+    }
+
+    public void UnPause()
+    {
+        _pause = false;
     }
 
     public void Deactivate()
