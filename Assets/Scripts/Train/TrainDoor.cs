@@ -22,6 +22,7 @@ public class TrainDoor : MonoBehaviour
         if ((_playerLayer & 1 << other.gameObject.layer) != 0)
         {
             _interactionSprite.enabled = true;
+            other.GetComponent<PlayerManager>().AtDoor = true;
         }
     }
     
@@ -30,6 +31,7 @@ public class TrainDoor : MonoBehaviour
         if ((_playerLayer & 1 << other.gameObject.layer) != 0)
         {
             _interactionSprite.enabled = false;
+            other.GetComponent<PlayerManager>().AtDoor = false;
         }
     }
 }
