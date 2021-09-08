@@ -43,7 +43,7 @@
                     "id": "ba91bbde-8913-4917-b824-d91e90a36eb3",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Hold(duration=0.2)"
                 },
                 {
                     "name": "ChangeMode",
@@ -273,7 +273,7 @@
                     "name": "",
                     "id": "ffe1d08c-d960-484a-a39f-24fdfb6d4067",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "DragToken",

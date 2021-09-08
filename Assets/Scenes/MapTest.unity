@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.z
@@ -467,6 +467,7 @@ MonoBehaviour:
   MapCanvas: {fileID: 2091483138}
   LinePrefab: {fileID: 9108716608690096232, guid: e454c1aeafc4c3e4c9ec5fe298ad33ca, type: 3}
   LineHolder: {fileID: 398561450}
+  mapSystem: {fileID: 2091483140}
 --- !u!114 &481662726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.z
@@ -759,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.z
@@ -821,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.z
@@ -883,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1828848824966698986, guid: d1e206f314c6af04984a3cfc998de842, type: 3}
       propertyPath: m_LocalPosition.z
@@ -972,7 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tokenAmount: 5
-  gridWidth: 20
+  gridWidth: 18
   gridHeight: 10
   mapBackgrouund: {fileID: 217013235}
   dot: {fileID: 279458877383932927, guid: 28ca53fcb9cc03f45b2e63b1a0f07914, type: 3}

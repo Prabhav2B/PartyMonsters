@@ -7,10 +7,10 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private int tokenAmount;
 
     [Range(2, 20)]
-    [SerializeField] private int gridWidth = 2;
+    public int gridWidth = 2;
 
     [Range(2, 10)]
-    [SerializeField] private int gridHeight = 2;
+    public int gridHeight = 2;
 
     [SerializeField] GameObject mapBackgrouund;
     [SerializeField] GameObject dot;
