@@ -75,7 +75,11 @@ public class PlayerManager : SingleInstance<PlayerManager>
         fadeOutAction = null;
     }
 
-
+    private void OnDoubleClickTest()
+    {
+        Debug.Log("Double CLick");
+    }
+    
     private void ResetPlayerPosition()
     {
         transform.position = _initalPosition;

@@ -152,11 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb6be1e31b8de1448d9eaae900a200c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainLines:
+  - trainLine: 3
+    stationsInOrder: 040000000100000000000000
+  - trainLine: 4
+    stationsInOrder: 03000000020000000400000001000000
   trainLookup:
   - trainExterior: {fileID: 1031857722}
-    trainTrainLineColor: 0
+    trainTrainLineColor: 3
   - trainExterior: {fileID: 816404967}
-    trainTrainLineColor: 0
+    trainTrainLineColor: 4
   stationLookup:
   - station: {fileID: 911514798}
     stationName: 0
