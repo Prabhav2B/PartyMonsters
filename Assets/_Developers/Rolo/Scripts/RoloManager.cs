@@ -18,6 +18,8 @@ public class RoloManager : MonoBehaviour
     private GameObject line;
     private LineRenderer lineRenderer;
 
+    private Dictionary<Transform, int> connectedLines;
+
     void OnToggleMap()
     {
         if (MapCanvas.activeInHierarchy)
@@ -46,9 +48,30 @@ public class RoloManager : MonoBehaviour
                 lineRenderer = line.GetComponent<LineRenderer>();
                 lineRenderer.SetPosition(0, lineStartPos);
             }
-            else
-            { 
-                //check and store connected line endings
+            else if (tokenTransform != null)
+            {
+                connectedLines = new Dictionary<Transform, int>();
+                GameObject[] gos = GameObject.FindGameObjectsWithTag("ConnectionLine");
+
+                if (gos != null)
+                {
+                    foreach (GameObject go in gos)
+                    {
+                        LineRenderer lr = go.GetComponent<LineRenderer>();
+
+                        if (lr != null)
+                        {
+                            for (int i = 0; i < 2; i++)
+                            {
+                                if (lr.GetPosition(i) == tokenTransform.position)
+                                {
+                                    connectedLines.Add(go.transform, i);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -85,7 +108,13 @@ public class RoloManager : MonoBehaviour
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
                     Vector2 tokenPos = mousePos - tokenTransform.position;
 
-                    //update connected lines if any
+                    if (connectedLines != null)
+                    {
+                        foreach (var connectedLine in connectedLines)
+                        {
+                            connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, tokenTransform.localPosition);
+                        }
+                    }
 
                     tokenTransform.Translate(tokenPos);
                 }
@@ -94,7 +123,13 @@ public class RoloManager : MonoBehaviour
                     Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
                     tokenTransform.localPosition = snapTo;
 
-                    //snap connected lines as well if any
+                    if (connectedLines != null)
+                    {
+                        foreach (var connectedLine in connectedLines)
+                        {
+                            connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
+                        }
+                    }
 
                     tokenTransform = null;
                 }
