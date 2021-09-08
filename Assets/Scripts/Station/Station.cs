@@ -17,4 +17,14 @@ public class Station : MonoBehaviour
         stationBackground.sprite = stationData.stationBackground;
         stationForeGround.sprite = stationData.stationForeground;
     }
+
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
+    }
 }

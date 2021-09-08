@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +22,6 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
     private bool _pause;
-
 
     protected Vector2 MoveVector;
     public Vector2 ReceivedInput { get; private set; }
@@ -75,9 +75,16 @@ public class PlayerManager : SingleInstance<PlayerManager>
         fadeOutAction = null;
     }
 
-    private void OnDoubleClickTest()
+    public void OnDoubleClickTest(InputAction.CallbackContext context)
     {
-        Debug.Log("Double CLick");
+        if(context.interaction is MultiTapInteraction && context.performed)
+            Debug.Log("Double CLick");
+    }
+    
+    public void OnHoldTest(InputAction.CallbackContext context)
+    {
+        if(context.interaction is HoldInteraction && context.performed)
+            Debug.Log("Holding");
     }
     
     private void ResetPlayerPosition()
@@ -98,26 +105,26 @@ public class PlayerManager : SingleInstance<PlayerManager>
         CurrentControlScheme = schemeName.Equals("Gamepad") ? ControlScheme.Gamepad : ControlScheme.KeyboardAndMouse;
     }
     
-    private void OnMainMenu(InputValue input)
+    public void OnMainMenu(InputAction.CallbackContext context)
     {
         _mainMenu.TriggerMainMenu();
     }
 
-    private void OnMove(InputValue input)
+    public void OnMove(InputAction.CallbackContext context)
     {
         if(_pause)
             return;
         
-        ReceivedInput = input.Get<Vector2>();
+        ReceivedInput = context.ReadValue<Vector2>();
         _characterController.Move(ReceivedInput);
     }
 
-    private void OnJump(InputValue input)
+    public void OnJump(InputAction.CallbackContext context)
     {
         if(_pause)
             return;
         
-        if (Math.Abs(input.Get<float>() - 1f) < 0.5f)
+        if (Math.Abs(context.ReadValue<float>() - 1f) < 0.5f)
         {
             _characterController.JumpInitiate();
         }
@@ -127,7 +134,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
         }
     }
 
-    private void OnInteract(InputValue input)
+    public void OnInteract(InputAction.CallbackContext context)
     {
         ExecuteInteraction();
     }
