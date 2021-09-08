@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62154443856ed8b4a80a57dd7d942050, type: 3}
+  m_Name: PinkExterior
+  m_EditorClassIdentifier: 
+  trainLine: 3
+  trainExterior: {fileID: 21300000, guid: 4fee4d73f91a9474db2733125e870b75, type: 3}
+  trainDoor: {fileID: 21300000, guid: 386a23eb94f976744895cd829b642b99, type: 3}
+  trainDoorOpen: {fileID: 21300000, guid: 645a58ef5a745aa4ea143924ebd1d953, type: 3}

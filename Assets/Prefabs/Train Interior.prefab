@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8959599745128778887}
   - component: {fileID: 721982476}
+  - component: {fileID: 8613670681817074970}
   m_Layer: 0
   m_Name: Train Interior
   m_TagString: Untagged
@@ -156,6 +157,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b3cd2bc9606f4da4d8dbbba8f0892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8613670681817074970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959599745128778880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acabd6903e4a0ab478df97a91449aa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainInteriorData: {fileID: 0}
+  trainInteriorSprite: {fileID: 8959599746810714331}
 --- !u!1 &8959599745275448276
 GameObject:
   m_ObjectHideFlags: 0

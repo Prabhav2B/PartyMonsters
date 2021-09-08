@@ -311,13 +311,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5140524516295472223}
   - component: {fileID: 1031857723}
+  - component: {fileID: 3022402452984725108}
   m_Layer: 6
   m_Name: Train
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5140524516295472223
 Transform:
   m_ObjectHideFlags: 0
@@ -348,6 +349,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: -134, y: 10.15, z: 0}
   destinationPosition: {x: 12.45, y: 10.15, z: 0}
+--- !u!114 &3022402452984725108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140524516295472208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a9d7aef676a9a4491578bec8f479be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainExteriorData: {fileID: 0}
+  trainExteriorSprite: {fileID: 5140524515610019536}
 --- !u!1 &5140524516485448039
 GameObject:
   m_ObjectHideFlags: 0
