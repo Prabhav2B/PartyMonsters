@@ -75,17 +75,17 @@ public class PlayerManager : SingleInstance<PlayerManager>
         fadeOutAction = null;
     }
 
-    public void OnDoubleClickTest(InputAction.CallbackContext context)
-    {
-        if(context.interaction is MultiTapInteraction && context.performed)
-            Debug.Log("Double CLick");
-    }
-    
-    public void OnHoldTest(InputAction.CallbackContext context)
-    {
-        if(context.interaction is HoldInteraction && context.performed)
-            Debug.Log("Holding");
-    }
+    // public void OnDoubleClickTest(InputAction.CallbackContext context)
+    // {
+    //     if(context.interaction is MultiTapInteraction && context.performed)
+    //         Debug.Log("Double CLick");
+    // }
+    //
+    // public void OnHoldTest(InputAction.CallbackContext context)
+    // {
+    //     if(context.interaction is HoldInteraction && context.performed)
+    //         Debug.Log("Holding");
+    // }
     
     private void ResetPlayerPosition()
     {
