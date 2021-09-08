@@ -15,6 +15,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField] GameObject mapBackgrouund;
     [SerializeField] GameObject dot;
     [SerializeField] GameObject gridHolder;
+    [SerializeField] GameObject lineHolder;
     [SerializeField] GameObject tokenHolder;
 
     private float offsetX;
