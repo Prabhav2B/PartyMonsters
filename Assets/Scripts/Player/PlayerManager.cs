@@ -17,12 +17,15 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private int _movementTweenFlag;
     private PlayerInput _input;
     private SceneFadeManager _sceneFadeManager;
+    private SceneChangeManager _sceneChangeManager;
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
     private bool _pause;
 
+
     protected Vector2 MoveVector;
     public Vector2 ReceivedInput { get; private set; }
+    public bool AtDoor { get; set; }
 
     public Action OnLand;
 
@@ -35,6 +38,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
         _characterController = GetComponent<CharController>();
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
+        _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
         _mainMenu = FindObjectOfType<MainMenu>();
 
         _characterSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -116,6 +120,19 @@ public class PlayerManager : SingleInstance<PlayerManager>
         else
         {
             _characterController.JumpEnd();
+        }
+    }
+
+    private void OnInteract(InputValue input)
+    {
+        ExecuteInteraction();
+    }
+
+    private void ExecuteInteraction()
+    {
+        if (AtDoor)
+        {
+            _sceneFadeManager.FadeOut(_sceneChangeManager.SwitchToTrainInterior);
         }
     }
 
