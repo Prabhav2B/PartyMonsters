@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Color: {r: 0.8726415, g: 1, b: 0.9961807, a: 1}
   m_Intensity: 12
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000770286191fd14176696481b52b11d859
+  m_ApplyToSortingLayers: 00000000770286191fd14176
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Color: {r: 0.8726415, g: 1, b: 0.9961807, a: 1}
   m_Intensity: 12
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000770286191fd14176696481b52b11d859
+  m_ApplyToSortingLayers: 00000000770286191fd14176
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab0a814635eab34d8fc137bef467958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 0, y: 0, z: 0}
+  startPosition: {x: -134, y: 10.15, z: 0}
   destinationPosition: {x: 12.45, y: 10.15, z: 0}
 --- !u!1 &5140524516485448039
 GameObject:
