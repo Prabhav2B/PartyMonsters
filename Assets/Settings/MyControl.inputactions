@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "DoubleClickTest",
+                    "type": "Button",
+                    "id": "ee392593-7a5b-482a-8607-5cb3bb83ad27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "MultiTap"
                 }
             ],
             "bindings": [
@@ -302,6 +310,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7c3e124-bcd4-45ca-8a1c-dd4eb6edbc8d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "DoubleClickTest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
