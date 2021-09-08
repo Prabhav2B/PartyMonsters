@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class RoloManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class RoloManager : MonoBehaviour
         tokens.AddRange(GameObject.FindGameObjectsWithTag("Token"));
     }
 
-    void OnToggleMap()
+    public void OnToggleMap(InputAction.CallbackContext context)
     {
         if (MapCanvas.activeInHierarchy)
         {
@@ -43,37 +44,42 @@ public class RoloManager : MonoBehaviour
         }
     }
 
-    void OnDoubleClickTest()
+    public void OnDoubleClickTest(InputAction.CallbackContext context)
     {
-        Transform transformToCheck;
-        transformToCheck = CheckIfCursorOnMapItem("Token");
-
-        if (transformToCheck != null)
+        if (context.interaction is MultiTapInteraction && context.performed)
         {
-            transformToCheck.localPosition = transformToCheck.GetComponent<TokenBehaviour>().defaultPos;
-            //delete all connections
+            Debug.Log("double click");
 
-            return;
-        }
+            Transform transformToCheck;
+            transformToCheck = CheckIfCursorOnMapItem("Token");
 
-        transformToCheck = CheckIfCursorOnMapItem("ConnectionLine");
+            if (transformToCheck != null)
+            {
+                transformToCheck.localPosition = transformToCheck.GetComponent<TokenBehaviour>().defaultPos;
+                //delete all connections
 
-        if (transformToCheck != null)
-        {
-            Destroy(transformToCheck.gameObject);
+                return;
+            }
+
+            transformToCheck = CheckIfCursorOnMapItem("ConnectionLine");
+
+            if (transformToCheck != null)
+            {
+                Destroy(transformToCheck.gameObject);
+            }
         }
     }
 
-    void OnDragToken(InputValue input)
+    public void OnDragToken(InputAction.CallbackContext context)
     {
-        isPressed = input.isPressed;
-
-        if (isPressed)
+        if (context.interaction is HoldInteraction && context.performed)
         {
+            isPressed = true;
             tokenTransform = CheckIfCursorOnMapItem("Token");
 
             if (!isDragMode && tokenTransform != null)
-            {                
+            {
+                Debug.Log("Token Found");
                 lineStartPos = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
 
                 line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
@@ -106,9 +112,13 @@ public class RoloManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            isPressed = false;
+        }
     }
 
-    void OnChangeMode()
+    public void OnChangeMode(InputAction.CallbackContext context)
     {
         isDragMode = !isDragMode;
     }
