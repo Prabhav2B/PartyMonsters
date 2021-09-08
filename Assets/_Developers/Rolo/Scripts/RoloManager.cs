@@ -30,7 +30,28 @@ public class RoloManager : MonoBehaviour
         {
             MapCanvas.SetActive(true);
         }
-    }    
+    }
+
+    void OnDoubleClickTest()
+    {
+        Debug.Log("Double click.");
+        Transform transformToCheck = CheckIfCursorOnMapItem("Token");
+
+        if (transformToCheck != null)
+        {
+            //reset token to its starting pos
+            //delete all connections
+
+            return;
+        }
+
+        transformToCheck = CheckIfCursorOnMapItem("ConnectionLine");
+
+        if (transformToCheck != null)
+        {
+            Destroy(transformToCheck.gameObject);
+        }
+    }
 
     void OnDragToken(InputValue input)
     {
@@ -38,7 +59,7 @@ public class RoloManager : MonoBehaviour
 
         if (isPressed)
         {
-            tokenTransform = CheckIfCursorOnToken();
+            tokenTransform = CheckIfCursorOnMapItem("Token");
 
             if (!isDragMode && tokenTransform != null)
             {
@@ -81,14 +102,14 @@ public class RoloManager : MonoBehaviour
         isDragMode = !isDragMode;
     }
 
-    Transform CheckIfCursorOnToken()
+    Transform CheckIfCursorOnMapItem(string layerName)
     {
         Transform tCollider = null;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Token"))
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer(layerName))
             {
                 tCollider =  hit.collider.transform;
             }
@@ -145,11 +166,15 @@ public class RoloManager : MonoBehaviour
                 }
                 else if (!isPressed)
                 {
-                    tokenTransform = CheckIfCursorOnToken();
+                    tokenTransform = CheckIfCursorOnMapItem("Token");
                     if (tokenTransform != null)
                     {
                         Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
                         lineRenderer.SetPosition(1, snapTo);
+                        EdgeCollider2D col2D = line.GetComponent<EdgeCollider2D>();
+                        List<Vector2> pointList = new List<Vector2>() { lineStartPos, snapTo };
+                        col2D.SetPoints(pointList);
+                        col2D.edgeRadius = 0.1f;
                     }
                     else
                     {
