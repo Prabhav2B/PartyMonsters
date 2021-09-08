@@ -13,7 +13,7 @@ public class TrainRattle : MonoBehaviour
     // Update is called once per frame
     void Shake()
     {
-        transform.DOShakePosition(Random.Range(.5f, 2f), Random.Range(.05f, .1f)).OnComplete(Wait);
+        transform.DOShakePosition(Random.Range(.3f, 1.5f), Random.Range(.01f, .05f)).OnComplete(Wait);
     }
 
     void Wait()
@@ -23,7 +23,7 @@ public class TrainRattle : MonoBehaviour
 
     IEnumerator WaitCoroutine()
     {
-        yield return new WaitForSeconds(Random.Range(.5f, 1.5f));
+        yield return new WaitForSeconds(Random.Range(.75f, 2f));
         Shake();
     }
 }
