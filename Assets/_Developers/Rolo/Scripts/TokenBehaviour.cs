@@ -5,23 +5,12 @@ using UnityEngine.InputSystem;
 
 public class TokenBehaviour : MonoBehaviour
 {
-    private bool isDragging;
-    private bool isPressed;
+    public Vector2 defaultPos;
+    public Vector2 previousPos;
 
-    void OnDragToken(InputValue input)
+    private void Start()
     {
-        isPressed = input.isPressed;        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(isPressed);
-
-        if (isDragging)
-        {
-            //Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.mousePosition) - transform.position;
-            //transform.Translate(mousePos);
-        }
+        defaultPos = transform.position;
+        previousPos = defaultPos;
     }
 }

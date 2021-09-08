@@ -8,6 +8,7 @@ public class RoloManager : MonoBehaviour
     [SerializeField] GameObject MapCanvas;
     [SerializeField] GameObject LinePrefab;
     [SerializeField] GameObject LineHolder;
+    [SerializeField] MapSystem mapSystem;
 
     private bool isPressed;
     private bool isDragMode = true;
@@ -17,8 +18,18 @@ public class RoloManager : MonoBehaviour
     private Transform tokenTransform;
     private GameObject line;
     private LineRenderer lineRenderer;
+    
+
+    private List<GameObject> tokens;
 
     private Dictionary<Transform, int> connectedLines;
+    
+
+    private void Start()
+    {
+        tokens = new List<GameObject>();
+        tokens.AddRange(GameObject.FindGameObjectsWithTag("Token"));
+    }
 
     void OnToggleMap()
     {
@@ -34,12 +45,12 @@ public class RoloManager : MonoBehaviour
 
     void OnDoubleClickTest()
     {
-        Debug.Log("Double click.");
-        Transform transformToCheck = CheckIfCursorOnMapItem("Token");
+        Transform transformToCheck;
+        transformToCheck = CheckIfCursorOnMapItem("Token");
 
         if (transformToCheck != null)
         {
-            //reset token to its starting pos
+            transformToCheck.localPosition = transformToCheck.GetComponent<TokenBehaviour>().defaultPos;
             //delete all connections
 
             return;
@@ -62,7 +73,7 @@ public class RoloManager : MonoBehaviour
             tokenTransform = CheckIfCursorOnMapItem("Token");
 
             if (!isDragMode && tokenTransform != null)
-            {
+            {                
                 lineStartPos = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
 
                 line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
@@ -72,13 +83,13 @@ public class RoloManager : MonoBehaviour
             else if (tokenTransform != null)
             {
                 connectedLines = new Dictionary<Transform, int>();
-                GameObject[] gos = GameObject.FindGameObjectsWithTag("ConnectionLine");
+                GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ConnectionLine");
 
-                if (gos != null)
+                if (gameObjects != null)
                 {
-                    foreach (GameObject go in gos)
+                    foreach (GameObject gameObject in gameObjects)
                     {
-                        LineRenderer lr = go.GetComponent<LineRenderer>();
+                        LineRenderer lr = gameObject.GetComponent<LineRenderer>();
 
                         if (lr != null)
                         {
@@ -86,7 +97,7 @@ public class RoloManager : MonoBehaviour
                             {
                                 if (lr.GetPosition(i) == tokenTransform.position)
                                 {
-                                    connectedLines.Add(go.transform, i);
+                                    connectedLines.Add(gameObject.transform, i);
                                     break;
                                 }
                             }
@@ -142,7 +153,18 @@ public class RoloManager : MonoBehaviour
                 else
                 {
                     Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
-                    tokenTransform.localPosition = snapTo;
+
+                    if (snapTo.x > -mapSystem.gridWidth / 2 && snapTo.x < mapSystem.gridWidth / 2 &&
+                        snapTo.y > -mapSystem.gridHeight / 2 && snapTo.y < mapSystem.gridHeight / 2)
+                    {
+                        tokenTransform.localPosition = snapTo;
+                        tokenTransform.GetComponent<TokenBehaviour>().previousPos = snapTo;
+                    }
+                    else
+                    {
+                        tokenTransform.localPosition = tokenTransform.gameObject.GetComponent<TokenBehaviour>().previousPos;
+                    }
+                    
 
                     if (connectedLines != null)
                     {
