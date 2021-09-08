@@ -7,11 +7,13 @@ public class TrainExterior : MonoBehaviour
     [SerializeField] private TrainExteriorData trainExteriorData;
     [SerializeField] private SpriteRenderer trainExteriorSprite;
 
-    private Line _line;
+    [SerializeField] private TrainInterior trainInterior;
+
+    private TrainLineColor _trainLineColor;
     
     void Start()
     {
-        _line = trainExteriorData.trainLine;
+        _trainLineColor = trainExteriorData.trainTrainLineColor;
         trainExteriorSprite.sprite = trainExteriorData.trainExterior;
     }
 

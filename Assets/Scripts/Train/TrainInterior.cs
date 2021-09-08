@@ -6,12 +6,12 @@ public class TrainInterior : MonoBehaviour
 {
     [SerializeField] private TrainInteriorData trainInteriorData;
     [SerializeField] private SpriteRenderer trainInteriorSprite;
-
-    private Line _line;
+    
+    private TrainLineColor _trainLineColor;
     
     void Start()
     {
-        _line = trainInteriorData.trainLine;
+        _trainLineColor = trainInteriorData.trainTrainLineColor;
         trainInteriorSprite.sprite = trainInteriorData.trainInterior;
     }
 }

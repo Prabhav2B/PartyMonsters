@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TrainInteriorData", menuName = "Data/TrainInterior")]
 public class TrainInteriorData : ScriptableObject
 {
-    public Line trainLine;
+    public TrainLineColor trainTrainLineColor;
     public Sprite trainInterior;
 }

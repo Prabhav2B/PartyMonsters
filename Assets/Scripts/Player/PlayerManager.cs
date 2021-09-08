@@ -94,12 +94,6 @@ public class PlayerManager : SingleInstance<PlayerManager>
         CurrentControlScheme = schemeName.Equals("Gamepad") ? ControlScheme.Gamepad : ControlScheme.KeyboardAndMouse;
     }
     
-    private void OnDoubleClickTest()
-    {
-        Debug.Log("Double Click!");
-    
-    }
-
     private void OnMainMenu(InputValue input)
     {
         _mainMenu.TriggerMainMenu();
