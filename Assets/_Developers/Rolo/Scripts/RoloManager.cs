@@ -12,14 +12,14 @@ public class RoloManager : MonoBehaviour
     [SerializeField] MapSystem mapSystem;
 
     private bool isPressed;
-    private bool isDragMode = true;
+    private bool isDragTokenMode;
+
+    private GameObject line;
+    private LineRenderer lineRenderer;
+    private Transform tokenTransform;
 
     private Vector2 lineStartPos;
 
-    private Transform tokenTransform;
-    private GameObject line;
-    private LineRenderer lineRenderer;
-    
 
     private List<GameObject> tokens;
 
@@ -30,97 +30,104 @@ public class RoloManager : MonoBehaviour
     {
         tokens = new List<GameObject>();
         tokens.AddRange(GameObject.FindGameObjectsWithTag("Token"));
+
+        isDragTokenMode = true;
     }
 
-    public void OnToggleMap(InputAction.CallbackContext context)
+    public void OnToggleMap()
     {
-        if (MapCanvas.activeInHierarchy)
-        {
-            MapCanvas.SetActive(false);
-        }
-        else
-        {
-            MapCanvas.SetActive(true);
-        }
+        bool toggleMap = MapCanvas.activeInHierarchy ? false : true;
+        MapCanvas.SetActive(toggleMap);
     }
 
-    public void OnDoubleClickTest(InputAction.CallbackContext context)
+    public void OnResetMapItem()
     {
-        if (context.interaction is MultiTapInteraction && context.performed)
+        Transform transformToCheck;
+
+        transformToCheck = CheckIfCursorOnMapItem("Token");
+        if (transformToCheck != null)
         {
-            Debug.Log("double click");
+            ResetTokenPlacement(transformToCheck);
+            //delete all connections
 
-            Transform transformToCheck;
-            transformToCheck = CheckIfCursorOnMapItem("Token");
+            return;
+        }
 
-            if (transformToCheck != null)
-            {
-                transformToCheck.localPosition = transformToCheck.GetComponent<TokenBehaviour>().defaultPos;
-                //delete all connections
-
-                return;
-            }
-
-            transformToCheck = CheckIfCursorOnMapItem("ConnectionLine");
-
-            if (transformToCheck != null)
-            {
-                Destroy(transformToCheck.gameObject);
-            }
+        transformToCheck = CheckIfCursorOnMapItem("ConnectionLine");
+        if (transformToCheck != null)
+        {
+            Destroy(transformToCheck.gameObject);
         }
     }
 
-    public void OnDragToken(InputAction.CallbackContext context)
+    void ResetTokenPlacement(Transform t)
     {
-        if (context.interaction is HoldInteraction && context.performed)
+        TokenBehaviour tb = t.GetComponent<TokenBehaviour>();
+        t.localPosition = tb.defaultPos;
+        tb.previousPos = tb.defaultPos;
+    }
+
+    public void OnDragToken(InputValue input)
+    {
+        isPressed = input.isPressed;
+
+        if (isPressed)
         {
-            isPressed = true;
             tokenTransform = CheckIfCursorOnMapItem("Token");
 
-            if (!isDragMode && tokenTransform != null)
+            if (!isDragTokenMode && tokenTransform != null)
             {
-                Debug.Log("Token Found");
-                lineStartPos = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
-
-                line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
-                lineRenderer = line.GetComponent<LineRenderer>();
-                lineRenderer.SetPosition(0, lineStartPos);
+                StartDrawingLine();
             }
-            else if (tokenTransform != null)
+
+            else if (isDragTokenMode && tokenTransform != null)
             {
-                connectedLines = new Dictionary<Transform, int>();
-                GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ConnectionLine");
-
-                if (gameObjects != null)
-                {
-                    foreach (GameObject gameObject in gameObjects)
-                    {
-                        LineRenderer lr = gameObject.GetComponent<LineRenderer>();
-
-                        if (lr != null)
-                        {
-                            for (int i = 0; i < 2; i++)
-                            {
-                                if (lr.GetPosition(i) == tokenTransform.position)
-                                {
-                                    connectedLines.Add(gameObject.transform, i);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
+                UpdateLineEndingsOnDrag();
             }
-        }
+        }       
         else
         {
             isPressed = false;
         }
     }
 
-    public void OnChangeMode(InputAction.CallbackContext context)
+    void StartDrawingLine()
     {
-        isDragMode = !isDragMode;
+        lineStartPos = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
+        line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
+        lineRenderer = line.GetComponent<LineRenderer>();
+        lineRenderer.SetPosition(0, lineStartPos);
+    }
+
+    void UpdateLineEndingsOnDrag()
+    {
+        connectedLines = new Dictionary<Transform, int>();
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ConnectionLine");
+
+        if (gameObjects != null)
+        {
+            foreach (GameObject gameObject in gameObjects)
+            {
+                LineRenderer lr = gameObject.GetComponent<LineRenderer>();
+
+                if (lr != null)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        if (lr.GetPosition(i) == tokenTransform.position)
+                        {
+                            connectedLines.Add(gameObject.transform, i);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void OnChangeMode()
+    {
+        isDragTokenMode = !isDragTokenMode;
     }
 
     Transform CheckIfCursorOnMapItem(string layerName)
@@ -139,10 +146,46 @@ public class RoloManager : MonoBehaviour
         return tCollider;
     }
 
+   
+
+    void MoveLineEndAlongCursor()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
+        lineRenderer.SetPosition(1, mousePos);
+    }
+
+    void SnapLineToGrid()
+    {
+        Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
+        lineRenderer.SetPosition(1, snapTo);
+        EdgeCollider2D col2D = line.GetComponent<EdgeCollider2D>();
+        List<Vector2> pointList = new List<Vector2>() { lineStartPos, snapTo };
+        col2D.SetPoints(pointList);
+        col2D.edgeRadius = 0.1f;
+    }
+
+    void UpdateLineColliders()
+    {
+        Debug.Log("Update colliders");
+        if (connectedLines != null)
+        {
+            foreach(var connectedLine in connectedLines)
+            {
+                EdgeCollider2D col2D = connectedLine.Key.gameObject.GetComponent<EdgeCollider2D>();
+                Vector2 startPos = connectedLine.Key.gameObject.GetComponent<LineRenderer>().GetPosition(0);
+                Vector2 endPos = connectedLine.Key.gameObject.GetComponent<LineRenderer>().GetPosition(1);
+                List<Vector2> pointList = new List<Vector2>() { startPos, endPos };
+                col2D.SetPoints(pointList);
+            }
+        }
+    }
+
+
     private void Update()
     {
         if (tokenTransform != null)
         {
+            //token drag functionality
             if (line == null)
             {
                 if (isPressed)
@@ -174,7 +217,7 @@ public class RoloManager : MonoBehaviour
                     {
                         tokenTransform.localPosition = tokenTransform.gameObject.GetComponent<TokenBehaviour>().previousPos;
                     }
-                    
+
 
                     if (connectedLines != null)
                     {
@@ -182,42 +225,38 @@ public class RoloManager : MonoBehaviour
                         {
                             connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
                         }
+                       
+                        UpdateLineColliders();
                     }
 
                     tokenTransform = null;
                 }
             }
 
+            //line drawing functionality
             else
             {
                 if (isPressed)
                 {
-                    Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
-                    Vector2 endPos = mousePos;
-                    lineRenderer.SetPosition(1, endPos);
+                    MoveLineEndAlongCursor();
                 }
-                else if (!isPressed)
+                else
                 {
                     tokenTransform = CheckIfCursorOnMapItem("Token");
                     if (tokenTransform != null)
                     {
-                        Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
-                        lineRenderer.SetPosition(1, snapTo);
-                        EdgeCollider2D col2D = line.GetComponent<EdgeCollider2D>();
-                        List<Vector2> pointList = new List<Vector2>() { lineStartPos, snapTo };
-                        col2D.SetPoints(pointList);
-                        col2D.edgeRadius = 0.1f;
+                        SnapLineToGrid();
+                        //add connection to the token color, connection end id, connected stations
                     }
                     else
                     {
-                        //info that line must end above token and inside the field
                         Destroy(line);
                     }
 
                     line = null;
                     tokenTransform = null;
                 }
-            }            
+            }
         }
     }
 }
