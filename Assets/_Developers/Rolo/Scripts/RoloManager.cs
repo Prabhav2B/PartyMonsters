@@ -237,22 +237,33 @@ public class RoloManager : MonoBehaviour
                     {
                         tokenTransform.localPosition = snapTo;
                         tokenTransform.GetComponent<TokenBehaviour>().previousPos = snapTo;
+
+                        if (connectedLines != null)
+                        {
+                            foreach (var connectedLine in connectedLines)
+                            {
+                                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
+                            }
+
+                            UpdateLineColliders();
+                        }
                     }
                     else
                     {
-                        tokenTransform.localPosition = tokenTransform.gameObject.GetComponent<TokenBehaviour>().previousPos;
-                    }
-
-
-                    if (connectedLines != null)
-                    {
-                        foreach (var connectedLine in connectedLines)
+                        snapTo = tokenTransform.gameObject.GetComponent<TokenBehaviour>().previousPos;
+                        tokenTransform.localPosition = snapTo;
+                        if (connectedLines != null)
                         {
-                            connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
+                            foreach (var connectedLine in connectedLines)
+                            {
+                                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
+                            }
+                            //UpdateLineColliders();
                         }
-                       
-                        UpdateLineColliders();
                     }
+
+
+                    
 
                     tokenTransform = null;
                 }
