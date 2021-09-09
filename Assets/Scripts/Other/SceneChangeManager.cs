@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class SceneChangeManager : SingleInstance<SceneChangeManager>
@@ -34,15 +35,16 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
 
     public void SwitchToTrainInterior()
     {
-        //Communication Interaction to TrainScheduler
         _trainScheduler.PlayerLocation = PlayerLocation.train;
         _trainScheduler.FlushStation();
         _trainScheduler.FlushWaitList();
+        _trainScheduler.ClearNewStationFlag();
         
         
         _station.gameObject.SetActive(false);
         _trainExterior.gameObject.SetActive(false);
         _trainExterior.CurrentTrainInterior.gameObject.SetActive(true);
+        _trainExterior.CurrentTrainInterior.DisableInteractionTriggers();
         _player.transform.position = playerStartPosition; // ignoring rigidbody here hehehe
         _sceneFadeManager.FadeIn();
     }

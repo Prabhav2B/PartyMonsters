@@ -19,9 +19,11 @@ public class TrainScheduler : MonoBehaviour
 
     private StationName _currentStation;
     private TrainExterior _trainOnStation;
+    private TrainLine _currentTrain;
     private SceneChangeManager _sceneChangeManager;
 
     private PlayerLocation _playerLocation;
+
     private TrainLine _lineOnStation;
     //private bool _isTrainOnStation;
 
@@ -62,7 +64,7 @@ public class TrainScheduler : MonoBehaviour
         }
 
         _stationDict[_currentStation].Activate();
-        
+
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
         _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
     }
@@ -91,6 +93,7 @@ public class TrainScheduler : MonoBehaviour
                     _trainOnStation.Activate();
                     _trainOnStation.ArriveAtStation(_lineOnStation.Reversing, _lineOnStation.IsEndStation);
                     _sceneChangeManager.CurrentTrain = _trainOnStation;
+                    _currentTrain = _lineOnStation;
                 }
 
                 foreach (var trainLine in trainLines)
@@ -109,6 +112,7 @@ public class TrainScheduler : MonoBehaviour
                             _trainOnStation.Activate();
                             _trainOnStation.ArriveAtStation(_lineOnStation.Reversing, _lineOnStation.IsEndStation);
                             _sceneChangeManager.CurrentTrain = _trainOnStation;
+                            _currentTrain = _lineOnStation;
                         }
                         else
                         {
@@ -124,13 +128,32 @@ public class TrainScheduler : MonoBehaviour
                 break;
             }
             case PlayerLocation.train:
+            {
+                foreach (var trainLine in trainLines)
+                {
+                    trainLine.Tick();
+                }
+
+                if (_currentTrain.NewStation)
+                {
+                    _currentTrain.NewStation = false;
+                    _currentTrain.TrainOnCurrentStation = true;
+                    
+                    _trainDict[_currentTrain.trainLine].CurrentTrainInterior.ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
+                }
+
                 break;
+            }
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
-    
+
+    public void ResumeTrain()
+    {
+        _currentTrain.TrainOnCurrentStation = false;
+    }
 
     public void FlushStation()
     {
@@ -144,7 +167,7 @@ public class TrainScheduler : MonoBehaviour
 
     public void FlushWaitList()
     {
-        if(_waitList.Count == 0)
+        if (_waitList.Count == 0)
             return;
 
         int i = 0;
@@ -154,8 +177,13 @@ public class TrainScheduler : MonoBehaviour
             item.OffsetTimer(i++ * -10);
         }
     }
-}
 
+    public void ClearNewStationFlag()
+    {
+        _currentTrain.NewStation = false;
+    }
+
+}
 
 
 [Serializable]
@@ -201,6 +229,7 @@ public class TrainLine
     }
 
     public bool Waiting { get; set; }
+    public bool NewStation { get; set; }
     public bool IsEndStation => _isEndStation;
     public bool Reversing => _reversing;
     public StationName CurrentStation => _currentStation;
@@ -235,7 +264,8 @@ public class TrainLine
         _counter += _incrementor;
         _nextStation = _stationsList[_counter];
 
-        DebugCurrentPlatform();
+        NewStation = true;
+        //DebugCurrentPlatform();
     }
 
     public void Tick()
@@ -274,7 +304,7 @@ public enum TrainLineColor
     yellow,
     pink,
     blue,
-    _null;
+    _null
 }
 
 public enum StationName

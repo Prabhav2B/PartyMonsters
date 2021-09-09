@@ -7,4 +7,5 @@ public class TrainInteriorData : ScriptableObject
 {
     public TrainLineColor trainTrainLineColor;
     public Sprite trainInterior;
+    public float waitDuration = 5f;
 }
