@@ -9,5 +9,7 @@ public class TrainExteriorData : ScriptableObject
     public Sprite trainExterior;
     public Sprite trainDoor;
     public Sprite trainDoorOpen;
+
+    public float waitDuration = 5f;
 }
 

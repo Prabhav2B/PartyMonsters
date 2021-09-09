@@ -1,37 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class TrainDoor : MonoBehaviour
 {
+    private SceneFadeManager _sceneFadeManager;
+    private SceneChangeManager _sceneChangeManager;
 
-    [SerializeField] private LayerMask _playerLayer;
-    private SpriteRenderer _interactionSprite; 
-    
-    
-    void Start()
-    {
-        _interactionSprite = GetComponentInChildren<SpriteRenderer>();
-        _interactionSprite.enabled = false;
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if ((_playerLayer & 1 << other.gameObject.layer) != 0)
-        {
-            _interactionSprite.enabled = true;
-            other.GetComponent<PlayerManager>().AtDoor = true;
-        }
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if ((_playerLayer & 1 << other.gameObject.layer) != 0)
-        {
-            _interactionSprite.enabled = false;
-            other.GetComponent<PlayerManager>().AtDoor = false;
-        }
-    }
+    public void EnterTrain() => _sceneFadeManager.FadeOut(_sceneChangeManager.SwitchToTrainInterior);
 }
