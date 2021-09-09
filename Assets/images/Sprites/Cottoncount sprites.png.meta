@@ -1,12 +1,45 @@
 fileFormatVersion: 2
 guid: d494794778c3c914a981e1c2566ea410
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5224743075343247215
+    second: Cottoncount sprites_0
+  - first:
+      213: 7103254077567454355
+    second: Cottoncount sprites_1
+  - first:
+      213: -7732236927708587499
+    second: Cottoncount sprites_2
+  - first:
+      213: -4886003725435493551
+    second: Cottoncount sprites_3
+  - first:
+      213: 1811581477839217466
+    second: Cottoncount sprites_4
+  - first:
+      213: 1096764678363512088
+    second: Cottoncount sprites_5
+  - first:
+      213: 6636062134745212892
+    second: Cottoncount sprites_6
+  - first:
+      213: 3800146577515856948
+    second: Cottoncount sprites_7
+  - first:
+      213: -9012358140447543032
+    second: Cottoncount sprites_8
+  - first:
+      213: -7066878547332939248
+    second: Cottoncount sprites_9
+  - first:
+      213: 8767939762323908805
+    second: Cottoncount sprites_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -35,13 +68,13 @@ TextureImporter:
     filterMode: 1
     aniso: 2
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +83,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -125,11 +158,242 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Cottoncount sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 328
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198db77dadbfd77b0800000000000000
+      internalID: -5224743075343247215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_1
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 328
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39cc0cae2f3d39260800000000000000
+      internalID: 7103254077567454355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_2
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 328
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a95cc3b7391b490800000000000000
+      internalID: -7732236927708587499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_3
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 328
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 153ae26bf7d613cb0800000000000000
+      internalID: -4886003725435493551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_4
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 328
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33a84481c7042910800000000000000
+      internalID: 1811581477839217466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_5
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 328
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d7d000aad783f00800000000000000
+      internalID: 1096764678363512088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7a8e82a57081c50800000000000000
+      internalID: 6636062134745212892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_7
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 0
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434cf3f9d25dcb430800000000000000
+      internalID: 3800146577515856948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_8
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 0
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8013602550cade280800000000000000
+      internalID: -9012358140447543032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_9
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 0
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012446337676ded90800000000000000
+      internalID: -7066878547332939248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncount sprites_10
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 0
+        width: 166.66667
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c8e65162cafda970800000000000000
+      internalID: 8767939762323908805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bdf5cf51c4f0495448451a61aa539107
     internalID: 0
     vertices: []
     indices: 
