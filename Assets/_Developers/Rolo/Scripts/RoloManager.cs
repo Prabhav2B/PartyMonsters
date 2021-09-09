@@ -6,12 +6,14 @@ using UnityEngine.InputSystem.Interactions;
 
 public class RoloManager : MonoBehaviour
 {
-    [SerializeField] GameObject MapCanvas;
-    [SerializeField] GameObject LinePrefab;
-    [SerializeField] GameObject LineHolder;
-    [SerializeField] GameObject Palette;
-    [SerializeField] MapSystem MapSystem;
-    [SerializeField] Transform BackgroundImage;
+    [SerializeField] private GameObject MapCanvas;
+    [SerializeField] private GameObject LinePrefab;
+    [SerializeField] private GameObject LineHolder;
+    [SerializeField] private GameObject Palette;
+    [SerializeField] private GameObject MoveIcon;
+    [SerializeField] private GameObject DrawIcon;
+    [SerializeField] private MapSystem MapSystem;
+    [SerializeField] private Transform BackgroundImage;
 
     private bool isPressed;
     private bool isPickingColor;
@@ -21,6 +23,7 @@ public class RoloManager : MonoBehaviour
     private LineRenderer lineRenderer;
     private Transform tokenTransform;
     private Transform lineTransform;
+    private Transform toggleTransform;
 
     private Vector2 lineStartPos;
 
@@ -131,6 +134,16 @@ public class RoloManager : MonoBehaviour
                 Palette.SetActive(true);
                 return;
             }
+
+            toggleTransform = CheckIfCursorOnMapItem("UI");
+            if (toggleTransform != null)
+            {
+                isDragTokenMode = toggleTransform.gameObject == MoveIcon ? true : false;
+                MoveIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(isDragTokenMode);
+                DrawIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(!isDragTokenMode);
+
+                return;
+            }
         }
 
         else if (isPressed && isPickingColor)
@@ -183,11 +196,6 @@ public class RoloManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void OnChangeMode()
-    {
-        isDragTokenMode = !isDragTokenMode;
     }
 
     Transform CheckIfCursorOnMapItem(string layerName)
