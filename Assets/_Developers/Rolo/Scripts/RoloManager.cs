@@ -11,6 +11,7 @@ public class RoloManager : MonoBehaviour
     [SerializeField] GameObject LineHolder;
     [SerializeField] GameObject Palette;
     [SerializeField] MapSystem MapSystem;
+    [SerializeField] Transform BackgroundImage;
 
     private bool isPressed;
     private bool isPickingColor;
@@ -71,9 +72,9 @@ public class RoloManager : MonoBehaviour
 
     void ResetTokenPlacement(Transform t)
     {
-        TokenBehaviour tb = t.GetComponent<TokenBehaviour>();
-        t.localPosition = tb.defaultPos;
-        tb.previousPos = tb.defaultPos;       
+        StationBehaviour sb = t.GetComponent<StationBehaviour>();
+        t.localPosition = sb.defaultPos;
+        sb.previousPos = sb.defaultPos;       
     }
 
     void DeleteConnectedLinesFromGUI(Transform t)
@@ -134,11 +135,9 @@ public class RoloManager : MonoBehaviour
 
         else if (isPressed && isPickingColor)
         {
-            Debug.Log("Set Color");
             Transform paletteTransform = CheckIfCursorOnMapItem("PaletteColor");
             if (paletteTransform != null)
             {
-                Debug.Log(paletteTransform);
                 Color lineColor = paletteTransform.gameObject.GetComponent<SpriteRenderer>().color;
                 lineTransform.gameObject.GetComponent<LineRenderer>().startColor = lineColor;
                 lineTransform.gameObject.GetComponent<LineRenderer>().endColor = lineColor;
@@ -154,7 +153,7 @@ public class RoloManager : MonoBehaviour
 
     void StartDrawingLine()
     {
-        lineStartPos = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
+        lineStartPos = new Vector2(tokenTransform.localPosition.x, tokenTransform.localPosition.y); ;
         line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
         lineRenderer = line.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, lineStartPos);
@@ -175,7 +174,7 @@ public class RoloManager : MonoBehaviour
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        if (lr.GetPosition(i) == tokenTransform.position)
+                        if (lr.GetPosition(i) == tokenTransform.localPosition)
                         {
                             connectedLines.Add(gameObject.transform, i);
                             break;
@@ -217,7 +216,7 @@ public class RoloManager : MonoBehaviour
 
     void SnapLineToGrid()
     {
-        Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
+        Vector2 snapTo = new Vector2(tokenTransform.localPosition.x, tokenTransform.localPosition.y);
         lineRenderer.SetPosition(1, snapTo);
         EdgeCollider2D col2D = line.GetComponent<EdgeCollider2D>();
         List<Vector2> pointList = new List<Vector2>() { lineStartPos, snapTo };
@@ -269,20 +268,20 @@ public class RoloManager : MonoBehaviour
                 }
                 else if (!isPressed)
                 {
-                    Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
+                    Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y + 0.5f));
 
-                    if (snapTo.x > -MapSystem.gridWidth / 2 && snapTo.x < MapSystem.gridWidth / 2 &&
-                        snapTo.y > -MapSystem.gridHeight / 2 && snapTo.y < MapSystem.gridHeight / 2)
+                    if (snapTo.x >= -MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x && snapTo.x <= MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x &&
+                        snapTo.y >= -MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y && snapTo.y <= MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y)
                     {
                         tokenTransform.localPosition = snapTo;
-                        tokenTransform.GetComponent<TokenBehaviour>().previousPos = snapTo;
+                        tokenTransform.GetComponent<StationBehaviour>().previousPos = snapTo;
 
                         SnapLineToToken(snapTo);
                         UpdateLineColliders();
                     }
                     else
                     {
-                        snapTo = tokenTransform.gameObject.GetComponent<TokenBehaviour>().previousPos;
+                        snapTo = tokenTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
                         tokenTransform.localPosition = snapTo;
                         SnapLineToToken(snapTo);
                     }                    
