@@ -14,14 +14,15 @@ public class TrainScheduler : MonoBehaviour
     private Dictionary<TrainLineColor, TrainExterior> _trainDict = new Dictionary<TrainLineColor, TrainExterior>();
     private Dictionary<StationName, Station> _stationDict = new Dictionary<StationName, Station>();
     private Dictionary<TrainLineColor, TrainLine> _trainLinesDict = new Dictionary<TrainLineColor, TrainLine>();
-    
+
     private StationName _currentStation;
     private TrainExterior _trainOnStation;
+
     private TrainLine _lineOnStation;
     //private bool _isTrainOnStation;
 
     private static bool _stationOccupied;
-    public bool OnTrain { get; set; } 
+    public bool OnTrain { get; set; }
 
     private void Awake()
     {
@@ -64,9 +65,9 @@ public class TrainScheduler : MonoBehaviour
                     _stationOccupied = true;
                     _lineOnStation = trainLine;
                     _lineOnStation.TrainOnCurrentStation = true;
-                    
+
                     _trainOnStation = _trainDict[_lineOnStation.trainLine];
-                    _trainOnStation.Activate();    
+                    _trainOnStation.Activate();
                     _trainOnStation.ArriveAtStation(trainLine.Reversing, trainLine.IsEndStation);
                 }
                 else
@@ -123,7 +124,7 @@ public class TrainLine
 
     private bool _reversing;
     private bool _isEndStation;
-    
+
     private float _timer;
 
     public bool TrainOnCurrentStation
@@ -131,6 +132,7 @@ public class TrainLine
         get => _trainOnCurrentStation;
         set => _trainOnCurrentStation = value;
     }
+
     public bool IsEndStation => _isEndStation;
     public bool Reversing => _reversing;
     public StationName CurrentStation => _currentStation;
@@ -164,15 +166,15 @@ public class TrainLine
 
         _counter += _incrementor;
         _nextStation = _stationsList[_counter];
-        
-        DebugCurrentPlatform();
+
+        //DebugCurrentPlatform();
     }
 
     public void Tick()
     {
-        if(_trainOnCurrentStation)
+        if (_trainOnCurrentStation)
             return;
-            
+
         _timer += Time.deltaTime;
         if (_timer > intervalBetweenStations)
         {
@@ -185,7 +187,7 @@ public class TrainLine
     {
         _timer = offset;
     }
-    
+
     public void VoidCurrentStation()
     {
         _currentStation = StationName._null;
