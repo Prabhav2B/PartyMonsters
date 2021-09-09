@@ -8,8 +8,6 @@ using UnityEngine.Events;
 ]
 public class Interactable : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask _playerLayer = default(LayerMask);
     [
         SerializeField,
         Min(0f)
@@ -27,6 +25,7 @@ public class Interactable : MonoBehaviour
 
     private SpriteRenderer _interactionSprite = null;
     private WaitForSeconds _waitForReactivationInterval = null;
+    private PlayerManager _playerManager = null;
     
     private void Awake()
     {
@@ -43,21 +42,22 @@ public class Interactable : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        _playerManager?.DisallowInteraction(this);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((_playerLayer & 1 << other.gameObject.layer) != 0)
+        if (other.TryGetComponent<PlayerManager>(out _playerManager))
         {
-            other.GetComponent<PlayerManager>().AllowInteraction(this);
+            _playerManager.AllowInteraction(this);
         }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if ((_playerLayer & 1 << other.gameObject.layer) != 0)
+        if (other.TryGetComponent<PlayerManager>(out _playerManager))
         {
-            other.GetComponent<PlayerManager>().DisallowInteraction(this);
+            _playerManager.DisallowInteraction(this);
             _onLeaveArea.Invoke();
         }
     }
