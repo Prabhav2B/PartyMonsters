@@ -1,0 +1,864 @@
+fileFormatVersion: 2
+guid: 913ae3b20325f8146a55f3d745e18a38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9085725299765779248
+    second: Hatboy sprites_0
+  - first:
+      213: 5702969869811147799
+    second: Hatboy sprites_1
+  - first:
+      213: 1175497458574981360
+    second: Hatboy sprites_2
+  - first:
+      213: -3455138004029828890
+    second: Hatboy sprites_3
+  - first:
+      213: -4321027650048250053
+    second: Hatboy sprites_4
+  - first:
+      213: -2771174496736905210
+    second: Hatboy sprites_5
+  - first:
+      213: 1922301154028809297
+    second: Hatboy sprites_6
+  - first:
+      213: 476512585049018370
+    second: Hatboy sprites_7
+  - first:
+      213: 7313804970612661342
+    second: Hatboy sprites_8
+  - first:
+      213: 3937244810337766886
+    second: Hatboy sprites_9
+  - first:
+      213: -6244298741806158441
+    second: Hatboy sprites_10
+  - first:
+      213: 3794312306860808096
+    second: Hatboy sprites_11
+  - first:
+      213: -7663228079247010629
+    second: Hatboy sprites_12
+  - first:
+      213: 7680980440642007887
+    second: Hatboy sprites_13
+  - first:
+      213: 8761718239057543158
+    second: Hatboy sprites_14
+  - first:
+      213: -6135603893595545631
+    second: Hatboy sprites_15
+  - first:
+      213: 2712602430036505601
+    second: Hatboy sprites_16
+  - first:
+      213: -3403317302482091630
+    second: Hatboy sprites_17
+  - first:
+      213: -3295764723049454347
+    second: Hatboy sprites_18
+  - first:
+      213: 542339333639518359
+    second: Hatboy sprites_19
+  - first:
+      213: -3878461406085807887
+    second: Hatboy sprites_20
+  - first:
+      213: 6671104123370008194
+    second: Hatboy sprites_21
+  - first:
+      213: 8882995701942504291
+    second: Hatboy sprites_22
+  - first:
+      213: -4331912717585263125
+    second: Hatboy sprites_23
+  - first:
+      213: -2882723725319282541
+    second: Hatboy sprites_24
+  - first:
+      213: -7136447142095259389
+    second: Hatboy sprites_25
+  - first:
+      213: -8505854538264631599
+    second: Hatboy sprites_26
+  - first:
+      213: 1682347775740686686
+    second: Hatboy sprites_27
+  - first:
+      213: 159499196147322280
+    second: Hatboy sprites_28
+  - first:
+      213: -9062509084942479567
+    second: Hatboy sprites_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hatboy sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1865
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b915b950bf61e70800000000000000
+      internalID: 9085725299765779248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1865
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71469d681e4052f40800000000000000
+      internalID: 5702969869811147799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1865
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f87cb4e5b4305010800000000000000
+      internalID: 1175497458574981360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1865
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e099db9a42ec00d0800000000000000
+      internalID: -3455138004029828890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_4
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1865
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3fab3efe30a804c0800000000000000
+      internalID: -4321027650048250053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1492
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608ff5f3a7fca89d0800000000000000
+      internalID: -2771174496736905210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_6
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1492
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ce53df6b26daa10800000000000000
+      internalID: 1922301154028809297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_7
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1492
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20099d2eba9ec9600800000000000000
+      internalID: 476512585049018370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_8
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1492
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c9adddedadf7560800000000000000
+      internalID: 7313804970612661342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_9
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1492
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edcee96b47e3a630800000000000000
+      internalID: 3937244810337766886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1119
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79da937c06bc759a0800000000000000
+      internalID: -6244298741806158441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_11
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1119
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7d451a0fa18a430800000000000000
+      internalID: 3794312306860808096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_12
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1119
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4dea7d9aeb6a590800000000000000
+      internalID: -7663228079247010629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_13
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1119
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43b033e303589a60800000000000000
+      internalID: 7680980440642007887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_14
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1119
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fff51d1150e79970800000000000000
+      internalID: 8761718239057543158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 746
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efdbbf34c4f9daa0800000000000000
+      internalID: -6135603893595545631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_16
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 746
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104ff23c98915a520800000000000000
+      internalID: 2712602430036505601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_17
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 746
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2914d97e1fcf4c0d0800000000000000
+      internalID: -3403317302482091630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_18
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 746
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f4af5332771342d0800000000000000
+      internalID: -3295764723049454347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_19
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 746
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7983e4120c6c68700800000000000000
+      internalID: 542339333639518359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 373
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0813f66efec2ac0800000000000000
+      internalID: -3878461406085807887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_21
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 373
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28eec1dead5849c50800000000000000
+      internalID: 6671104123370008194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_22
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 373
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bca9bd68db64b70800000000000000
+      internalID: 8882995701942504291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_23
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 373
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be55556b554f1e3c0800000000000000
+      internalID: -4331912717585263125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_24
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 373
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390e0ce8b028ef7d0800000000000000
+      internalID: -2882723725319282541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3097f01822f36fc90800000000000000
+      internalID: -7136447142095259389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_26
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6a7970d5225f980800000000000000
+      internalID: -8505854538264631599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_27
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5131b97366e85710800000000000000
+      internalID: 1682347775740686686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_28
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad42508ca7a63200800000000000000
+      internalID: 159499196147322280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hatboy sprites_29
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 142
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13fc042a0008b3280800000000000000
+      internalID: -9062509084942479567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1d60bf4c07f9e0c47871445b55511d96
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
