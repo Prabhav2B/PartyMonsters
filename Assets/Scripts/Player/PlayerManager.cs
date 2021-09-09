@@ -1,10 +1,9 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
 using UnityEngine.InputSystem.Users;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharController))]
 public class PlayerManager : SingleInstance<PlayerManager>
@@ -23,6 +22,9 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
     private bool _pause;
+
+    private readonly List<Interactable> _interactables = new List<Interactable>();
+    private Interactable _activeInteractable = null;
 
     protected Vector2 MoveVector;
     public Vector2 ReceivedInput { get; private set; }
@@ -139,18 +141,41 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        ExecuteInteraction();
+        ExecuteActiveInteraction();
     }
 
-    private void ExecuteInteraction()
+    public void AllowInteraction(Interactable interactable) => _interactables.Add(interactable);
+
+    public void DisallowInteraction(Interactable interactable) => _interactables.Remove(interactable);
+
+    private void ExecuteActiveInteraction() => _activeInteractable?.Interact();
+
+    private void UpdateActiveInteractable()
     {
-        if (AtDoor)
+        float activeInteractableSqrDistance = float.MaxValue;
+        float interactableSqrDistance = float.MaxValue;
+
+        Interactable closestInteractable = null;
+
+        foreach (var interaction in _interactables)
         {
-            _sceneFadeManager.FadeOut(_sceneChangeManager.SwitchToTrainInterior);
+            interactableSqrDistance = (interaction.transform.position - transform.position).sqrMagnitude;
+            if (interactableSqrDistance < activeInteractableSqrDistance)
+            {
+                closestInteractable = interaction;
+                activeInteractableSqrDistance = interactableSqrDistance;
+            }
+        }
+
+        if (closestInteractable != _activeInteractable || _activeInteractable?.Active == false)
+        {
+            _activeInteractable?.Deactivate();
+            _activeInteractable = closestInteractable;
+            _activeInteractable?.Activate();
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (_characterController.IsStill)
         {
@@ -178,6 +203,8 @@ public class PlayerManager : SingleInstance<PlayerManager>
                 _characterSpriteRenderer.flipX = true;
             }
         }
+
+        UpdateActiveInteractable();
 
         // var particleSystemEmission = _particleSystem.emission;
         // var rateOverTime = particleSystemEmission.GetBurst(0);
