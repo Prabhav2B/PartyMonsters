@@ -6,10 +6,21 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
 {
     [SerializeField] private Vector3 playerStartPosition = new Vector3(19.49f, 7.04f, 0f);
     
-    [SerializeField] private GameObject station;
-    [SerializeField] private GameObject trainExterior;
-    [SerializeField] private GameObject trainInterior;
+    private Station _station;
+    private TrainExterior _trainExterior;
+    private GameObject _trainInterior;
+    private TrainScheduler _trainScheduler;
+
+    public Station CurrentStation
+    {
+        set => _station = value;
+    }
     
+    public TrainExterior CurrentTrain
+    {
+        set => _trainExterior = value;
+    }
+
     private SceneFadeManager _sceneFadeManager;
     private PlayerManager _player;
 
@@ -17,15 +28,27 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
     {
         base.Awake();
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
+        _trainScheduler = FindObjectOfType<TrainScheduler>();
         _player = FindObjectOfType<PlayerManager>();
     }
 
     public void SwitchToTrainInterior()
     {
-        station.SetActive(false);
-        trainExterior.SetActive(false);
-        trainInterior.SetActive(true);
+        //Communication Interaction to TrainScheduler
+        _trainScheduler.PlayerLocation = PlayerLocation.train;
+        _trainScheduler.FlushStation();
+        _trainScheduler.FlushWaitList();
+        
+        
+        _station.gameObject.SetActive(false);
+        _trainExterior.gameObject.SetActive(false);
+        _trainExterior.CurrentTrainInterior.gameObject.SetActive(true);
         _player.transform.position = playerStartPosition; // ignoring rigidbody here hehehe
         _sceneFadeManager.FadeIn();
+    }
+
+    public void SwitchToStation()
+    {
+        
     }
 }

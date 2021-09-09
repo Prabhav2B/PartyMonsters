@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -8,9 +9,15 @@ public class TrainDoor : MonoBehaviour
 
     private void Awake()
     {
-        _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
+        _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
     }
 
-    public void EnterTrain() => _sceneFadeManager.FadeOut(_sceneChangeManager.SwitchToTrainInterior);
+    public void EnterTrain()
+    {
+        SceneFadeManager.PostFadeOut f = () => { };
+        f += _sceneChangeManager.SwitchToTrainInterior;
+        
+        _sceneFadeManager.FadeOut(f);
+    }
 }
