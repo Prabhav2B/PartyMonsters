@@ -21,7 +21,7 @@ public class RoloManager : MonoBehaviour
 
     private GameObject line;
     private LineRenderer lineRenderer;
-    private Transform tokenTransform;
+    private Transform stationTransform;
     private Transform lineTransform;
     private Transform toggleTransform;
 
@@ -55,12 +55,7 @@ public class RoloManager : MonoBehaviour
         transformToCheck = CheckIfCursorOnMapItem("Token");
         if (transformToCheck != null)
         {
-            //delete connected lines from UI
             DeleteConnectedLinesFromGUI(transformToCheck);
-
-            //TODO remove connections in tokens
-
-            //reset token placement
             ResetTokenPlacement(transformToCheck);    
 
             return;
@@ -106,15 +101,16 @@ public class RoloManager : MonoBehaviour
 
         if (isPressed && !isPickingColor)
         {
-            tokenTransform = CheckIfCursorOnMapItem("Token");
-            if (tokenTransform != null)
+            stationTransform = CheckIfCursorOnMapItem("Token");
+            if (stationTransform != null)
             {
                 if (!isDragTokenMode)
                 {
                     StartDrawingLine();
+                    AddStationToTheLine(stationTransform);
                 }
 
-                else if (isDragTokenMode && tokenTransform != null)
+                else if (isDragTokenMode && stationTransform != null)
                 {
                     UpdateLineEndingsOnDrag();
                 }
@@ -154,6 +150,28 @@ public class RoloManager : MonoBehaviour
                 Color lineColor = paletteTransform.gameObject.GetComponent<SpriteRenderer>().color;
                 lineTransform.gameObject.GetComponent<LineRenderer>().startColor = lineColor;
                 lineTransform.gameObject.GetComponent<LineRenderer>().endColor = lineColor;
+
+                switch (ColorUtility.ToHtmlStringRGB(lineColor))
+                {
+                    case ("005DE4"):
+                        lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.blue;
+                        break;
+                    case ("0D4D26"):
+                        lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.green;
+                        break;
+                    case ("FF89C8"):
+                        lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.pink;
+                        break;
+                    case ("42007B"):
+                        lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.purple;
+                        break;
+                    case ("DCE62C"):
+                        lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.yellow;
+                        break;
+                    default:
+                        lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor._null;
+                        break;
+                }
             }
 
             lineTransform = null;
@@ -164,9 +182,19 @@ public class RoloManager : MonoBehaviour
         }     
     }
 
+    void AddStationToTheLine(Transform t)
+    {
+        if (line != null)
+        {
+            StationBehaviour station = t.gameObject.GetComponent<StationBehaviour>();
+            line.gameObject.GetComponent<ConnectionLineBehaviour>().connectedStations.Add(station);
+        }
+    }
+
+
     void StartDrawingLine()
     {
-        lineStartPos = new Vector2(tokenTransform.localPosition.x, tokenTransform.localPosition.y); ;
+        lineStartPos = new Vector2(stationTransform.localPosition.x, stationTransform.localPosition.y); ;
         line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
         lineRenderer = line.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, lineStartPos);
@@ -187,7 +215,7 @@ public class RoloManager : MonoBehaviour
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        if (lr.GetPosition(i) == tokenTransform.localPosition)
+                        if (lr.GetPosition(i) == stationTransform.localPosition)
                         {
                             connectedLines.Add(gameObject.transform, i);
                             break;
@@ -224,7 +252,7 @@ public class RoloManager : MonoBehaviour
 
     void SnapLineToGrid()
     {
-        Vector2 snapTo = new Vector2(tokenTransform.localPosition.x, tokenTransform.localPosition.y);
+        Vector2 snapTo = new Vector2(stationTransform.localPosition.x, stationTransform.localPosition.y);
         lineRenderer.SetPosition(1, snapTo);
         EdgeCollider2D col2D = line.GetComponent<EdgeCollider2D>();
         List<Vector2> pointList = new List<Vector2>() { lineStartPos, snapTo };
@@ -258,10 +286,9 @@ public class RoloManager : MonoBehaviour
         }
     }
 
-
     private void Update()
     {
-        if (tokenTransform != null)
+        if (stationTransform != null)
         {
             //token drag functionality
             if (line == null && !isPickingColor)
@@ -269,32 +296,32 @@ public class RoloManager : MonoBehaviour
                 if (isPressed)
                 {
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
-                    Vector2 tokenPos = mousePos - tokenTransform.position;
+                    Vector2 tokenPos = mousePos - stationTransform.position;
 
-                    SnapLineToToken(tokenTransform.localPosition);
-                    tokenTransform.Translate(tokenPos);
+                    SnapLineToToken(stationTransform.localPosition);
+                    stationTransform.Translate(tokenPos);
                 }
                 else if (!isPressed)
                 {
-                    Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y + 0.5f));
+                    Vector2 snapTo = new Vector2(Mathf.Floor(stationTransform.localPosition.x) + 0.5f, Mathf.Floor(stationTransform.localPosition.y + 0.5f));
 
                     if (snapTo.x >= -MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x && snapTo.x <= MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x &&
                         snapTo.y >= -MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y && snapTo.y <= MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y)
                     {
-                        tokenTransform.localPosition = snapTo;
-                        tokenTransform.GetComponent<StationBehaviour>().previousPos = snapTo;
+                        stationTransform.localPosition = snapTo;
+                        stationTransform.GetComponent<StationBehaviour>().previousPos = snapTo;
 
                         SnapLineToToken(snapTo);
                         UpdateLineColliders();
                     }
                     else
                     {
-                        snapTo = tokenTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
-                        tokenTransform.localPosition = snapTo;
+                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
+                        stationTransform.localPosition = snapTo;
                         SnapLineToToken(snapTo);
                     }                    
 
-                    tokenTransform = null;
+                    stationTransform = null;
                 }
             }
 
@@ -307,11 +334,11 @@ public class RoloManager : MonoBehaviour
                 }
                 else
                 {
-                    tokenTransform = CheckIfCursorOnMapItem("Token");
-                    if (tokenTransform != null)
+                    stationTransform = CheckIfCursorOnMapItem("Token");
+                    if (stationTransform != null)
                     {
                         SnapLineToGrid();
-                        //add connection to the token color, connection end id, connected stations
+                        AddStationToTheLine(stationTransform);
                     }
                     else
                     {
@@ -319,7 +346,7 @@ public class RoloManager : MonoBehaviour
                     }
 
                     line = null;
-                    tokenTransform = null;
+                    stationTransform = null;
                 }
             }
         }

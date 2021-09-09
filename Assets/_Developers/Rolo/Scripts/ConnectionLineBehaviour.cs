@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ConnectionLineBehaviour : MonoBehaviour
 {
-    List<GameObject> ConnectedStatoins;
+    public TrainLineColor myColor;
+    public List<StationBehaviour> connectedStations;
 
-    private void Start()
+    private void Awake()
     {
-        ConnectedStatoins = new List<GameObject>();
+        connectedStations = new List<StationBehaviour>();
+        myColor = TrainLineColor._null;
     }
 }
