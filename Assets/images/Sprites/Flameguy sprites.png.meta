@@ -1,12 +1,42 @@
 fileFormatVersion: 2
 guid: 05d3d3ec0211a7e4b85801c552e0b9ce
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7289782956192478400
+    second: Flameguy sprites_0
+  - first:
+      213: -4766117449563850179
+    second: Flameguy sprites_1
+  - first:
+      213: 6449271281075893943
+    second: Flameguy sprites_2
+  - first:
+      213: 2820467982815480042
+    second: Flameguy sprites_3
+  - first:
+      213: -4045936499995580349
+    second: Flameguy sprites_4
+  - first:
+      213: 4656215421589706984
+    second: Flameguy sprites_5
+  - first:
+      213: -6553511086755615787
+    second: Flameguy sprites_6
+  - first:
+      213: -6116775527188395620
+    second: Flameguy sprites_7
+  - first:
+      213: -7130889015797442418
+    second: Flameguy sprites_8
+  - first:
+      213: -6132244674613124089
+    second: Flameguy sprites_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -35,13 +65,13 @@ TextureImporter:
     filterMode: 1
     aniso: 2
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +80,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -125,11 +155,221 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Flameguy sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4bc89c9f28a2560800000000000000
+      internalID: 7289782956192478400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_1
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 433
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ab4fc7e695bddb0800000000000000
+      internalID: -4766117449563850179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_2
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 433
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b638a87f0a608950800000000000000
+      internalID: 6449271281075893943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_3
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 433
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae84418dfa0542720800000000000000
+      internalID: 2820467982815480042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_4
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 433
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348e9f58032f9d7c0800000000000000
+      internalID: -4045936499995580349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8dc8991433e9040800000000000000
+      internalID: 4656215421589706984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_6
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 0
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbe85a73604d05a0800000000000000
+      internalID: -6553511086755615787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_7
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 0
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99022be019dc1ba0800000000000000
+      internalID: -6116775527188395620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_8
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 0
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8898a0a83ef90d90800000000000000
+      internalID: -7130889015797442418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flameguy sprites_9
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 0
+        width: 169
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70467ed55f3e5eaa0800000000000000
+      internalID: -6132244674613124089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 22fbb1ff16209a745a3a77f64ba7d5be
     internalID: 0
     vertices: []
     indices: 

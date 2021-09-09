@@ -1,12 +1,45 @@
 fileFormatVersion: 2
 guid: 5042c5e2a61ccfc4586f7cf5e73e6e5d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3724903959721968404
+    second: Cottoncandesse sprites_0
+  - first:
+      213: 1596299864621105173
+    second: Cottoncandesse sprites_1
+  - first:
+      213: -6716353847358922041
+    second: Cottoncandesse sprites_2
+  - first:
+      213: 1759639626834761210
+    second: Cottoncandesse sprites_3
+  - first:
+      213: 3112430577394234076
+    second: Cottoncandesse sprites_4
+  - first:
+      213: -5360837732427207372
+    second: Cottoncandesse sprites_5
+  - first:
+      213: 947243304836317948
+    second: Cottoncandesse sprites_6
+  - first:
+      213: 3090573447758913108
+    second: Cottoncandesse sprites_7
+  - first:
+      213: 2279231132618261928
+    second: Cottoncandesse sprites_8
+  - first:
+      213: -6637628280992310100
+    second: Cottoncandesse sprites_9
+  - first:
+      213: -1324989736574378855
+    second: Cottoncandesse sprites_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -35,13 +68,13 @@ TextureImporter:
     filterMode: 1
     aniso: 2
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +83,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -125,11 +158,242 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 397
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec7352859b7e4cc0800000000000000
+      internalID: -3724903959721968404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 397
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510ceb1f442372610800000000000000
+      internalID: 1596299864621105173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_2
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 397
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2e756b2c7bac2a0800000000000000
+      internalID: -6716353847358922041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_3
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 397
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5df2aeaee7b6810800000000000000
+      internalID: 1759639626834761210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_4
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 397
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2b5a9ae13913b20800000000000000
+      internalID: 3112430577394234076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_5
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 397
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d6a2c3c7a7a95b0800000000000000
+      internalID: -5360837732427207372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2c2ac54c8452d00800000000000000
+      internalID: 947243304836317948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_7
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e9ce91d2ce3ea20800000000000000
+      internalID: 3090573447758913108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_8
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a509b4a3a471af10800000000000000
+      internalID: 2279231132618261928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_9
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 0
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cacdd500f3862e3a0800000000000000
+      internalID: -6637628280992310100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cottoncandesse sprites_10
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 163
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c127ccad0bc9de0800000000000000
+      internalID: -1324989736574378855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1bf41251f45673c46896dd5972edcf08
     internalID: 0
     vertices: []
     indices: 
