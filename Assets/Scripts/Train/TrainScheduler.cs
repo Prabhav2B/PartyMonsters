@@ -15,17 +15,29 @@ public class TrainScheduler : MonoBehaviour
     private Dictionary<StationName, Station> _stationDict = new Dictionary<StationName, Station>();
     private Dictionary<TrainLineColor, TrainLine> _trainLinesDict = new Dictionary<TrainLineColor, TrainLine>();
 
+    private Queue<TrainLine> _waitList = new Queue<TrainLine>();
+
     private StationName _currentStation;
     private TrainExterior _trainOnStation;
+    private SceneChangeManager _sceneChangeManager;
 
+    private PlayerLocation _playerLocation;
     private TrainLine _lineOnStation;
     //private bool _isTrainOnStation;
 
     private static bool _stationOccupied;
+
+    public PlayerLocation PlayerLocation
+    {
+        set => _playerLocation = value;
+    }
+
+
     public bool OnTrain { get; set; }
 
     private void Awake()
     {
+        _playerLocation = PlayerLocation.station;
         _currentStation = startStation;
 
         foreach (var train in trainLookup)
@@ -50,46 +62,101 @@ public class TrainScheduler : MonoBehaviour
         }
 
         _stationDict[_currentStation].Activate();
+        
+        _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
+        _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
     }
 
     private void Update()
     {
-        foreach (var trainLine in trainLines)
+        switch (_playerLocation)
         {
-            trainLine.Tick();
-
-            if (trainLine.CurrentStation == _currentStation)
+            case PlayerLocation.station:
             {
-                if (!_stationOccupied)
+                if (_stationOccupied)
+                {
+                    if (_trainOnStation.Departed)
+                    {
+                        FlushStation();
+                    }
+                }
+
+                if (!_stationOccupied && _waitList.Count > 0)
                 {
                     _stationOccupied = true;
-                    _lineOnStation = trainLine;
+                    _lineOnStation = _waitList.Dequeue();
                     _lineOnStation.TrainOnCurrentStation = true;
 
                     _trainOnStation = _trainDict[_lineOnStation.trainLine];
                     _trainOnStation.Activate();
-                    _trainOnStation.ArriveAtStation(trainLine.Reversing, trainLine.IsEndStation);
+                    _trainOnStation.ArriveAtStation(_lineOnStation.Reversing, _lineOnStation.IsEndStation);
+                    _sceneChangeManager.CurrentTrain = _trainOnStation;
                 }
-                else
-                {
-                    //what to do if station is occupied?
-                }
-            }
-        }
 
-        if (_stationOccupied)
-        {
-            if (_trainOnStation.Departed)
-            {
-                _stationOccupied = false;
-                _lineOnStation.TrainOnCurrentStation = false;
-                _lineOnStation.VoidCurrentStation();
-                _lineOnStation = null;
-                _trainOnStation = null;
+                foreach (var trainLine in trainLines)
+                {
+                    trainLine.Tick();
+
+                    if (trainLine.CurrentStation == _currentStation)
+                    {
+                        if (!_stationOccupied)
+                        {
+                            _stationOccupied = true;
+                            _lineOnStation = trainLine;
+                            _lineOnStation.TrainOnCurrentStation = true;
+
+                            _trainOnStation = _trainDict[_lineOnStation.trainLine];
+                            _trainOnStation.Activate();
+                            _trainOnStation.ArriveAtStation(_lineOnStation.Reversing, _lineOnStation.IsEndStation);
+                            _sceneChangeManager.CurrentTrain = _trainOnStation;
+                        }
+                        else
+                        {
+                            if (_waitList.Contains(trainLine) || _trainOnStation == _trainDict[trainLine.trainLine])
+                                return;
+
+                            trainLine.Waiting = true;
+                            _waitList.Enqueue(trainLine);
+                        }
+                    }
+                }
+
+                break;
             }
+            case PlayerLocation.train:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+    
+    
+
+    public void FlushStation()
+    {
+        _stationOccupied = false;
+        _lineOnStation.TrainOnCurrentStation = false;
+        _lineOnStation.VoidCurrentStation();
+        _lineOnStation.Waiting = false;
+        _lineOnStation = null;
+        _trainOnStation = null;
+    }
+
+    public void FlushWaitList()
+    {
+        if(_waitList.Count == 0)
+            return;
+
+        int i = 0;
+        foreach (var item in _waitList)
+        {
+            item.Waiting = false;
+            item.OffsetTimer(i++ * -10);
         }
     }
 }
+
+
 
 [Serializable]
 public struct TrainLookupTable
@@ -133,6 +200,7 @@ public class TrainLine
         set => _trainOnCurrentStation = value;
     }
 
+    public bool Waiting { get; set; }
     public bool IsEndStation => _isEndStation;
     public bool Reversing => _reversing;
     public StationName CurrentStation => _currentStation;
@@ -167,12 +235,12 @@ public class TrainLine
         _counter += _incrementor;
         _nextStation = _stationsList[_counter];
 
-        //DebugCurrentPlatform();
+        DebugCurrentPlatform();
     }
 
     public void Tick()
     {
-        if (_trainOnCurrentStation)
+        if (_trainOnCurrentStation || Waiting)
             return;
 
         _timer += Time.deltaTime;
@@ -216,4 +284,10 @@ public enum StationName
     lotus,
     zion,
     _null
+}
+
+public enum PlayerLocation
+{
+    station,
+    train
 }

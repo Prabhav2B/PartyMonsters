@@ -28,6 +28,7 @@ public class TrainExterior : MonoBehaviour
 
 
     public bool Departed => _departed;
+    public TrainInterior CurrentTrainInterior => trainInterior; 
     
     public bool InteractionPerformed
     {
