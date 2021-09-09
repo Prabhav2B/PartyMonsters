@@ -273,7 +273,8 @@ public enum TrainLineColor
     green,
     yellow,
     pink,
-    blue
+    blue,
+    _null;
 }
 
 public enum StationName
