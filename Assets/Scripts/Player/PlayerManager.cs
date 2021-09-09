@@ -26,9 +26,10 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private readonly List<Interactable> _interactables = new List<Interactable>();
     private Interactable _activeInteractable = null;
 
+    public static bool ActiveInteractableLocked = false;
+
     protected Vector2 MoveVector;
     public Vector2 ReceivedInput { get; private set; }
-    public bool AtDoor { get; set; }
 
     public Action OnLand;
 
@@ -63,12 +64,12 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     protected void OnEnable()
     {
-        InputUser.onChange += onInputDeviceChange;
+        InputUser.onChange += OnInputDeviceChange;
     }
 
     protected void OnDisable()
     {
-        InputUser.onChange -= onInputDeviceChange;
+        InputUser.onChange -= OnInputDeviceChange;
     }
 
     public void ResetScene()
@@ -97,7 +98,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
         transform.position = _initalPosition;
     }
 
-    private void onInputDeviceChange(InputUser user, InputUserChange change, InputDevice device)
+    private void OnInputDeviceChange(InputUser user, InputUserChange change, InputDevice device)
     {
         if (change == InputUserChange.ControlSchemeChanged)
         {
@@ -146,31 +147,47 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void AllowInteraction(Interactable interactable) => _interactables.Add(interactable);
 
-    public void DisallowInteraction(Interactable interactable) => _interactables.Remove(interactable);
+    public void DisallowInteraction(Interactable interactable)
+    {
+        if (interactable == _activeInteractable)
+        {
+            _activeInteractable.Deactivate();
+            _activeInteractable = null;
+            ActiveInteractableLocked = false;
+        }
+        _interactables.Remove(interactable);
+    }
 
     private void ExecuteActiveInteraction() => _activeInteractable?.Interact();
 
     private void UpdateActiveInteractable()
     {
-        float activeInteractableSqrDistance = float.MaxValue;
-        float interactableSqrDistance = float.MaxValue;
+        Interactable closestInteractable = _activeInteractable;
 
-        Interactable closestInteractable = null;
-
-        foreach (var interaction in _interactables)
+        if (!ActiveInteractableLocked)
         {
-            interactableSqrDistance = (interaction.transform.position - transform.position).sqrMagnitude;
-            if (interactableSqrDistance < activeInteractableSqrDistance)
+            float activeInteractableSqrDistance = float.MaxValue;
+            float interactableSqrDistance = float.MaxValue;
+
+            foreach (var interactable in _interactables)
             {
-                closestInteractable = interaction;
-                activeInteractableSqrDistance = interactableSqrDistance;
+                interactableSqrDistance = (interactable.transform.position - transform.position).sqrMagnitude;
+                if (interactableSqrDistance < activeInteractableSqrDistance)
+                {
+                    closestInteractable = interactable;
+                    activeInteractableSqrDistance = interactableSqrDistance;
+                }
             }
         }
 
-        if (closestInteractable != _activeInteractable || _activeInteractable?.Active == false)
+        if (closestInteractable != _activeInteractable)
         {
             _activeInteractable?.Deactivate();
             _activeInteractable = closestInteractable;
+        }
+
+        if (_activeInteractable?.Active == false)
+        {
             _activeInteractable?.Activate();
         }
     }
@@ -203,7 +220,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
                 _characterSpriteRenderer.flipX = true;
             }
         }
-
+        
         UpdateActiveInteractable();
 
         // var particleSystemEmission = _particleSystem.emission;

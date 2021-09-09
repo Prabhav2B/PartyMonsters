@@ -17,7 +17,10 @@ public class Interactable : MonoBehaviour
     private float _reactivationInterval = 0f;
     [SerializeField]
     private UnityEvent _onInteract = new UnityEvent();
+    [SerializeField]
+    private UnityEvent _onLeaveArea = new UnityEvent();
 
+    private bool _hideInteractionSprite = false;
     private bool _canBeActivated = true;
     private bool _active = false;
     public bool Active => _active;
@@ -55,6 +58,7 @@ public class Interactable : MonoBehaviour
         if ((_playerLayer & 1 << other.gameObject.layer) != 0)
         {
             other.GetComponent<PlayerManager>().DisallowInteraction(this);
+            _onLeaveArea.Invoke();
         }
     }
 
@@ -75,7 +79,7 @@ public class Interactable : MonoBehaviour
     {
         if (_canBeActivated)
         {
-            if (_interactionSprite != null)
+            if (_interactionSprite != null && !_hideInteractionSprite)
             {
                 _interactionSprite.enabled = true;
             }
@@ -90,6 +94,24 @@ public class Interactable : MonoBehaviour
             _interactionSprite.enabled = false;
         }
         _active = false;
+    }
+
+    public void ShowInteractionSprite()
+    {
+        _hideInteractionSprite = false;
+        if (_interactionSprite != null && _active)
+        {
+            _interactionSprite.enabled = true;
+        }
+    }
+
+    public void HideInteractionSprite()
+    {
+        _hideInteractionSprite = true;
+        if (_interactionSprite != null)
+        {
+            _interactionSprite.enabled = false;
+        }
     }
 
     private IEnumerator ReactivationTimer()
