@@ -47,8 +47,13 @@ public class RoloManager : MonoBehaviour
         transformToCheck = CheckIfCursorOnMapItem("Token");
         if (transformToCheck != null)
         {
-            ResetTokenPlacement(transformToCheck);
-            //delete all connections
+            //delete connected lines from UI
+            DeleteConnectedLinesFromGUI(transformToCheck);
+
+            //remove connections in tokens
+
+            //reset token placement
+            ResetTokenPlacement(transformToCheck);    
 
             return;
         }
@@ -64,7 +69,27 @@ public class RoloManager : MonoBehaviour
     {
         TokenBehaviour tb = t.GetComponent<TokenBehaviour>();
         t.localPosition = tb.defaultPos;
-        tb.previousPos = tb.defaultPos;
+        tb.previousPos = tb.defaultPos;       
+    }
+
+    void DeleteConnectedLinesFromGUI(Transform t)
+    {
+        GameObject[] connectionLines = GameObject.FindGameObjectsWithTag("ConnectionLine");
+
+        if (connectedLines != null)
+        {
+            foreach (GameObject connectionLine in connectionLines)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    if (connectionLine.GetComponent<LineRenderer>().GetPosition(i) == t.position)
+                    {
+                        Destroy(connectionLine);
+                        break;
+                    }
+                }
+            }
+        }        
     }
 
     public void OnDragToken(InputValue input)
