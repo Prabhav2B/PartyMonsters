@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520b9d3197c71045a888d4f96a1840e, type: 3}
-  m_Name: ZionData
+  m_Script: {fileID: 11500000, guid: 3e8270abccf89cc49ba27af21b734af9, type: 3}
+  m_Name: YellowInterior
   m_EditorClassIdentifier: 
-  stationName: Zion
-  stationBackground: {fileID: 21300000, guid: 477365363a889be4e9f827f93c5cb671, type: 3}
-  stationForeground: {fileID: 21300000, guid: 3be8065beec5c384faf7b885e1dcac05, type: 3}
+  trainTrainLineColor: 2
+  trainInterior: {fileID: 21300000, guid: e2d91126c09f8f14fa23632e68869b45, type: 3}
+  waitDuration: 5

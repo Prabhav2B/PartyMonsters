@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62154443856ed8b4a80a57dd7d942050, type: 3}
   m_Name: BlueExterior
   m_EditorClassIdentifier: 
-  trainLine: 4
+  trainTrainLineColor: 4
   trainExterior: {fileID: 21300000, guid: 5ba0831bedef4e74ca6e693d364f0749, type: 3}
   trainDoor: {fileID: 21300000, guid: 2229ce60975f8ab44998a8b1820f2e03, type: 3}
-  trainDoorOpen: {fileID: 21300000, guid: de32cdc38ac3931439a58bd2f5cf90a4, type: 3}
+  waitDuration: 5

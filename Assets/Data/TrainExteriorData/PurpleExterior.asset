@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62154443856ed8b4a80a57dd7d942050, type: 3}
-  m_Name: PinkExterior
+  m_Name: PurpleExterior
   m_EditorClassIdentifier: 
-  trainTrainLineColor: 3
-  trainExterior: {fileID: 21300000, guid: 4fee4d73f91a9474db2733125e870b75, type: 3}
-  trainDoor: {fileID: 21300000, guid: 386a23eb94f976744895cd829b642b99, type: 3}
-  waitDuration: 3
+  trainTrainLineColor: 0
+  trainExterior: {fileID: 21300000, guid: c289d5cd8cc37034ba43d3fd4cf8b19a, type: 3}
+  trainDoor: {fileID: 21300000, guid: 7ec1413b140862a458930314cc183763, type: 3}
+  waitDuration: 4

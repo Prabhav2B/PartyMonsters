@@ -321,6 +321,7 @@ public enum TrainLineColor
     yellow,
     pink,
     blue,
+    white,
     _null
 }
 
@@ -331,6 +332,11 @@ public enum StationName
     eden,
     lotus,
     zion,
+    pantheon,
+    samsara,
+    utopia,
+    new_moon,
+    elysia,
     _null
 }
 
