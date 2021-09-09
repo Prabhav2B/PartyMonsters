@@ -21,9 +21,14 @@ public class TrainExterior : MonoBehaviour
     private TrainLineColor _trainLineColor;
     private float _waitDuration;
     private bool _reversing;
+    private bool _isEndStation;
     private bool _interactionPerformed;
+    private bool _departed;
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
 
+
+    public bool Departed => _departed;
+    
     public bool InteractionPerformed
     {
         get => _interactionPerformed;
@@ -40,9 +45,11 @@ public class TrainExterior : MonoBehaviour
     }
 
 
-    public void ArriveAtStation(bool reversing)
+    public void ArriveAtStation(bool reversing, bool isEndStation)
     {
+        _departed = false;
         _reversing = reversing;
+        _isEndStation = isEndStation;
         DisableInteractionTriggers();
         transform.position = _reversing ? startPositionLeft : startPositionRight;
         transform.DOLocalMove(destinationPosition, 12f).OnComplete(ArrivalComplete);
@@ -57,9 +64,7 @@ public class TrainExterior : MonoBehaviour
     public void DepartFromStation()
     {
         DisableInteractionTriggers();
-        var exitPosition = _reversing ? startPositionRight : startPositionLeft;
-        exitPosition.Scale(new Vector3(.5f, 1f, 1f));
-        transform.DOLocalMove(exitPosition, 12f).OnComplete(Deactivate);
+        StartCoroutine(DepartStationAnim());
     }
 
     IEnumerator WaitAtStation()
@@ -85,7 +90,30 @@ public class TrainExterior : MonoBehaviour
         }
 
     }
+    
+    IEnumerator DepartStationAnim()
+    {
+        var timeExpired = 0f;
+        var exitDirection = _reversing ? 2f : -2f;
 
+        exitDirection = _isEndStation ? exitDirection * -1 : exitDirection;
+        
+        while (true)
+        {
+            if (timeExpired >= 10f)
+            {
+                break;
+            }
+
+            transform.position = new Vector3(transform.position.x + (exitDirection * timeExpired * Time.deltaTime), transform.position.y, transform.position.z);
+
+            timeExpired += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        _departed = true;
+        Deactivate();
+    }
+    
     public void Activate()
     {
         gameObject.SetActive(true);

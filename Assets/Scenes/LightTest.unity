@@ -175,7 +175,7 @@ MonoBehaviour:
     stationName: 3
   - station: {fileID: 1201753141}
     stationName: 4
-  startStation: 1
+  startStation: 3
 --- !u!4 &3742132
 Transform:
   m_ObjectHideFlags: 0
@@ -1631,14 +1631,6 @@ PrefabInstance:
       propertyPath: trainExteriorData
       value: 
       objectReference: {fileID: 11400000, guid: 672f03aab373d6749830c25ca80db709, type: 2}
-    - target: {fileID: 3022402452984725108, guid: e96fade5493a12b4388317dd39262f99, type: 3}
-      propertyPath: startPositionLeft.x
-      value: -87.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3022402452984725108, guid: e96fade5493a12b4388317dd39262f99, type: 3}
-      propertyPath: startPositionRight.x
-      value: 100.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5140524516295472208, guid: e96fade5493a12b4388317dd39262f99, type: 3}
       propertyPath: m_Name
       value: Pink Train Exterior

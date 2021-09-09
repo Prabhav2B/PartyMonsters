@@ -16,7 +16,9 @@ public class TrainScheduler : MonoBehaviour
     private Dictionary<TrainLineColor, TrainLine> _trainLinesDict = new Dictionary<TrainLineColor, TrainLine>();
     
     private StationName _currentStation;
-    private bool _isTrainOnStation;
+    private TrainExterior _trainOnStation;
+    private TrainLine _lineOnStation;
+    //private bool _isTrainOnStation;
 
     private static bool _stationOccupied;
     public bool OnTrain { get; set; } 
@@ -60,19 +62,30 @@ public class TrainScheduler : MonoBehaviour
                 if (!_stationOccupied)
                 {
                     _stationOccupied = true;
-                    var incomingTrainLine = trainLine.trainLine;
-                    trainLine.TrainOnCurrentStation = true;
+                    _lineOnStation = trainLine;
+                    _lineOnStation.TrainOnCurrentStation = true;
                     
-                    var currentTrain = _trainDict[incomingTrainLine];
-                    currentTrain.Activate();    
-                    currentTrain.ArriveAtStation(trainLine.Reversing);
+                    _trainOnStation = _trainDict[_lineOnStation.trainLine];
+                    _trainOnStation.Activate();    
+                    _trainOnStation.ArriveAtStation(trainLine.Reversing, trainLine.IsEndStation);
                 }
                 else
                 {
                     //what to do if station is occupied?
                 }
             }
+        }
 
+        if (_stationOccupied)
+        {
+            if (_trainOnStation.Departed)
+            {
+                _stationOccupied = false;
+                _lineOnStation.TrainOnCurrentStation = false;
+                _lineOnStation.VoidCurrentStation();
+                _lineOnStation = null;
+                _trainOnStation = null;
+            }
         }
     }
 }
@@ -107,6 +120,9 @@ public class TrainLine
 
     private int _incrementor = 1;
     private int _counter = 0;
+
+    private bool _reversing;
+    private bool _isEndStation;
     
     private float _timer;
 
@@ -115,7 +131,8 @@ public class TrainLine
         get => _trainOnCurrentStation;
         set => _trainOnCurrentStation = value;
     }
-    public bool Reversing => _incrementor < 0;
+    public bool IsEndStation => _isEndStation;
+    public bool Reversing => _reversing;
     public StationName CurrentStation => _currentStation;
 
     public void Initialize()
@@ -130,7 +147,11 @@ public class TrainLine
 
     public void MoveToNextStation()
     {
+        _timer = 0f;
         _currentStation = _nextStation;
+
+        _reversing = _incrementor < 0;
+        _isEndStation = _counter == 0 || _counter == _stationMax - 1;
 
         if (_counter + _incrementor >= _stationMax)
         {
@@ -142,8 +163,9 @@ public class TrainLine
         }
 
         _counter += _incrementor;
-
         _nextStation = _stationsList[_counter];
+        
+        DebugCurrentPlatform();
     }
 
     public void Tick()
@@ -157,6 +179,16 @@ public class TrainLine
             _timer = 0f;
             MoveToNextStation();
         }
+    }
+
+    public void OffsetTimer(float offset)
+    {
+        _timer = offset;
+    }
+    
+    public void VoidCurrentStation()
+    {
+        _currentStation = StationName._null;
     }
 
     public void DebugCurrentPlatform()
@@ -180,5 +212,6 @@ public enum StationName
     lilith,
     eden,
     lotus,
-    zion
+    zion,
+    _null
 }
