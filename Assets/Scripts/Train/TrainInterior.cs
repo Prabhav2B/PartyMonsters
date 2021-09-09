@@ -7,6 +7,7 @@ public class TrainInterior : MonoBehaviour
     [SerializeField] private TrainInteriorData trainInteriorData;
     [SerializeField] private SpriteRenderer trainInteriorSprite;
     
+    
     private TrainLineColor _trainLineColor;
     
     void Start()

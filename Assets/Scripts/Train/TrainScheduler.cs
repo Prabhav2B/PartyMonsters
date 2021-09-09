@@ -78,6 +78,8 @@ public class TrainLines
     
     private int _incrementor = 1;
     private int _counter = 0;
+
+    public bool Reversing => _incrementor < 0;
     
     public void Initialize()
     {
@@ -88,7 +90,6 @@ public class TrainLines
         _counter += _incrementor ;
         _nextStation = _stationsList[_counter];
     }
-
     public void MoveToNextStation()
     {
         _currentStation = _nextStation;
