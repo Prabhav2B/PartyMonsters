@@ -6,14 +6,14 @@ using UnityEngine.InputSystem.Interactions;
 
 public class RoloManager : MonoBehaviour
 {
-    [SerializeField] GameObject MapCanvas;
-    [SerializeField] GameObject LinePrefab;
-    [SerializeField] GameObject LineHolder;
-    [SerializeField] GameObject Palette;
-    [SerializeField] GameObject MoveIcon;
-    [SerializeField] GameObject DrawIcon;
-    [SerializeField] MapSystem MapSystem;
-    [SerializeField] Transform BackgroundImage;
+    [SerializeField] private GameObject MapCanvas;
+    [SerializeField] private GameObject LinePrefab;
+    [SerializeField] private GameObject LineHolder;
+    [SerializeField] private GameObject Palette;
+    [SerializeField] private GameObject MoveIcon;
+    [SerializeField] private GameObject DrawIcon;
+    [SerializeField] private MapSystem MapSystem;
+    [SerializeField] private Transform BackgroundImage;
 
     private bool isPressed;
     private bool isPickingColor;
