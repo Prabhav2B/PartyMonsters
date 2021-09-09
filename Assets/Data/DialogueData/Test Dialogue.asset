@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
   m_Name: Test Dialogue
   m_EditorClassIdentifier: 
-  dialogue:
-  - Yo.
-  - Whaddaya want?
-  - Bye...
+  _sequence:
+  - text: Yo.
+    quest: {fileID: 0}
+    questFailText: 
+  - text: Whaddaya want?
+    quest: {fileID: 0}
+    questFailText: 
+  - text: Bye...
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence: []
