@@ -18,7 +18,8 @@ public class TrainRattle : MonoBehaviour
 
     void Wait()
     {
-        StartCoroutine(WaitCoroutine());
+        if(gameObject.activeSelf)
+            StartCoroutine(WaitCoroutine());
     }
 
     IEnumerator WaitCoroutine()

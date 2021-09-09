@@ -20,4 +20,12 @@ public class TrainDoor : MonoBehaviour
         
         _sceneFadeManager.FadeOut(f);
     }
+    
+    public void ExitTrain()
+    {
+        SceneFadeManager.PostFadeOut f = () => { };
+        f += _sceneChangeManager.SwitchToStation;
+        
+        _sceneFadeManager.FadeOut(f);
+    }
 }
