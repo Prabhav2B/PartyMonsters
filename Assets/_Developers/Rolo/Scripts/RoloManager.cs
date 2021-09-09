@@ -106,8 +106,18 @@ public class RoloManager : MonoBehaviour
             {
                 if (!isDragTokenMode)
                 {
-                    StartDrawingLine();
-                    AddStationToTheLine(stationTransform);
+                    //check if line is within boundaries
+                    if (stationTransform.localPosition.x >= -MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x && stationTransform.localPosition.x <= MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x &&
+                        stationTransform.localPosition.y >= -MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y && stationTransform.localPosition.y <= MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y)
+                    {
+                        StartDrawingLine();
+                        AddStationToTheLine(stationTransform);
+                    }
+                    else
+                    {
+                        line = new GameObject();
+                        line.name = "dummy";
+                    }
                 }
 
                 else if (isDragTokenMode && stationTransform != null)
@@ -328,14 +338,14 @@ public class RoloManager : MonoBehaviour
             //line drawing functionality
             else
             {
-                if (isPressed && !isPickingColor)
+                if (isPressed && !isPickingColor && line.name != "dummy")
                 {
                     MoveLineEndAlongCursor();
                 }
                 else
                 {
                     stationTransform = CheckIfCursorOnMapItem("Token");
-                    if (stationTransform != null)
+                    if (stationTransform != null && line.name != "dummy")
                     {
                         if (stationTransform.position == line.GetComponent<LineRenderer>().GetPosition(0))
                         {
