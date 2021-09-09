@@ -503,24 +503,76 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0a51d936-2588-4039-bd8c-e89ee3b7b0d6
-    m_ActionName: Player/Time Bend[/Keyboard/ctrl]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 45fa9cc3-28a7-4a61-92d6-fe4ae506676a
-    m_ActionName: Player/Dash[/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ce5db3ce-4443-4b3e-98ee-81427d046882
-    m_ActionName: Player/PowerA[/Keyboard/c,/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 3cb0f16e-21a5-49ba-84fa-bcad75f17fa0
     m_ActionName: Player/MainMenu[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 481662725}
+        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
+        m_MethodName: OnToggleMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b7b5de34-d894-4f7d-b126-9c119a95535e
     m_ActionName: Player/ToggleMap[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 481662725}
+        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
+        m_MethodName: OnDragToken
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ba91bbde-8913-4917-b824-d91e90a36eb3
+    m_ActionName: Player/DragToken[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 481662725}
+        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
+        m_MethodName: OnChangeMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8a2a8af5-fe6a-4801-a7f3-316dda086420
+    m_ActionName: Player/ChangeMode[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77ac3fe7-7779-4836-8ee7-f89d51e73786
+    m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 481662725}
+        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
+        m_MethodName: OnResetMapItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ee392593-7a5b-482a-8607-5cb3bb83ad27
+    m_ActionName: Player/DoubleClickTest[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
