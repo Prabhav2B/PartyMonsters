@@ -337,8 +337,15 @@ public class RoloManager : MonoBehaviour
                     stationTransform = CheckIfCursorOnMapItem("Token");
                     if (stationTransform != null)
                     {
-                        SnapLineToGrid();
-                        AddStationToTheLine(stationTransform);
+                        if (stationTransform.position == line.GetComponent<LineRenderer>().GetPosition(0))
+                        {
+                            Destroy(line);
+                        }
+                        else
+                        {
+                            SnapLineToGrid();
+                            AddStationToTheLine(stationTransform);
+                        }
                     }
                     else
                     {
