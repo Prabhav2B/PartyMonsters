@@ -352,3 +352,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d63c19811cabbd4299ffdf2b26b4e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startItems:
+  - {fileID: 11400000, guid: ee0a891a678d768478aa9e246c991262, type: 2}

@@ -26,7 +26,7 @@ MonoBehaviour:
       I can''t be bothered to go all the way
       back there...'
   - text: "<b>(Gives the hat)</b>\nOh wow! Thank you so much!\nHere, take my ticket
-      as a reward, I don\u2019t need it anymore.\n\n"
+      as a reward, I don\u2019t need it anymore."
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence:

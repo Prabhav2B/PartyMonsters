@@ -244,9 +244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStartPosition: {x: 19.49, y: 7.04, z: 0}
-  station: {fileID: 481871080}
-  trainExterior: {fileID: 1031857721}
-  trainInterior: {fileID: 1365536904}
 --- !u!1 &242223672
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,17 +362,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4882711102658842874, guid: e21f51209d952fc46b71d25a10a0076a, type: 3}
   m_PrefabInstance: {fileID: 4314363885888693990}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &481871080 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2819097171366019693, guid: bc3b8b92697c8b24eb235073360d4142, type: 3}
-  m_PrefabInstance: {fileID: 6846066307093158651}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &481871081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7942141596230726796, guid: bc3b8b92697c8b24eb235073360d4142, type: 3}
   m_PrefabInstance: {fileID: 6846066307093158651}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481871080}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d14fcd7be5c6bea4a818835351b65da6, type: 3}
@@ -725,17 +717,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8276460927566361592, guid: bb320b72b952069489d6208883d3c7e4, type: 3}
   m_PrefabInstance: {fileID: 776459325697815382}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1031857721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5140524516295472208, guid: e96fade5493a12b4388317dd39262f99, type: 3}
-  m_PrefabInstance: {fileID: 5140524516602608423}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1031857722 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3022402452984725108, guid: e96fade5493a12b4388317dd39262f99, type: 3}
   m_PrefabInstance: {fileID: 5140524516602608423}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031857721}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53a9d7aef676a9a4491578bec8f479be, type: 3}
@@ -910,17 +897,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1365536904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8959599745128778880, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
-  m_PrefabInstance: {fileID: 904771144}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1365536905 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8613670681817074970, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
   m_PrefabInstance: {fileID: 904771144}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365536904}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acabd6903e4a0ab478df97a91449aa23, type: 3}
@@ -1191,14 +1173,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
-      propertyPath: _startItems.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
-      propertyPath: _startItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: ee0a891a678d768478aa9e246c991262, type: 2}
     - target: {fileID: 626658866887087699, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_Name
       value: Player

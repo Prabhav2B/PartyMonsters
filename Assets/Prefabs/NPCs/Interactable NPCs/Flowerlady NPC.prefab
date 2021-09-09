@@ -68,10 +68,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.65
       objectReference: {fileID: 0}
-    - target: {fileID: 5207093746903969799, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.13
-      objectReference: {fileID: 0}
     - target: {fileID: 5505685002654875742, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_Name
       value: Flowerlady NPC

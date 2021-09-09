@@ -1,27 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1193701056127892011
+--- !u!1001 &879493399766938784
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1964483726806350289, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
-      propertyPath: _dialogueData
-      value: 
-      objectReference: {fileID: 11400000, guid: b6b28d7646512124d88b78250c30beb3, type: 2}
     - target: {fileID: 4122945439825832472, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.741
+      value: 3.77
       objectReference: {fileID: 0}
     - target: {fileID: 5207093746903969799, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 5505685002654875742, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_Name
-      value: Flameboy NPC
+      value: Flowerperson NPC
       objectReference: {fileID: 0}
     - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_RootOrder
@@ -117,65 +113,65 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
---- !u!4 &1984819218584128115 stripped
+--- !u!4 &517642168714200312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 800407464038215768, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
-  m_PrefabInstance: {fileID: 1193701056127892011}
+  m_PrefabInstance: {fileID: 879493399766938784}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2508061409736337560
+--- !u!1001 &9071441276944045718
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1984819218584128115}
+    m_TransformParent: {fileID: 517642168714200312}
     m_Modifications:
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942177, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
+      propertyPath: m_Name
+      value: Flowerperson Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.75
+      value: 1.57
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+    - target: {fileID: 5707104889779942182, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699671446331004533, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
-      propertyPath: m_Name
-      value: Flameboy Sprite
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9503fecba40bf5b4fac92b11475bb5bb, type: 3}
