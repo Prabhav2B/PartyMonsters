@@ -30,22 +30,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ToggleMap",
-                    "type": "Button",
-                    "id": "b7b5de34-d894-4f7d-b126-9c119a95535e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "DragToken",
-                    "type": "Value",
-                    "id": "ba91bbde-8913-4917-b824-d91e90a36eb3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Hold"
-                },
-                {
                     "name": "ChangeMode",
                     "type": "Button",
                     "id": "8a2a8af5-fe6a-4801-a7f3-316dda086420",
@@ -60,6 +44,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ToggleMap",
+                    "type": "Button",
+                    "id": "b7b5de34-d894-4f7d-b126-9c119a95535e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DragToken",
+                    "type": "Value",
+                    "id": "ba91bbde-8913-4917-b824-d91e90a36eb3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold"
                 },
                 {
                     "name": "ResetMapItem",
@@ -260,28 +260,6 @@
                 },
                 {
                     "name": "",
-                    "id": "af3f582d-e68f-444f-a5ce-9e1b9c03a446",
-                    "path": "<Keyboard>/#(M)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleMap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ffe1d08c-d960-484a-a39f-24fdfb6d4067",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DragToken",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "049b5dc9-de42-46c7-ac06-158de2f4980a",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -321,6 +299,28 @@
                     "processors": "",
                     "groups": "KeyboardAndMouse",
                     "action": "ResetMapItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffe1d08c-d960-484a-a39f-24fdfb6d4067",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragToken",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af3f582d-e68f-444f-a5ce-9e1b9c03a446",
+                    "path": "<Keyboard>/#(M)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

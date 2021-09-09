@@ -9,14 +9,17 @@ public class RoloManager : MonoBehaviour
     [SerializeField] GameObject MapCanvas;
     [SerializeField] GameObject LinePrefab;
     [SerializeField] GameObject LineHolder;
-    [SerializeField] MapSystem mapSystem;
+    [SerializeField] GameObject Palette;
+    [SerializeField] MapSystem MapSystem;
 
     private bool isPressed;
+    private bool isPickingColor;
     private bool isDragTokenMode;
 
     private GameObject line;
     private LineRenderer lineRenderer;
     private Transform tokenTransform;
+    private Transform lineTransform;
 
     private Vector2 lineStartPos;
 
@@ -32,6 +35,7 @@ public class RoloManager : MonoBehaviour
         tokens.AddRange(GameObject.FindGameObjectsWithTag("Token"));
 
         isDragTokenMode = true;
+        isPickingColor = false;
     }
 
     public void OnToggleMap()
@@ -50,7 +54,7 @@ public class RoloManager : MonoBehaviour
             //delete connected lines from UI
             DeleteConnectedLinesFromGUI(transformToCheck);
 
-            //remove connections in tokens
+            //TODO remove connections in tokens
 
             //reset token placement
             ResetTokenPlacement(transformToCheck);    
@@ -96,24 +100,56 @@ public class RoloManager : MonoBehaviour
     {
         isPressed = input.isPressed;
 
-        if (isPressed)
+        if (isPressed && !isPickingColor)
         {
             tokenTransform = CheckIfCursorOnMapItem("Token");
-
-            if (!isDragTokenMode && tokenTransform != null)
+            if (tokenTransform != null)
             {
-                StartDrawingLine();
+                if (!isDragTokenMode)
+                {
+                    StartDrawingLine();
+                }
+
+                else if (isDragTokenMode && tokenTransform != null)
+                {
+                    UpdateLineEndingsOnDrag();
+                }
+
+                return;
             }
 
-            else if (isDragTokenMode && tokenTransform != null)
+            lineTransform = CheckIfCursorOnMapItem("ConnectionLine");
+            if (lineTransform != null)
             {
-                UpdateLineEndingsOnDrag();
+                isPickingColor = true;
+                float posX = (lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(0).x + lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(1).x) / 2;
+                float posY = (lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(0).y + lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(1).y) / 2;
+                Vector2 paletteplacement = new Vector2(posX, posY);
+                Palette.transform.position = paletteplacement;
+                isPressed = false;
+                Palette.SetActive(true);
+                return;
             }
-        }       
-        else
-        {
-            isPressed = false;
         }
+
+        else if (isPressed && isPickingColor)
+        {
+            Debug.Log("Set Color");
+            Transform paletteTransform = CheckIfCursorOnMapItem("PaletteColor");
+            if (paletteTransform != null)
+            {
+                Debug.Log(paletteTransform);
+                Color lineColor = paletteTransform.gameObject.GetComponent<SpriteRenderer>().color;
+                lineTransform.gameObject.GetComponent<LineRenderer>().startColor = lineColor;
+                lineTransform.gameObject.GetComponent<LineRenderer>().endColor = lineColor;
+            }
+
+            lineTransform = null;
+            isPickingColor = false;
+            isPressed = false;
+            Palette.SetActive(false);
+            return;
+        }     
     }
 
     void StartDrawingLine()
@@ -189,9 +225,19 @@ public class RoloManager : MonoBehaviour
         col2D.edgeRadius = 0.1f;
     }
 
+    void SnapLineToToken(Vector2 target)
+    {
+        if (connectedLines != null)
+        {
+            foreach (var connectedLine in connectedLines)
+            {
+                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, target);
+            }
+        }
+    }
+
     void UpdateLineColliders()
     {
-        Debug.Log("Update colliders");
         if (connectedLines != null)
         {
             foreach(var connectedLine in connectedLines)
@@ -211,59 +257,35 @@ public class RoloManager : MonoBehaviour
         if (tokenTransform != null)
         {
             //token drag functionality
-            if (line == null)
+            if (line == null && !isPickingColor)
             {
                 if (isPressed)
                 {
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
                     Vector2 tokenPos = mousePos - tokenTransform.position;
 
-                    if (connectedLines != null)
-                    {
-                        foreach (var connectedLine in connectedLines)
-                        {
-                            connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, tokenTransform.localPosition);
-                        }
-                    }
-
+                    SnapLineToToken(tokenTransform.localPosition);
                     tokenTransform.Translate(tokenPos);
                 }
-                else
+                else if (!isPressed)
                 {
                     Vector2 snapTo = new Vector2(Mathf.Floor(tokenTransform.localPosition.x) + 0.5f, Mathf.Floor(tokenTransform.localPosition.y) + 0.5f);
 
-                    if (snapTo.x > -mapSystem.gridWidth / 2 && snapTo.x < mapSystem.gridWidth / 2 &&
-                        snapTo.y > -mapSystem.gridHeight / 2 && snapTo.y < mapSystem.gridHeight / 2)
+                    if (snapTo.x > -MapSystem.gridWidth / 2 && snapTo.x < MapSystem.gridWidth / 2 &&
+                        snapTo.y > -MapSystem.gridHeight / 2 && snapTo.y < MapSystem.gridHeight / 2)
                     {
                         tokenTransform.localPosition = snapTo;
                         tokenTransform.GetComponent<TokenBehaviour>().previousPos = snapTo;
 
-                        if (connectedLines != null)
-                        {
-                            foreach (var connectedLine in connectedLines)
-                            {
-                                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
-                            }
-
-                            UpdateLineColliders();
-                        }
+                        SnapLineToToken(snapTo);
+                        UpdateLineColliders();
                     }
                     else
                     {
                         snapTo = tokenTransform.gameObject.GetComponent<TokenBehaviour>().previousPos;
                         tokenTransform.localPosition = snapTo;
-                        if (connectedLines != null)
-                        {
-                            foreach (var connectedLine in connectedLines)
-                            {
-                                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, snapTo);
-                            }
-                            //UpdateLineColliders();
-                        }
-                    }
-
-
-                    
+                        SnapLineToToken(snapTo);
+                    }                    
 
                     tokenTransform = null;
                 }
@@ -272,7 +294,7 @@ public class RoloManager : MonoBehaviour
             //line drawing functionality
             else
             {
-                if (isPressed)
+                if (isPressed && !isPickingColor)
                 {
                     MoveLineEndAlongCursor();
                 }
