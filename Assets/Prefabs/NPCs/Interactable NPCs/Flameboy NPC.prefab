@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1193701056127892011
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5207093746903969799, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875742, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_Name
+      value: Flameboy NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+--- !u!4 &1984819218584128115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 800407464038215768, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+  m_PrefabInstance: {fileID: 1193701056127892011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2508061409736337560
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1984819218584128115}
+    m_Modifications:
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004528, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699671446331004533, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
+      propertyPath: m_Name
+      value: Flameboy Sprite
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5bf5aee5cc813c4409dacc139e339a2d, type: 3}
