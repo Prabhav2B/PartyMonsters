@@ -51,6 +51,16 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
 
     public void SwitchToStation()
     {
-        
+        _trainScheduler.PlayerLocation = PlayerLocation.station;
+        _trainScheduler.SetCurrentStation();
+        _trainScheduler.PushTrainsForward();
+
+
+        _station.gameObject.SetActive(true);
+        //_trainExterior.gameObject.SetActive(false);
+        _trainExterior.CurrentTrainInterior.gameObject.SetActive(false);
+        //_trainExterior.CurrentTrainInterior.DisableInteractionTriggers();
+        _player.transform.position = playerStartPosition; // ignoring rigidbody here hehehe
+        _sceneFadeManager.FadeIn();
     }
 }

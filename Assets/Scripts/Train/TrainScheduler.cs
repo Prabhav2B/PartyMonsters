@@ -155,6 +155,23 @@ public class TrainScheduler : MonoBehaviour
         _currentTrain.TrainOnCurrentStation = false;
     }
 
+    public void SetCurrentStation()
+    {
+        _currentStation = _currentTrain.CurrentStation;
+        _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
+    }
+
+    public void PushTrainsForward()
+    {
+        foreach (var trainLine in trainLines)
+        {
+            if (trainLine.CurrentStation == _currentStation)
+            {
+                trainLine.MoveToNextStation();
+            }
+        }
+    }
+
     public void FlushStation()
     {
         _stationOccupied = false;
