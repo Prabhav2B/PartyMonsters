@@ -881,8 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trainExteriorData: {fileID: 0}
   trainExteriorSprite: {fileID: 5140524515610019536}
-  startPositionLeft: {x: -175, y: 10.15, z: 0}
-  startPositionRight: {x: 200.4, y: 10.15, z: 0}
+  startPositionLeft: {x: -87.5, y: 10.15, z: 0}
+  startPositionRight: {x: 100.2, y: 10.15, z: 0}
   destinationPosition: {x: 12.29, y: 10.15, z: 0}
   trainInterior: {fileID: 0}
 --- !u!1 &5140524516485448039

@@ -13,34 +13,102 @@ public class TrainExterior : MonoBehaviour
     [SerializeField] private Vector3 startPositionLeft;
     [SerializeField] private Vector3 startPositionRight;
     [SerializeField] private Vector3 destinationPosition;
-    
+
     [Space(10)]
 
     [SerializeField] private TrainInterior trainInterior;
 
     private TrainLineColor _trainLineColor;
-    
-    void Start()
+    private float _waitDuration;
+    private bool _reversing;
+    private bool _interactionPerformed;
+    private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
+
+    public bool InteractionPerformed
+    {
+        get => _interactionPerformed;
+        set => _interactionPerformed = value;
+    }
+
+    void Awake()
     {
         _trainLineColor = trainExteriorData.trainTrainLineColor;
         trainExteriorSprite.sprite = trainExteriorData.trainExterior;
+        _interactionColliders = new List<BoxCollider2D>(GetComponentsInChildren<BoxCollider2D>());
+
+        _waitDuration = trainExteriorData.waitDuration;
     }
 
 
     public void ArriveAtStation(bool reversing)
     {
-        transform.position = reversing ? startPositionLeft : startPositionRight;
-
-        transform.DOLocalMove(destinationPosition, 12f);
+        _reversing = reversing;
+        DisableInteractionTriggers();
+        transform.position = _reversing ? startPositionLeft : startPositionRight;
+        transform.DOLocalMove(destinationPosition, 12f).OnComplete(ArrivalComplete);
     }
-    
-    public void DepartFromStation(bool reversing)
+
+    private void ArrivalComplete()
     {
-        var exitPosition = reversing ? startPositionRight : startPositionLeft;
+        EnableInteractionTriggers();
+        StartCoroutine(WaitAtStation());
+    }
 
-        transform.DOLocalMove(exitPosition, 12f);
+    public void DepartFromStation()
+    {
+        DisableInteractionTriggers();
+        var exitPosition = _reversing ? startPositionRight : startPositionLeft;
+        exitPosition.Scale(new Vector3(.5f, 1f, 1f));
+        transform.DOLocalMove(exitPosition, 12f).OnComplete(Deactivate);
+    }
+
+    IEnumerator WaitAtStation()
+    {
+        var timeExpired = 0f;
+        
+        while (true)
+        {
+            if (timeExpired >= _waitDuration)
+            {
+                DepartFromStation();
+                break;
+            }
+            else if (_interactionPerformed)
+            {
+                _interactionPerformed = false;
+                break;
+                //trigger transition;
+            }
+
+            timeExpired += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+    }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
     }
     
-    
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 
+    private void EnableInteractionTriggers()
+    {
+        foreach (var col in _interactionColliders)
+        {
+            col.enabled = true;
+        }
+    }
+    
+    private void DisableInteractionTriggers()
+    {
+        foreach (var col in _interactionColliders)
+        {
+            col.enabled = false;
+        }
+    }
 }

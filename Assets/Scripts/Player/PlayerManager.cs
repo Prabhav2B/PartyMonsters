@@ -19,6 +19,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private PlayerInput _input;
     private SceneFadeManager _sceneFadeManager;
     private SceneChangeManager _sceneChangeManager;
+    private TrainScheduler _trainScheduler;
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
     private bool _pause;
@@ -39,6 +40,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
         _characterController = GetComponent<CharController>();
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
+        _trainScheduler = FindObjectOfType<TrainScheduler>();
         _mainMenu = FindObjectOfType<MainMenu>();
 
         _characterSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -52,6 +54,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     private void Start()
     {
+        _trainScheduler.OnTrain = false;
         _initalPosition = transform.position;
         _movementTweenFlag = -1;
     }
