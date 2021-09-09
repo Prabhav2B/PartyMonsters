@@ -10,6 +10,8 @@ public class RoloManager : MonoBehaviour
     [SerializeField] GameObject LinePrefab;
     [SerializeField] GameObject LineHolder;
     [SerializeField] GameObject Palette;
+    [SerializeField] GameObject MoveIcon;
+    [SerializeField] GameObject DrawIcon;
     [SerializeField] MapSystem MapSystem;
     [SerializeField] Transform BackgroundImage;
 
@@ -21,6 +23,7 @@ public class RoloManager : MonoBehaviour
     private LineRenderer lineRenderer;
     private Transform tokenTransform;
     private Transform lineTransform;
+    private Transform toggleTransform;
 
     private Vector2 lineStartPos;
 
@@ -131,6 +134,16 @@ public class RoloManager : MonoBehaviour
                 Palette.SetActive(true);
                 return;
             }
+
+            toggleTransform = CheckIfCursorOnMapItem("UI");
+            if (toggleTransform != null)
+            {
+                isDragTokenMode = toggleTransform.gameObject == MoveIcon ? true : false;
+                MoveIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(isDragTokenMode);
+                DrawIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(!isDragTokenMode);
+
+                return;
+            }
         }
 
         else if (isPressed && isPickingColor)
@@ -183,11 +196,6 @@ public class RoloManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void OnChangeMode()
-    {
-        isDragTokenMode = !isDragTokenMode;
     }
 
     Transform CheckIfCursorOnMapItem(string layerName)

@@ -35,8 +35,10 @@ public class MapSystem : MonoBehaviour
         else
             offsetX = -gridWidth / 2;
 
-
-        offsetY = -gridHeight / 2;
+        if (gridHeight % 2 == 0)
+            offsetY = -gridHeight / 2 + 0.5f;
+        else
+            offsetY = -gridHeight / 2;
 
         DrawGrid();
     }
