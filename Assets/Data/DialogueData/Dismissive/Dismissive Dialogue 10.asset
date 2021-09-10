@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Dialogue Conversational 5
+  m_Name: Dismissive Dialogue 10
   m_EditorClassIdentifier: 
   _sequence:
-  - text: It's not easy being a horse
+  - text: Don't flatter yourself, kid.
     quest: {fileID: 0}
     questFailText: 
-  - text: Luckily, I'm not a horse at all
-    quest: {fileID: 0}
-    questFailText: 
-  - text: So life isn't that hard.
+  - text: You're not that special.
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
