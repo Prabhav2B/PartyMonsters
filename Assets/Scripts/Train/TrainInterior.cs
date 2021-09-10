@@ -9,6 +9,7 @@ public class TrainInterior : MonoBehaviour
     [SerializeField] private SpriteRenderer trainInteriorSprite;
     
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
+    private List<TrainBackground>
     private TrainRattle _trainRattle;
     
     private TrainScheduler _trainScheduler;
