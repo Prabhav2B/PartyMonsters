@@ -8,6 +8,8 @@ public class StationBehaviour : MonoBehaviour
     public Vector2 defaultPos;
     public Vector2 previousPos;
 
+    public StationName myName;
+
     private void Start()
     {
         defaultPos = transform.position;
