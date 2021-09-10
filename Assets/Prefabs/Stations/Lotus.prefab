@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalRotation.w
@@ -290,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6699385507684711028, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699385507684711028, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -381,6 +381,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6628705040490040981}
     m_Modifications:
+    - target: {fileID: 1050891340854644870, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739648, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_Name
       value: Flameguy NPC (1)
@@ -391,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalRotation.w
@@ -508,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalRotation.w
@@ -613,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalRotation.w
@@ -798,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalRotation.w
@@ -903,7 +907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_LocalRotation.w
