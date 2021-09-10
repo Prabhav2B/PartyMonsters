@@ -171,6 +171,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9133294182597623570}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d250d72dd96b29438d543276d4d84a8, type: 2}
     - target: {fileID: 4637733177083311358, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_Name
       value: Cottoncount NPC
@@ -354,7 +358,7 @@ PrefabInstance:
     - target: {fileID: 1691006126385745265, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: _dialogueData
       value: 
-      objectReference: {fileID: 11400000, guid: 5c004b211f3f51946bb734882294a5ac, type: 2}
+      objectReference: {fileID: 11400000, guid: b824338d192d0434297cbe0c9f726599, type: 2}
     - target: {fileID: 4637733177083311358, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_Name
       value: Cottoncount NPC (1)
@@ -582,6 +586,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9133294182597623570}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: a8e332d6c4321954ca50f4c1aa2f67aa, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c004b211f3f51946bb734882294a5ac, type: 2}
     - target: {fileID: 4637733177083311358, guid: a8e332d6c4321954ca50f4c1aa2f67aa, type: 3}
       propertyPath: m_Name
       value: Cottoncandes NPC

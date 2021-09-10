@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Dismissive Dialogue 6
+  m_Name: Dialogue Conversational 3
   m_EditorClassIdentifier: 
   _sequence:
-  - text: Leave me alone, weirdo!
+  - text: Have you seen this awesome graffiti?
     quest: {fileID: 0}
     questFailText: 
-  - text: Stop bugging me.
+  - text: Sick, isn't it?
     quest: {fileID: 0}
     questFailText: 
-  - text: Creep
+  - text: Man, it's so cool.
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
