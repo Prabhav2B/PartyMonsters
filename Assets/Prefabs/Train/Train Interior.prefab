@@ -162,7 +162,7 @@ MonoBehaviour:
   leftPosition: {x: -45.2, y: 10.67, z: 0}
   rightPosition: {x: 94.44, y: 10.67, z: 0}
   centrePosition: {x: 24.5, y: 10.67, z: 0}
-  speed: 30
+  speed: 10
 --- !u!1 &2982292003794830053
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   leftPosition: {x: -45.2, y: 10.67, z: 0}
   rightPosition: {x: 94.44, y: 10.67, z: 0}
   centrePosition: {x: 24.5, y: 10.67, z: 0}
-  speed: 5
+  speed: 2
 --- !u!1 &3233416498824285403
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +818,7 @@ MonoBehaviour:
   leftPosition: {x: -45.2, y: 10.67, z: 0}
   rightPosition: {x: 94.44, y: 10.67, z: 0}
   centrePosition: {x: 24.5, y: 10.67, z: 0}
-  speed: 10
+  speed: 5
 --- !u!1 &8959599745128778880
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class TrainInterior : MonoBehaviour
     [SerializeField] private SpriteRenderer trainInteriorSprite;
     
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
-    //private List<TrainBackground>
+    private TrainBackground[] _backgrounds;
     private TrainRattle _trainRattle;
     
     private TrainScheduler _trainScheduler;
@@ -34,6 +34,7 @@ public class TrainInterior : MonoBehaviour
         trainInteriorSprite.sprite = trainInteriorData.trainInterior;
 
         _trainRattle = GetComponent<TrainRattle>();
+        _backgrounds = GetComponentsInChildren<TrainBackground>();
         _interactionColliders = new List<BoxCollider2D>(GetComponentsInChildren<BoxCollider2D>());
 
         var colsToBeRemoved = _interactionColliders.Where(col => !col.isTrigger).ToList();

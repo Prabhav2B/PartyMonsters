@@ -290,7 +290,7 @@ public class TrainLine
         _nextStation = _stationsList[_counter];
 
         NewStation = true;
-        //DebugCurrentPlatform();
+        DebugCurrentPlatform();
     }
 
     public void Tick()

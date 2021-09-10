@@ -54,6 +54,7 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
         _trainScheduler.PlayerLocation = PlayerLocation.station;
         _trainScheduler.SetCurrentStation();
         _trainScheduler.PushTrainsForward();
+        _trainScheduler.ResumeTrain();
 
 
         _station.gameObject.SetActive(true);
