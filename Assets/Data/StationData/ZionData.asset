@@ -15,3 +15,4 @@ MonoBehaviour:
   stationName: Zion
   stationBackground: {fileID: 21300000, guid: 477365363a889be4e9f827f93c5cb671, type: 3}
   stationForeground: {fileID: 21300000, guid: 3be8065beec5c384faf7b885e1dcac05, type: 3}
+  musicIndex: 0

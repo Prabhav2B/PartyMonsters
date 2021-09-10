@@ -25,22 +25,36 @@ public class MusicManager : SingleInstance<MusicManager>
 
     public void Play(int index)
     {
-        if (IsValidClipIndex(index) && index != _currentIndex)
+        if (index != _currentIndex)
         {
             _currentIndex = index;
-            var clip = _clips[index];
-            _source.clip = clip;
-            _source.Play();
+            if (IsValidClipIndex(index))
+            {
+                var clip = _clips[index];
+                _source.clip = clip;
+                _source.Play();
+            }
+            else
+            {
+                _source.Stop();
+            }
         }
     }
 
     public void FadeOutAndPlay(int index)
     {
-        if (IsValidClipIndex(index) && index != _currentIndex)
+        if (index != _currentIndex)
         {
             _currentIndex = index;
-            var clip = _clips[index];
-            StartCoroutine(FadeOutAndPlay(_source, clip, _fadeOutDuration));
+            if (IsValidClipIndex(index))
+            {
+                var clip = _clips[index];
+                StartCoroutine(FadeOutAndPlay(_source, clip, _fadeOutDuration));
+            }
+            else
+            {
+                StartCoroutine(FadeOut(_source, _fadeOutDuration));
+            }
         }
     }
 
