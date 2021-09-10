@@ -27,8 +27,8 @@ public class MapSystem : MonoBehaviour
     void Start()
     {
         //mapBackgrouund.transform.localScale = new Vector2(gridWidth, gridHeight);
-        localOffsetX = mapBackgrouund.transform.position.x;
-        localOffsetY = mapBackgrouund.transform.position.y;
+        localOffsetX = mapBackgrouund.transform.localPosition.x;
+        localOffsetY = mapBackgrouund.transform.localPosition.y;
 
         if(gridWidth % 2 == 0)
             offsetX = -gridWidth / 2 + 0.5f;
