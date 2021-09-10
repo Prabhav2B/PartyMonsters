@@ -44,6 +44,7 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
         _station.gameObject.SetActive(false);
         _trainExterior.gameObject.SetActive(false);
         _trainExterior.CurrentTrainInterior.gameObject.SetActive(true);
+        _trainExterior.CurrentTrainInterior.SetInitialReverseValue(_trainScheduler.CurrentTrainReversing);
         _trainExterior.CurrentTrainInterior.DisableInteractionTriggers();
         _player.transform.position = playerStartPosition; // ignoring rigidbody here hehehe
         _sceneFadeManager.FadeIn();

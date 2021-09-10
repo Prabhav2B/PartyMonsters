@@ -35,7 +35,7 @@ public class TrainScheduler : MonoBehaviour
         set => _playerLocation = value;
     }
 
-
+    public bool CurrentTrainReversing => _currentTrain.Reversing;
     public bool OnTrain { get; set; }
 
     private void Awake()
@@ -142,6 +142,7 @@ public class TrainScheduler : MonoBehaviour
                     _currentTrain.NewStation = false;
                     _currentTrain.TrainOnCurrentStation = true;
                     
+                    //_trainDict[_currentTrain.trainLine].CurrentTrainInterior.SetInitialReverseValue(_currentTrain.Reversing);
                     _trainDict[_currentTrain.trainLine].CurrentTrainInterior.ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
                 }
 
@@ -290,7 +291,8 @@ public class TrainLine
         _nextStation = _stationsList[_counter];
 
         NewStation = true;
-        DebugCurrentPlatform();
+
+        // DebugCurrentPlatform();
     }
 
     public void Tick()

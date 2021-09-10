@@ -47,7 +47,16 @@ public class TrainInterior : MonoBehaviour
         
         _waitDuration = trainInteriorData.waitDuration;
     }
-    
+
+    public void SetInitialReverseValue(bool reversing)
+    {
+        foreach (var background in _backgrounds)
+        {
+            background.Reversing = reversing;
+            background.Init();
+        }
+    }
+
     public void ArriveAtStation(bool reversing, bool isEndStation)
     {
         _reversing = reversing;
@@ -55,13 +64,22 @@ public class TrainInterior : MonoBehaviour
         DisableInteractionTriggers();
         //transform.position = _reversing ? startPositionLeft : startPositionRight;
         //transform.DOLocalMove(destinationPosition, 12f).OnComplete(ArrivalComplete);
-        _trainRattle.enabled = false;
-        ArrivalComplete();
+        _trainRattle.Stopped = true;
+        foreach (var background in _backgrounds)
+        {
+            background.Halt();
+        }
 
+        StartCoroutine(WaitTillHalt());
     }
     
     private void ArrivalComplete()
     {
+        foreach (var background in _backgrounds)
+        {
+            background.Reversing = _reversing;
+        }
+
         EnableInteractionTriggers();
         StartCoroutine(WaitAtStation());
     }
@@ -69,9 +87,14 @@ public class TrainInterior : MonoBehaviour
     public void DepartFromStation()
     {
         DisableInteractionTriggers();
-        //StartCoroutine(DepartStationAnim());
-        _trainRattle.enabled = true;
-        _trainScheduler.ResumeTrain();
+        foreach (var background in _backgrounds)
+        {
+            background.Reversing = _reversing;
+            background.UnHalt();
+        }
+
+        StartCoroutine(WaitTillUnHalt());
+        
     }
     
     IEnumerator WaitAtStation()
@@ -96,6 +119,37 @@ public class TrainInterior : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+    }
+    IEnumerator WaitTillHalt()
+    {
+        var timeExpired = 0f;
+        
+        while (true)
+        {
+            if (timeExpired >= 6f)
+            {
+                break;
+            }
+            timeExpired += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        ArrivalComplete();
+    }
+    IEnumerator WaitTillUnHalt()
+    {
+        var timeExpired = 0f;
+        
+        while (true)
+        {
+            if (timeExpired >= 6f)
+            {
+                break;
+            }
+            timeExpired += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        _trainRattle.Stopped = false;
+        _trainScheduler.ResumeTrain();
     }
     
     // IEnumerator DepartStationAnim()

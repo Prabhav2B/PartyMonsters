@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TrainRattle : MonoBehaviour
 {
+    public bool Stopped { get; set; }
+
     void Start()
     {
         Shake();
@@ -24,6 +26,15 @@ public class TrainRattle : MonoBehaviour
 
     IEnumerator WaitCoroutine()
     {
+        while (true)
+        {
+            if (!Stopped)
+            {
+                break;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
         yield return new WaitForSeconds(Random.Range(.75f, 2f));
         Shake();
     }

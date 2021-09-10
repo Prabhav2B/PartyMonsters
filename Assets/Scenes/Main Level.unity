@@ -1092,7 +1092,11 @@ PrefabInstance:
     - target: {fileID: 2527899127775142576, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: _sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1af20a6e790d2a44eb6e7e60623d7d17, type: 3}
+      objectReference: {fileID: 21300000, guid: 04b366ab3541fc949a24226845365ca2, type: 3}
+    - target: {fileID: 2527899127775142576, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
+      propertyPath: maxSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6529780187040848400, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: _sprite
       value: 
