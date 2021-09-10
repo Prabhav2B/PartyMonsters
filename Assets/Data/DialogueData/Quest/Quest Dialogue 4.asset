@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
+  m_Name: Quest Dialogue 4
+  m_EditorClassIdentifier: 
+  _sequence:
+  - text: Can you help me?
+    quest: {fileID: 0}
+    questFailText: 
+  - text: 'I have an appointment with someone, whose spirit looks like a pink cotton
+      candy.
+
+      Do you know which station they are at?'
+    quest: {fileID: 0}
+    questFailText: "That can\u2019t be it, as I\u2019ve already looked from there."
+  - text: "Wonderful! I'll go to meet that spirit.\n<i>I\u2019ll just sharpen my
+      blade first...</b>"
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence:
+  - text: I love my job!
+    quest: {fileID: 0}
+    questFailText: 

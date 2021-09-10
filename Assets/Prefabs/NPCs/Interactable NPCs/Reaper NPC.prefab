@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1964483726806350289, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: e61aa5044a4c4234e9676fec55b7c98e, type: 2}
     - target: {fileID: 4122945439825832472, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505685002654875742, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_Name
-      value: Cottoncandes NPC 1
+      value: Reaper NPC
       objectReference: {fileID: 0}
     - target: {fileID: 5505685002654875743, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_RootOrder
