@@ -46,6 +46,12 @@ TagManager:
   - name: Background
     uniqueID: 428212855
     locked: 0
+  - name: TrainBackground
+    uniqueID: 1056553701
+    locked: 0
+  - name: TrainInterior
+    uniqueID: 1253832797
+    locked: 0
   - name: Train
     uniqueID: 1984024863
     locked: 0
