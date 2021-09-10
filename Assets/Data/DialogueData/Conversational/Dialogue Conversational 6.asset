@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Dialogue Conversational 4
+  m_Name: Dialogue Conversational 6
   m_EditorClassIdentifier: 
   _sequence:
-  - text: Elysia station? That's miles away!
+  - text: I'm sick of being a plant!
     quest: {fileID: 0}
     questFailText: 
-  - text: I think it's on the white line or something...
+  - text: It sucks!
     quest: {fileID: 0}
     questFailText: 
-  - text: Well, good luck!
+  - text: Why didn't I get to be one of those cool lava lamp people?
+    quest: {fileID: 0}
+    questFailText: 
+  - text: It's not fair!
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []

@@ -198,6 +198,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 1691006126385745265, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: fefb117c85eb2d4439edc63d4731774b, type: 2}
     - target: {fileID: 4637733177083311358, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_Name
       value: Planthorse NPC (1)
@@ -212,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.96
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -307,6 +311,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4765820152311173987}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 61861247c080a774a87a118f45bb153e, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bdb22fe2d1292542b9944c5f42aecee, type: 2}
     - target: {fileID: 4637733177083311358, guid: 61861247c080a774a87a118f45bb153e, type: 3}
       propertyPath: m_Name
       value: Glasshead NPC
@@ -317,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 61861247c080a774a87a118f45bb153e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.84
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: 61861247c080a774a87a118f45bb153e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -483,6 +491,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4765820152311173987}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 516bd91f7e7929a4da4b0133000bdcfe, type: 2}
     - target: {fileID: 4637733177083311358, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_Name
       value: Planthorse NPC
@@ -493,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.0954285
+      value: 7.44
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_LocalPosition.y

@@ -1100,6 +1100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6155607322068496716}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b73b2d2e7e3527439fe3807f4749882, type: 2}
     - target: {fileID: 4637733177083311358, guid: f70ad8ea90be2b345940ad989807a26b, type: 3}
       propertyPath: m_Name
       value: Planthorse NPC
@@ -1494,6 +1498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6155607322068496716}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 509787acdca6f3d4b920ac170233ac73, type: 2}
     - target: {fileID: 4637733177083311358, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
       propertyPath: m_Name
       value: Plantkid NPC

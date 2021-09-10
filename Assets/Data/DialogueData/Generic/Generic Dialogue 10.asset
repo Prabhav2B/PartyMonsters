@@ -13,7 +13,16 @@ MonoBehaviour:
   m_Name: Generic Dialogue 10
   m_EditorClassIdentifier: 
   _sequence:
-  - text: La la la...
+  - text: La de da de da de da de day oh
+    quest: {fileID: 0}
+    questFailText: 
+  - text: La de da de, where did all the good times go?
+    quest: {fileID: 0}
+    questFailText: 
+  - text: La de da de la da dee dum dom, la da de day
+    quest: {fileID: 0}
+    questFailText: 
+  - text: When will you come back home?
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
