@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Random Dialogue 12
+  m_Name: Specific Dialogue 4
   m_EditorClassIdentifier: 
   _sequence:
-  - text: "So cold\u2026"
+  - text: Did I dream about falling?
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []

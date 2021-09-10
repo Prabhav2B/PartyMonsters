@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Other Dialogue 7
+  m_Name: Generic Dialogue 4
   m_EditorClassIdentifier: 
   _sequence:
-  - text: "I think I\u2019m gonna meet my grandma soon, I\u2019m so happy!"
+  - text: "I\u2019m waiting for my metro connection to arrive."
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Other Dialogue 3
+  m_Name: Specific Dialogue 9
   m_EditorClassIdentifier: 
   _sequence:
-  - text: "I might have made a mistake when I went fishing\u2026"
+  - text: I see through you...
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
