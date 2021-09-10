@@ -1329,6 +1329,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1959685016955269516}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: bba00b5683f7ac94cb12e9f20b41c101, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f88a3c24f764474bbcfc928c24296a7, type: 2}
     - target: {fileID: 4637733177083311358, guid: bba00b5683f7ac94cb12e9f20b41c101, type: 3}
       propertyPath: m_Name
       value: Flowerperson NPC
