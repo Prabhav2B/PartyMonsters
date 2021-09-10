@@ -274,6 +274,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8484229263824891992}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 61861247c080a774a87a118f45bb153e, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 54305dcbb2becb541ae8c3c30abc9f0b, type: 2}
     - target: {fileID: 4637733177083311358, guid: 61861247c080a774a87a118f45bb153e, type: 3}
       propertyPath: m_Name
       value: Glasshead NPC
@@ -379,6 +383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8484229263472577817}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 82b30388f41658c46b52f7479ff9ec94, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 592120c6eb20ec946b7212487ffba87f, type: 2}
     - target: {fileID: 4637733177083311358, guid: 82b30388f41658c46b52f7479ff9ec94, type: 3}
       propertyPath: m_Name
       value: Tubehead NPC
@@ -484,6 +492,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8484229263824891992}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 82b30388f41658c46b52f7479ff9ec94, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c004b211f3f51946bb734882294a5ac, type: 2}
     - target: {fileID: 4637733177083311358, guid: 82b30388f41658c46b52f7479ff9ec94, type: 3}
       propertyPath: m_Name
       value: Tubehead NPC

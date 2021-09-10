@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5208078295166153027, guid: c47bc9541b2791447a76fd9474a07d1a, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 87e5bf2385adb7c44a3dad209e26acff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47bc9541b2791447a76fd9474a07d1a, type: 3}
 --- !u!1001 &1981363529402735419
@@ -552,6 +556,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5208078295166153027, guid: c47bc9541b2791447a76fd9474a07d1a, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0988240f64578b444bb33e0169389606, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47bc9541b2791447a76fd9474a07d1a, type: 3}
 --- !u!1001 &7237227590019272584
@@ -561,6 +569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7161386798253786429}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: b03d3316b8bbdca4d8caab6cfc61920e, type: 2}
     - target: {fileID: 4637733177083311358, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_Name
       value: Genericsoul NPC (1)

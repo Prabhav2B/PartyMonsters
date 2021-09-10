@@ -991,6 +991,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6155607322068496716}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 223b20222b50aed4e8f4f1cde3d1b488, type: 2}
     - target: {fileID: 4637733177083311358, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_Name
       value: Genericsoul NPC
@@ -1201,6 +1205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6155607322068496716}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: b70f88618da7fb6459f25f65b511223b, type: 2}
     - target: {fileID: 4637733177083311358, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_Name
       value: Genericsoul NPC
@@ -1377,6 +1385,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6155607322068496716}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 95184b98d2de53241b6dcbc6a03510d1, type: 2}
     - target: {fileID: 4637733177083311358, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_Name
       value: Genericsoul NPC (1)
