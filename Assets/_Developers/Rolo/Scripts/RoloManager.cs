@@ -26,7 +26,7 @@ public class RoloManager : MonoBehaviour
     private Transform toggleTransform;
 
     private Vector2 lineStartPos;
-
+    private Camera mainCam;
 
     private List<GameObject> tokens;
 
@@ -35,6 +35,8 @@ public class RoloManager : MonoBehaviour
 
     private void Start()
     {
+        mainCam = Camera.main;
+        
         tokens = new List<GameObject>();
         tokens.AddRange(GameObject.FindGameObjectsWithTag("Token"));
 
@@ -71,7 +73,7 @@ public class RoloManager : MonoBehaviour
     void ResetTokenPlacement(Transform t)
     {
         StationBehaviour sb = t.GetComponent<StationBehaviour>();
-        t.localPosition = sb.defaultPos;
+        t.position = sb.defaultPos;
         sb.previousPos = sb.defaultPos;       
     }
 
@@ -107,8 +109,8 @@ public class RoloManager : MonoBehaviour
                 if (!isDragTokenMode)
                 {
                     //check if line is within boundaries
-                    if (stationTransform.localPosition.x >= -MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x && stationTransform.localPosition.x <= MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x &&
-                        stationTransform.localPosition.y >= -MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y && stationTransform.localPosition.y <= MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y)
+                    if (stationTransform.position.x >= -MapSystem.gridWidth / 2 + BackgroundImage.position.x && stationTransform.position.x <= MapSystem.gridWidth / 2 + BackgroundImage.position.x &&
+                        stationTransform.position.y >= -MapSystem.gridHeight / 2 + BackgroundImage.position.y && stationTransform.position.y <= MapSystem.gridHeight / 2 + BackgroundImage.position.y)
                     {
                         StartDrawingLine();
                         AddStationToTheLine(stationTransform);
@@ -204,7 +206,7 @@ public class RoloManager : MonoBehaviour
 
     void StartDrawingLine()
     {
-        lineStartPos = new Vector2(stationTransform.localPosition.x, stationTransform.localPosition.y); ;
+        lineStartPos = new Vector2(stationTransform.position.x, stationTransform.position.y); ;
         line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
         lineRenderer = line.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, lineStartPos);
@@ -225,7 +227,7 @@ public class RoloManager : MonoBehaviour
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        if (lr.GetPosition(i) == stationTransform.localPosition)
+                        if (lr.GetPosition(i) == stationTransform.position)
                         {
                             connectedLines.Add(gameObject.transform, i);
                             break;
@@ -239,7 +241,7 @@ public class RoloManager : MonoBehaviour
     Transform CheckIfCursorOnMapItem(string layerName)
     {
         Transform tCollider = null;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (hit.collider != null)
         {
@@ -256,13 +258,13 @@ public class RoloManager : MonoBehaviour
 
     void MoveLineEndAlongCursor()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
+        Vector2 mousePos = mainCam.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
         lineRenderer.SetPosition(1, mousePos);
     }
 
     void SnapLineToGrid()
     {
-        Vector2 snapTo = new Vector2(stationTransform.localPosition.x, stationTransform.localPosition.y);
+        Vector2 snapTo = new Vector2(stationTransform.position.x, stationTransform.position.y);
         lineRenderer.SetPosition(1, snapTo);
         EdgeCollider2D col2D = line.GetComponent<EdgeCollider2D>();
         List<Vector2> pointList = new List<Vector2>() { lineStartPos, snapTo };
@@ -308,17 +310,17 @@ public class RoloManager : MonoBehaviour
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
                     Vector2 tokenPos = mousePos - stationTransform.position;
 
-                    SnapLineToToken(stationTransform.localPosition);
+                    SnapLineToToken(stationTransform.position);
                     stationTransform.Translate(tokenPos);
                 }
                 else if (!isPressed)
                 {
-                    Vector2 snapTo = new Vector2(Mathf.Floor(stationTransform.localPosition.x) + 0.5f, Mathf.Floor(stationTransform.localPosition.y + 0.5f));
+                    Vector2 snapTo = new Vector2(Mathf.Floor(stationTransform.position.x) + 0.5f, Mathf.Floor(stationTransform.position.y + 0.5f));
 
-                    if (snapTo.x >= -MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x && snapTo.x <= MapSystem.gridWidth / 2 + BackgroundImage.localPosition.x &&
-                        snapTo.y >= -MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y && snapTo.y <= MapSystem.gridHeight / 2 + BackgroundImage.localPosition.y)
+                    if (snapTo.x >= -MapSystem.gridWidth / 2 + BackgroundImage.position.x && snapTo.x <= MapSystem.gridWidth / 2 + BackgroundImage.position.x &&
+                        snapTo.y >= -MapSystem.gridHeight / 2 + BackgroundImage.position.y && snapTo.y <= MapSystem.gridHeight / 2 + BackgroundImage.position.y)
                     {
-                        stationTransform.localPosition = snapTo;
+                        stationTransform.position = snapTo;
                         stationTransform.GetComponent<StationBehaviour>().previousPos = snapTo;
 
                         SnapLineToToken(snapTo);
@@ -327,7 +329,7 @@ public class RoloManager : MonoBehaviour
                     else
                     {
                         snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
-                        stationTransform.localPosition = snapTo;
+                        stationTransform.position = snapTo;
                         SnapLineToToken(snapTo);
                     }                    
 
