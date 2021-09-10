@@ -77,7 +77,7 @@ public class TrainInterior : MonoBehaviour
     {
         foreach (var background in _backgrounds)
         {
-            background.Reversing = _reversing;
+            background.Reversing = _isEndStation ? !_reversing : _reversing;
         }
 
         EnableInteractionTriggers();
@@ -89,7 +89,6 @@ public class TrainInterior : MonoBehaviour
         DisableInteractionTriggers();
         foreach (var background in _backgrounds)
         {
-            background.Reversing = _reversing;
             background.UnHalt();
         }
 
