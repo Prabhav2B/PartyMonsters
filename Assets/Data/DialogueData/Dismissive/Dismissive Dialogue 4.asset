@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Test Dialogue
+  m_Name: Dismissive Dialogue 4
   m_EditorClassIdentifier: 
   _sequence:
-  - text: Yo.
+  - text: I don't like strangers.
     quest: {fileID: 0}
     questFailText: 
-  - text: Whaddaya want?
+  - text: Go away!
     quest: {fileID: 0}
     questFailText: 
-  - text: Whatever, dude.
+  - text: Shoo!
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
