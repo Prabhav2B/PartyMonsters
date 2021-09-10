@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TrainInterior : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class TrainInterior : MonoBehaviour
     private bool _reversing;
     private bool _isEndStation;
     private bool _interactionPerformed;
+
+    public UnityEvent OnTrainStop;
+    public UnityEvent OnTrainStart;
     
     public bool InteractionPerformed
     {
@@ -80,12 +84,14 @@ public class TrainInterior : MonoBehaviour
             background.Reversing = _isEndStation ? !_reversing : _reversing;
         }
 
+        OnTrainStop?.Invoke();
         EnableInteractionTriggers();
         StartCoroutine(WaitAtStation());
     }
     
     public void DepartFromStation()
     {
+        OnTrainStart?.Invoke();
         DisableInteractionTriggers();
         foreach (var background in _backgrounds)
         {
