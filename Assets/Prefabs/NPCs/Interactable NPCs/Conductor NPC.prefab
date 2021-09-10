@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1964483726806350289, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f2885dd70606aa42bcee741d8c0aaec, type: 2}
     - target: {fileID: 4122945439825832472, guid: 448bf8d0e8f514e478ff141bdfbf317e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.28
@@ -143,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2148731540940165794, guid: c14e80201b589ed4bb9a1a5998b02c9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.96
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 2148731540940165794, guid: c14e80201b589ed4bb9a1a5998b02c9a, type: 3}
       propertyPath: m_LocalPosition.z

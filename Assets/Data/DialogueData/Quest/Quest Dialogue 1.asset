@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Quest 1 Dialogue
+  m_Name: Quest Dialogue 1
   m_EditorClassIdentifier: 
   _sequence:
   - text: "Ahh, I think I found my station!\nIt\u2019s so fierce!"
