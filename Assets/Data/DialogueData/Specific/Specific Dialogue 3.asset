@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
-  m_Name: Other Dialogue 1
+  m_Name: Specific Dialogue 3
   m_EditorClassIdentifier: 
   _sequence:
-  - text: "I was just fixing my roof, and poof!\nNow I\u2019m here... I don\u2019t
-      understand."
+  - text: "I might have made a mistake when I went fishing\u2026"
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
