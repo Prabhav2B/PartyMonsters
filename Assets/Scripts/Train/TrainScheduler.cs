@@ -21,6 +21,7 @@ public class TrainScheduler : MonoBehaviour
     private TrainExterior _trainOnStation;
     private TrainLine _currentTrain;
     private SceneChangeManager _sceneChangeManager;
+    private MusicManager _musicManager;
 
     private PlayerLocation _playerLocation;
 
@@ -66,6 +67,8 @@ public class TrainScheduler : MonoBehaviour
         _stationDict[_currentStation].Activate();
 
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
+        _musicManager = FindObjectOfType<MusicManager>();
+        _musicManager.Play(_stationDict[_currentStation].StationData.musicIndex);
         _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
     }
 
@@ -159,6 +162,11 @@ public class TrainScheduler : MonoBehaviour
     {
         _currentStation = _currentTrain.CurrentStation;
         _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
+        int musicIndex = _stationDict[_currentStation].StationData.musicIndex;
+        if (musicIndex != _musicManager.CurrentIndex)
+        {
+            _musicManager.FadeOutAndPlay(musicIndex);
+        }
     }
 
     public void PushTrainsForward()

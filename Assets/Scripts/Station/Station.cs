@@ -9,6 +9,8 @@ public class Station : MonoBehaviour
     [SerializeField] private SpriteRenderer stationBackground;
     [SerializeField] private SpriteRenderer stationForeGround;
 
+    public StationScriptableObject StationData => stationData;
+
     private string _stationName;
     
     private void Start()
