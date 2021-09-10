@@ -708,6 +708,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4579499812182561059, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4964617795761369669, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -772,6 +776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 5838202378829860340, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5838202380237243615, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1
@@ -787,6 +795,14 @@ PrefabInstance:
     - target: {fileID: 6861926066532374317, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835808211983740236, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835808211983740236, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8914684197679732761, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
       propertyPath: m_Layer
@@ -2484,7 +2500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
@@ -2495,11 +2511,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409779618}
+    - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1409779618}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
@@ -2519,12 +2543,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnToggleMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ToggleBlockMovement
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2539,6 +2571,10 @@ PrefabInstance:
       value: PlayerManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: RoloManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -2548,6 +2584,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 626658866887087708, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c7cbc4e4a7c0142a678f797f0de7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mapToggler: {fileID: 0}
 --- !u!114 &626658866887087711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,14 +200,38 @@ MonoBehaviour:
     m_ActionId: 3cb0f16e-21a5-49ba-84fa-bcad75f17fa0
     m_ActionName: Player/MainMenu[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 626658866887087710}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: OnToggleMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 626658866887087710}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: ToggleBlockMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b7b5de34-d894-4f7d-b126-9c119a95535e
     m_ActionName: Player/ToggleMap[/Keyboard/m]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 626658866887087710}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: OnHoldTest
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
+        m_MethodName: OnDragToken
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -240,9 +265,9 @@ MonoBehaviour:
     m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 626658866887087710}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: OnDoubleClickTest
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
+        m_MethodName: OnResetMapItem
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

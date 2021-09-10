@@ -26,6 +26,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private MainMenu _mainMenu;
     private Vector3 _initalPosition;
     private bool _pause;
+    private bool _blockMovement;
 
     private readonly List<Interactable> _interactables = new List<Interactable>();
     private Interactable _activeInteractable = null;
@@ -124,7 +125,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(_pause)
+        if(_pause || _blockMovement)
             return;
         
         ReceivedInput = context.ReadValue<Vector2>();
@@ -133,7 +134,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(_pause)
+        if(_pause || _blockMovement)
             return;
         
         if (Math.Abs(context.ReadValue<float>() - 1f) < 0.5f)
@@ -313,6 +314,11 @@ public class PlayerManager : SingleInstance<PlayerManager>
     public void UnPause()
     {
         _pause = false;
+    }
+
+    public void ToggleBlockMovement()
+    {
+        _blockMovement = !_blockMovement;
     }
 
     public void Deactivate()

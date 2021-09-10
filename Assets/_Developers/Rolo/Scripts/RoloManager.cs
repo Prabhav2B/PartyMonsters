@@ -146,12 +146,9 @@ public class RoloManager : MonoBehaviour
                 if (lineTransform != null)
                 {
                     isPickingColor = true;
-                    float posX = (lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(0).x +
-                                  lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(1).x) / 2;
-                    float posY = (lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(0).y +
-                                  lineTransform.gameObject.GetComponent<LineRenderer>().GetPosition(1).y) / 2;
-                    Vector2 paletteplacement = new Vector2(posX, posY);
-                    Palette.transform.position = paletteplacement;
+                    var lr = lineTransform.GetComponent<LineRenderer>();
+                    var displacement = lr.GetPosition(0) - lr.GetPosition(1);
+                    Palette.transform.position = lineTransform.TransformPoint(lr.GetPosition(1) + (displacement * 0.5f));
                     isPressed = false;
                     Palette.SetActive(true);
                     return;
@@ -309,7 +306,6 @@ public class RoloManager : MonoBehaviour
 
     void SnapLineToToken(Vector2 target)
     {
-        Debug.Log(connectedLines.Count);
         if (connectedLines != null)
         {
             foreach (var connectedLine in connectedLines)
