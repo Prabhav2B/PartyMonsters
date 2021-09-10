@@ -48,6 +48,7 @@ public class TrainBackground : MonoBehaviour
         _spriteB.sprite = _sprite;
 
         _offset = centrePosition.x - leftPosition.x;
+        speed = maxSpeed;
     }
 
     public void Halt()
