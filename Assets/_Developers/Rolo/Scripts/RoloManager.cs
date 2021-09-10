@@ -6,6 +6,7 @@ using UnityEngine.InputSystem.Interactions;
 
 public class RoloManager : MonoBehaviour
 {
+    [SerializeField] private LayerMask RaycastLayers = default(LayerMask);
     [SerializeField] private GameObject MapCanvas;
     [SerializeField] private GameObject LinePrefab;
     [SerializeField] private GameObject LineHolder;
@@ -14,7 +15,6 @@ public class RoloManager : MonoBehaviour
     [SerializeField] private GameObject DrawIcon;
     [SerializeField] private MapSystem MapSystem;
     [SerializeField] private Transform BackgroundImage;
-    
     [SerializeField] private ObjectToggler objectToggler;
 
     private bool isPressed;
@@ -78,8 +78,8 @@ public class RoloManager : MonoBehaviour
     void ResetTokenPlacement(Transform t)
     {
         StationBehaviour sb = t.GetComponent<StationBehaviour>();
-        t.position = sb.defaultPos;
-        sb.previousPos = sb.defaultPos;       
+        t.localPosition = sb.defaultPos;
+        sb.previousPos = sb.defaultPos;
     }
 
     void DeleteConnectedLinesFromGUI(Transform t)
@@ -117,8 +117,8 @@ public class RoloManager : MonoBehaviour
                 if (!isDragTokenMode)
                 {
                     //check if line is within boundaries
-                    if (stationTransform.position.x >= -MapSystem.gridWidth / 2 + BackgroundImage.position.x && stationTransform.position.x <= MapSystem.gridWidth / 2 + BackgroundImage.position.x &&
-                        stationTransform.position.y >= -MapSystem.gridHeight / 2 + BackgroundImage.position.y && stationTransform.position.y <= MapSystem.gridHeight / 2 + BackgroundImage.position.y)
+                    if (stationTransform.position.x >= -MapSystem.gridWidth / 2 + transform.position.x && stationTransform.position.x <= MapSystem.gridWidth / 2 + transform.position.x &&
+                        stationTransform.position.y >= -MapSystem.gridHeight / 2 + transform.position.y && stationTransform.position.y <= MapSystem.gridHeight / 2 + transform.position.y)
                     {
                         StartDrawingLine();
                         AddStationToTheLine(stationTransform);
@@ -235,7 +235,8 @@ public class RoloManager : MonoBehaviour
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        if (lr.GetPosition(i) == stationTransform.position)
+                        float distance = Vector2.Distance((Vector2)stationTransform.position, (Vector2)lr.GetPosition(i));
+                        if (distance <= 0.01f)
                         {
                             connectedLines.Add(gameObject.transform, i);
                             break;
@@ -249,20 +250,18 @@ public class RoloManager : MonoBehaviour
     Transform CheckIfCursorOnMapItem(string layerName)
     {
         Transform tCollider = null;
-        Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-        if (hit.collider != null)
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector2(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue()));
+        Collider2D collider = Physics2D.OverlapPoint((Vector2)mousePos, RaycastLayers);
+        if (collider != null)
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer(layerName))
+            if (collider.gameObject.layer == LayerMask.NameToLayer(layerName))
             {
-                tCollider =  hit.collider.transform;
+                tCollider = collider.transform;
             }
         }
 
         return tCollider;
     }
-
-   
 
     void MoveLineEndAlongCursor()
     {
@@ -316,17 +315,17 @@ public class RoloManager : MonoBehaviour
                 if (isPressed)
                 {
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), -10f));
-                    Vector2 tokenPos = mousePos - stationTransform.position;
+                    Vector2 tokenTranslation = mousePos - stationTransform.position;
 
                     SnapLineToToken(stationTransform.position);
-                    stationTransform.Translate(tokenPos);
+                    stationTransform.Translate(tokenTranslation);
                 }
                 else if (!isPressed)
                 {
                     Vector2 snapTo = new Vector2(Mathf.Floor(stationTransform.position.x) + 0.5f, Mathf.Floor(stationTransform.position.y + 0.5f));
 
-                    if (snapTo.x >= -MapSystem.gridWidth / 2 + BackgroundImage.position.x && snapTo.x <= MapSystem.gridWidth / 2 + BackgroundImage.position.x &&
-                        snapTo.y >= -MapSystem.gridHeight / 2 + BackgroundImage.position.y && snapTo.y <= MapSystem.gridHeight / 2 + BackgroundImage.position.y)
+                    if (snapTo.x >= -MapSystem.gridWidth / 2 + transform.position.x && snapTo.x <= MapSystem.gridWidth / 2 + transform.position.x &&
+                        snapTo.y >= -MapSystem.gridHeight / 2 + transform.position.y && snapTo.y <= MapSystem.gridHeight / 2+ transform.position.y)
                     {
                         stationTransform.position = snapTo;
                         stationTransform.GetComponent<StationBehaviour>().previousPos = snapTo;
@@ -339,7 +338,7 @@ public class RoloManager : MonoBehaviour
                         snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
                         stationTransform.position = snapTo;
                         SnapLineToToken(snapTo);
-                    }                    
+                    }
 
                     stationTransform = null;
                 }
@@ -357,7 +356,8 @@ public class RoloManager : MonoBehaviour
                     stationTransform = CheckIfCursorOnMapItem("Token");
                     if (stationTransform != null && line.name != "dummy")
                     {
-                        if (stationTransform.position == line.GetComponent<LineRenderer>().GetPosition(0))
+                        float distance = Vector2.Distance((Vector2)stationTransform.position, (Vector2)line.GetComponent<LineRenderer>().GetPosition(0));
+                        if (distance <= 0.01f)
                         {
                             Destroy(line);
                         }

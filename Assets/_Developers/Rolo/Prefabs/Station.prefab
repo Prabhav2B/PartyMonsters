@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7682230404053640625}
   - component: {fileID: 6783218801697485603}
   - component: {fileID: 2284693451005906627}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9051619613054248402}
   - component: {fileID: 4029492153287413980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: station-label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 2081243867548171891}
   - component: {fileID: 4740818866709225024}
   - component: {fileID: 1519878090630766170}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,3 +382,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPos: {x: 0, y: 0}
   previousPos: {x: 0, y: 0}
+  myName: 0

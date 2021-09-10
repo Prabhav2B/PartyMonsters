@@ -12,7 +12,7 @@ public class StationBehaviour : MonoBehaviour
 
     private void Start()
     {
-        defaultPos = transform.position;
+        defaultPos = transform.localPosition;
         previousPos = defaultPos;
     }
 }

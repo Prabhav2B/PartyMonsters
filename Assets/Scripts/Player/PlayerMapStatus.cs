@@ -16,22 +16,22 @@ public class PlayerMapStatus : MonoBehaviour
         _trainScheduler = FindObjectOfType<TrainScheduler>();
     }
 
-    void Update()
-    {
-        drawnLines.Clear();
-        var mapLines = lineParent.GetComponentsInChildren<ConnectionLineBehaviour>();
+    // void Update()
+    // {
+    //     drawnLines.Clear();
+    //     var mapLines = lineParent.GetComponentsInChildren<ConnectionLineBehaviour>();
 
-        foreach (var mapLine in mapLines)
-        {
-            var line = new LineConnection();
-            line._stations.Add(mapLine.connectedStations[0].myName);
-            line._stations.Add(mapLine.connectedStations[1].myName);
+    //     foreach (var mapLine in mapLines)
+    //     {
+    //         var line = new LineConnection();
+    //         line._stations.Add(mapLine.connectedStations[0].myName);
+    //         line._stations.Add(mapLine.connectedStations[1].myName);
 
-            line._lineColor = mapLine.myColor;
-            drawnLines.Add(line);
+    //         line._lineColor = mapLine.myColor;
+    //         drawnLines.Add(line);
 
-        }
-    }
+    //     }
+    // }
 
     public static bool ContainsItemOfType(List<LineConnection> requiredConnections)
     {

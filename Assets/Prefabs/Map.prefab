@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838202378304130931}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Grid Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838202378521025252}
   - component: {fileID: 5838202378521025251}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: map-hands-front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,8 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838202378588284691}
   - component: {fileID: 5838202378588284690}
-  - component: {fileID: 5838202378588284689}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,6 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be04ee78a7a846541892f8965ce5368b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RaycastLayers:
+    serializedVersion: 2
+    m_Bits: 672
   MapCanvas: {fileID: 5838202380197589013}
   LinePrefab: {fileID: 9108716608690096232, guid: e454c1aeafc4c3e4c9ec5fe298ad33ca, type: 3}
   LineHolder: {fileID: 5838202378711228605}
@@ -165,104 +167,6 @@ MonoBehaviour:
   MapSystem: {fileID: 5838202380197589011}
   BackgroundImage: {fileID: 5838202380237243615}
   objectToggler: {fileID: 3505008864708202405}
---- !u!114 &5838202378588284689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5838202378588284692}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 6fd5329a227828e4996816eaddcb1d9b, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f8814b25-d8d4-4280-bcf1-1e0922ba8fa1
-    m_ActionName: Player/Move[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/w,/Keyboard/upArrow,/Keyboard/d,/Keyboard/rightArrow,/Keyboard/s,/Keyboard/downArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7b55a2a3-276b-4385-a110-a26e30989db3
-    m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3cb0f16e-21a5-49ba-84fa-bcad75f17fa0
-    m_ActionName: Player/MainMenu[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b7b5de34-d894-4f7d-b126-9c119a95535e
-    m_ActionName: Player/ToggleMap[/Keyboard/m]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5838202378588284690}
-        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
-        m_MethodName: OnDragToken
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ba91bbde-8913-4917-b824-d91e90a36eb3
-    m_ActionName: Player/DragToken[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5838202378588284690}
-        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
-        m_MethodName: OnChangeMode
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 8a2a8af5-fe6a-4801-a7f3-316dda086420
-    m_ActionName: Player/ChangeMode[/Keyboard/c]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 77ac3fe7-7779-4836-8ee7-f89d51e73786
-    m_ActionName: Player/Interact[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5838202378588284690}
-        m_TargetAssemblyTypeName: RoloManager, Assembly-CSharp
-        m_MethodName: OnResetMapItem
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ee392593-7a5b-482a-8607-5cb3bb83ad27
-    m_ActionName: Player/DoubleClickTest[/Mouse/leftButton]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &5838202378667260147
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838202378667260146}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TicketHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838202378711228604}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LineHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838202378829860339}
   - component: {fileID: 3505008864708202405}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838202379166704286}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Station Holder
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -675,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838202379470599588}
   - component: {fileID: 5838202379470599587}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: map-hands-behind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838202379542914086}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838202380197589012}
   - component: {fileID: 5838202380197589011}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Map Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5838202380237243615}
   - component: {fileID: 5838202380237243614}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: map-background-withoutgrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,6 +838,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: color-palette-bg
       objectReference: {fileID: 0}
+    - target: {fileID: 184378003364044091, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924594092422032614, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028518525054144296, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185117914836769770, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095257874079798273, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5889808965165244756, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -978,6 +902,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077645851192138549, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999749503889879700, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053005424509926244, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309905736148181745, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402830952633194420, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784114483795902045, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b83c560b9141ba4b87ca4c3e8cd3518, type: 3}
 --- !u!4 &7835808211983740236 stripped
@@ -1004,6 +952,10 @@ PrefabInstance:
     - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_Name
       value: Ticket (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8934573922387680528, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_RootOrder
@@ -1078,6 +1030,10 @@ PrefabInstance:
     - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_Name
       value: Ticket (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8934573922387680528, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_RootOrder
@@ -1165,6 +1121,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (4)
@@ -1234,6 +1194,10 @@ PrefabInstance:
     - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_Name
       value: Ticket (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4615211658471570487, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_Sprite
@@ -1329,6 +1293,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (3)
@@ -1414,6 +1382,10 @@ PrefabInstance:
     - target: {fileID: 2081243867548171891, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
@@ -1501,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station
@@ -1570,6 +1546,10 @@ PrefabInstance:
     - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_Name
       value: Ticket
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8934573922387680528, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_RootOrder
@@ -1660,6 +1640,10 @@ PrefabInstance:
     - target: {fileID: 2081243867548171891, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
@@ -1755,6 +1739,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6783218801697485603, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_DynamicPixelsPerUnit
       value: 100
@@ -1845,6 +1833,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (6)
@@ -1914,6 +1906,10 @@ PrefabInstance:
     - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_Name
       value: Ticket (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962368981105454319, guid: 620b7149317262e41adf24115d4ce588, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8934573922387680528, guid: 620b7149317262e41adf24115d4ce588, type: 3}
       propertyPath: m_RootOrder
@@ -2005,6 +2001,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (7)
@@ -2091,6 +2091,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (8)
@@ -2176,6 +2180,10 @@ PrefabInstance:
     - target: {fileID: 2081243867548171891, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901543495654683550, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
