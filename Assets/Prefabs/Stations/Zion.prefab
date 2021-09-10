@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 1691006126385745265, guid: a8e332d6c4321954ca50f4c1aa2f67aa, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 724bf66f4e6f9b740acb78645f3ad490, type: 2}
     - target: {fileID: 4637733177083311358, guid: a8e332d6c4321954ca50f4c1aa2f67aa, type: 3}
       propertyPath: m_Name
       value: Cottoncandes NPC
@@ -291,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: a8e332d6c4321954ca50f4c1aa2f67aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5699997
+      value: -7.0147257
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: a8e332d6c4321954ca50f4c1aa2f67aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -386,6 +390,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8276460926844948153}
     m_Modifications:
+    - target: {fileID: 2219471735708621071, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: e84ba5699658c0643868c51d2e596dae, type: 2}
     - target: {fileID: 5324949195701739648, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_Name
       value: Flameguy NPC
@@ -396,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.96472645
+      value: -5.48
       objectReference: {fileID: 0}
     - target: {fileID: 5324949195701739649, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_LocalPosition.y
@@ -491,6 +499,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8276460926844948153}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: a35535bb6e8d03e4d914aa7f88f63c13, type: 2}
     - target: {fileID: 4637733177083311358, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_Name
       value: Genericsoul NPC
@@ -596,6 +608,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8276460926844948153}
     m_Modifications:
+    - target: {fileID: 2219471735708621071, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: cdd51420a8a00b6438238eef56b01833, type: 2}
     - target: {fileID: 5324949195701739648, guid: b768e01b1e7142b44b6c0469c7966738, type: 3}
       propertyPath: m_Name
       value: Flameguy NPC (1)
