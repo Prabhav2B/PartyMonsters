@@ -1,0 +1,696 @@
+fileFormatVersion: 2
+guid: 2a0c40f89c9d3124590310af81e5377b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5500386269037888147
+    second: Graffiti 06_0
+  - first:
+      213: 2171261189553340768
+    second: Graffiti 06_1
+  - first:
+      213: 1789437847831097850
+    second: Graffiti 06_2
+  - first:
+      213: -685128947506469174
+    second: Graffiti 06_3
+  - first:
+      213: 4650545656599087843
+    second: Graffiti 06_4
+  - first:
+      213: -3859849063687534721
+    second: Graffiti 06_5
+  - first:
+      213: 775912855165787691
+    second: Graffiti 06_6
+  - first:
+      213: -6260655126945159744
+    second: Graffiti 06_7
+  - first:
+      213: -3095974965997224831
+    second: Graffiti 06_8
+  - first:
+      213: -8172654318099169478
+    second: Graffiti 06_9
+  - first:
+      213: 1345062970217639766
+    second: Graffiti 06_10
+  - first:
+      213: -5415854199996567885
+    second: Graffiti 06_11
+  - first:
+      213: -4871787855753697031
+    second: Graffiti 06_12
+  - first:
+      213: 5827466842581268131
+    second: Graffiti 06_13
+  - first:
+      213: -2904945334031973313
+    second: Graffiti 06_14
+  - first:
+      213: -3023710646681357773
+    second: Graffiti 06_15
+  - first:
+      213: 3923899013771724587
+    second: Graffiti 06_16
+  - first:
+      213: 4841210256087942118
+    second: Graffiti 06_17
+  - first:
+      213: -7711253711282507158
+    second: Graffiti 06_18
+  - first:
+      213: -4011263643533159534
+    second: Graffiti 06_19
+  - first:
+      213: 490136940559982533
+    second: Graffiti 06_20
+  - first:
+      213: -1786637310936478705
+    second: Graffiti 06_21
+  - first:
+      213: 6686799117357858070
+    second: Graffiti 06_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Graffiti 06_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 177
+        width: 307
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392807d5b2c455c40800000000000000
+      internalID: 5500386269037888147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_1
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 182
+        width: 151
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0614bed4c8ed12e10800000000000000
+      internalID: 2171261189553340768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_2
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 196
+        width: 86
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1bc93ed3c55d810800000000000000
+      internalID: 1789437847831097850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_3
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 181
+        width: 149
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac62a8a2adeed76f0800000000000000
+      internalID: -685128947506469174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_4
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 40
+        width: 149
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea035192ae0a8040800000000000000
+      internalID: 4650545656599087843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_5
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 81
+        width: 95
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77c7481abf0f6ac0800000000000000
+      internalID: -3859849063687534721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_6
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 169
+        width: 115
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ed0dc71a894ca00800000000000000
+      internalID: 775912855165787691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_7
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 198
+        width: 141
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c5a439155fad19a0800000000000000
+      internalID: -6260655126945159744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 182
+        width: 166
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18cbb3eeb23e805d0800000000000000
+      internalID: -3095974965997224831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_9
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 22
+        width: 164
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ff2a1c236e49e80800000000000000
+      internalID: -8172654318099169478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_10
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 27
+        width: 157
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65faa5c15af9aa210800000000000000
+      internalID: 1345062970217639766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_11
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 88
+        width: 66
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bea5edac4507d4b0800000000000000
+      internalID: -5415854199996567885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_12
+      rect:
+        serializedVersion: 2
+        x: 2246
+        y: 46
+        width: 369
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f82dbcc1cee36cb0800000000000000
+      internalID: -4871787855753697031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_13
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 266
+        width: 465
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a67c64d7325fd050800000000000000
+      internalID: 5827466842581268131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_14
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 509
+        width: 352
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3488191c9f8fa7d0800000000000000
+      internalID: -2904945334031973313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_15
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 503
+        width: 350
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332bdf8ef2f9906d0800000000000000
+      internalID: -3023710646681357773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_16
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 312
+        width: 282
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b278e520d5d747630800000000000000
+      internalID: 3923899013771724587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_17
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 55
+        width: 246
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3891df31f6f2340800000000000000
+      internalID: 4841210256087942118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_18
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 35
+        width: 163
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62f7160b9f1cf490800000000000000
+      internalID: -7711253711282507158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_19
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 23
+        width: 356
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29354c208f02558c0800000000000000
+      internalID: -4011263643533159534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_20
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 400
+        width: 418
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cfdf5953f05dc600800000000000000
+      internalID: 490136940559982533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_21
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 317
+        width: 347
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c0c2be4d69437e0800000000000000
+      internalID: -1786637310936478705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graffiti 06_22
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 299
+        width: 398
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61db28a7e584ccc50800000000000000
+      internalID: 6686799117357858070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

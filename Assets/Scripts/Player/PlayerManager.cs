@@ -8,6 +8,9 @@ using UnityEngine.InputSystem.Users;
 [RequireComponent(typeof(CharController))]
 public class PlayerManager : SingleInstance<PlayerManager>
 {
+    [SerializeField]
+    private ObjectToggler _mapToggler = null;
+
     private SpriteRenderer _characterSpriteRenderer;
     private ParticleSystem _particleSystem;
     private Transform _spriteRendererTransform;
@@ -146,6 +149,11 @@ public class PlayerManager : SingleInstance<PlayerManager>
     public void OnInteract(InputAction.CallbackContext context)
     {
         ExecuteActiveInteraction();
+    }
+
+    public void OnToggleMap(InputAction.CallbackContext context)
+    {
+        _mapToggler.Toggle();
     }
 
     public void AllowInteraction(Interactable interactable) => _interactables.Add(interactable);
