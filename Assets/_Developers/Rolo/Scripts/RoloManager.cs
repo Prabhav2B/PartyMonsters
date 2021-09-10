@@ -14,6 +14,8 @@ public class RoloManager : MonoBehaviour
     [SerializeField] private GameObject DrawIcon;
     [SerializeField] private MapSystem MapSystem;
     [SerializeField] private Transform BackgroundImage;
+    
+    [SerializeField] private ObjectToggler objectToggler;
 
     private bool isPressed;
     private bool isPickingColor;
@@ -50,8 +52,11 @@ public class RoloManager : MonoBehaviour
         MapCanvas.SetActive(toggleMap);
     }
 
-    public void OnResetMapItem()
+    public void OnResetMapItem(InputAction.CallbackContext context)
     {
+        if(objectToggler.gameObject.activeSelf == false)
+            return;
+        
         Transform transformToCheck;
 
         transformToCheck = CheckIfCursorOnMapItem("Token");
@@ -97,9 +102,12 @@ public class RoloManager : MonoBehaviour
         }        
     }
 
-    public void OnDragToken(InputValue input)
+    public void OnDragToken(InputAction.CallbackContext context)
     {
-        isPressed = input.isPressed;
+        if(objectToggler.gameObject.activeSelf == false)
+            return;
+        
+        isPressed = context.performed;
 
         if (isPressed && !isPickingColor)
         {
