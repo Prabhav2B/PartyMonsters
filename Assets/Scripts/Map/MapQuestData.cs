@@ -12,9 +12,9 @@ public class MapQuestData : QuestData
 }
 
 [Serializable]
-public struct LineConnection
+public class LineConnection
 {
-    public List<StationName> _stations;
+    public List<StationName> _stations = new List<StationName>();
 
     public TrainLineColor _lineColor;
 }
