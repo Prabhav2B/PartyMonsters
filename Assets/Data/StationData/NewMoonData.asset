@@ -15,3 +15,4 @@ MonoBehaviour:
   stationName: New Moon
   stationBackground: {fileID: 21300000, guid: a91fcdc8c9f2f124ab16e9c967746e5a, type: 3}
   stationForeground: {fileID: 21300000, guid: e2f2395a13869f541a52f1209dbf0bc4, type: 3}
+  musicIndex: 3

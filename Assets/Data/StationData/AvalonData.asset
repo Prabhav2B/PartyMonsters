@@ -15,3 +15,4 @@ MonoBehaviour:
   stationName: Avalon
   stationBackground: {fileID: 21300000, guid: 67b300d2f759f6e4dae160fac4e3c7db, type: 3}
   stationForeground: {fileID: 21300000, guid: 2630bfcb4e1c96d4e88bad95a1f1682b, type: 3}
+  musicIndex: 1
