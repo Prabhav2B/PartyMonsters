@@ -16,6 +16,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private float _lastCollisionNormal;
     private int _movementTweenFlag;
     private PlayerInput _input;
+    private PlayerAnimation _animation;
     private SceneFadeManager _sceneFadeManager;
     private SceneChangeManager _sceneChangeManager;
     private TrainScheduler _trainScheduler;
@@ -39,7 +40,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     {
         base.Awake();
         _input = GetComponent<PlayerInput>();
-
+        _animation = GetComponent<PlayerAnimation>();
         _characterController = GetComponent<CharController>();
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
@@ -65,11 +66,13 @@ public class PlayerManager : SingleInstance<PlayerManager>
     protected void OnEnable()
     {
         InputUser.onChange += OnInputDeviceChange;
+        _characterController.OnJump += _animation.Jump;
     }
 
     protected void OnDisable()
     {
         InputUser.onChange -= OnInputDeviceChange;
+        _characterController.OnJump -= _animation.Jump;
     }
 
     public void ResetScene()
@@ -199,26 +202,29 @@ public class PlayerManager : SingleInstance<PlayerManager>
             if (_movementTweenFlag != 0)
             {
                 _movementTweenFlag = 0;
-                _spriteRendererTransform.DOLocalRotate(Vector3.zero, 0.2f);
+                // _spriteRendererTransform.DOLocalRotate(Vector3.zero, 0.2f);
             }
+            _animation.SetRunning(false);
         }
         else if (_characterController.FacingRight)
         {
             if (_movementTweenFlag != 1)
             {
                 _movementTweenFlag = 1;
-                _spriteRendererTransform.DOLocalRotate(Vector3.forward * -5f, 0.1f);
+                // _spriteRendererTransform.DOLocalRotate(Vector3.forward * -5f, 0.1f);
                 _characterSpriteRenderer.flipX = false;
             }
+            _animation.SetRunning(true);
         }
         else
         {
             if (_movementTweenFlag != 2)
             {
                 _movementTweenFlag = 2;
-                _spriteRendererTransform.DOLocalRotate(Vector3.forward * 5f, 0.1f);
+                // _spriteRendererTransform.DOLocalRotate(Vector3.forward * 5f, 0.1f);
                 _characterSpriteRenderer.flipX = true;
             }
+            _animation.SetRunning(true);
         }
         
         UpdateActiveInteractable();

@@ -7,13 +7,7 @@ public class NPCAnimation : MonoBehaviour
 
     private Animator _animator = null;
 
-    private void Awake()
-    {
-        _animator = GetComponentInChildren<Animator>();
-    }
+    private void Awake() => _animator = GetComponentInChildren<Animator>();
 
-    public void Speak()
-    {
-        _animator.SetTrigger(_speakParameterId);
-    }
+    public void Speak() => _animator.SetTrigger(_speakParameterId);
 }

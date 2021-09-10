@@ -29,7 +29,6 @@ public class CharController : MonoBehaviour
     private float _minGroundDotProduct;
     private int _maxAirJumps = 0;
 
-
     private const int JumpBufferFrames = 8;
     private const int CoyoteFlagFrames = 10;
 
@@ -38,7 +37,6 @@ public class CharController : MonoBehaviour
     public bool FacingRight => _facingRight;
     public bool OnGround => _onGround;
     public bool OnDownwardSlope => _onDownwardSlope;
-
 
     public Action OnJump;
 
