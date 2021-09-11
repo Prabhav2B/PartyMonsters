@@ -17,6 +17,10 @@ public class Interactable : MonoBehaviour
     private UnityEvent _onInteract = new UnityEvent();
     [SerializeField]
     private UnityEvent _onLeaveArea = new UnityEvent();
+    [SerializeField]
+    private UnityEvent _onActivate = new UnityEvent();
+    [SerializeField]
+    private UnityEvent _onDeactivate = new UnityEvent();
 
     private bool _hideInteractionSprite = false;
     private bool _canBeActivated = true;
@@ -84,6 +88,7 @@ public class Interactable : MonoBehaviour
                 _interactionSprite.enabled = true;
             }
             _active = true;
+            _onActivate.Invoke();
         }
     }
 
@@ -94,6 +99,7 @@ public class Interactable : MonoBehaviour
             _interactionSprite.enabled = false;
         }
         _active = false;
+        _onDeactivate.Invoke();
     }
 
     public void ShowInteractionSprite()
