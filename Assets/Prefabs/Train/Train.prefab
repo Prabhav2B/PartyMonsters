@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4250961321966517108}
   m_Layer: 6
-  m_Name: Doors
+  m_Name: Doors Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
