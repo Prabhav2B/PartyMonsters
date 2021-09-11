@@ -39,13 +39,12 @@ public class TrainInterior : MonoBehaviour
 
         _trainRattle = GetComponent<TrainRattle>();
         _backgrounds = GetComponentsInChildren<TrainBackground>();
-        _interactionColliders = new List<BoxCollider2D>(GetComponentsInChildren<BoxCollider2D>());
+        var doors = GetComponentsInChildren<TrainDoor>();
+        _interactionColliders = new List<BoxCollider2D>();
 
-        var colsToBeRemoved = _interactionColliders.Where(col => !col.isTrigger).ToList();
-
-        foreach (var col in colsToBeRemoved)
+        foreach (var door in doors)
         {
-            _interactionColliders.Remove(col);
+            _interactionColliders.Add(door.GetComponentInChildren<BoxCollider2D>());
         }
         
         
