@@ -200,7 +200,7 @@ MonoBehaviour:
     stationName: 8
   - station: {fileID: 786142568}
     stationName: 9
-  startStation: 2
+  startStation: 3
 --- !u!4 &3742132
 Transform:
   m_ObjectHideFlags: 0
@@ -2481,7 +2481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318488302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.169998, y: 3.218213, z: 100.88895}
+  m_LocalPosition: {x: 17.629997, y: 3.218213, z: 100.88895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1872275113}
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 36463561}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5.32
@@ -2806,7 +2806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540732439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.46, y: 3.218213, z: 100.88895}
+  m_LocalPosition: {x: -13.779999, y: 3.218213, z: 100.88895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 426428004}
@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 36463561}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5.32
@@ -3238,7 +3238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758116862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.93, y: 3.218213, z: 100.88895}
+  m_LocalPosition: {x: 25.39, y: 3.218213, z: 100.88895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1261143565}
@@ -3277,7 +3277,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 36463561}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5.32
@@ -3530,7 +3530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116446640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.04, y: 3.218213, z: 100.88895}
+  m_LocalPosition: {x: -21.5, y: 3.218213, z: 100.88895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 329145881}
@@ -3569,7 +3569,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 36463561}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5.32

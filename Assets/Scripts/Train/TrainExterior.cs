@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -25,6 +26,7 @@ public class TrainExterior : MonoBehaviour
     private bool _interactionPerformed;
     private bool _departed;
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
+    private TrainDoor[] _doors;
 
 
     public bool Departed => _departed;
@@ -41,8 +43,26 @@ public class TrainExterior : MonoBehaviour
         _trainLineColor = trainExteriorData.trainTrainLineColor;
         trainExteriorSprite.sprite = trainExteriorData.trainExterior;
         _interactionColliders = new List<BoxCollider2D>(GetComponentsInChildren<BoxCollider2D>());
+        
+        _doors = GetComponentsInChildren<TrainDoor>();
 
         _waitDuration = trainExteriorData.waitDuration;
+    }
+
+    private void Start()
+    {
+        foreach (var door in _doors)
+        {
+            door.SetDoorSprite(trainExteriorData.trainDoor);
+        }
+    }
+
+    private void OnEnable()
+    {
+        foreach (var door in _doors)
+        {
+            door.ResetDoors();
+        }
     }
 
 
@@ -52,7 +72,12 @@ public class TrainExterior : MonoBehaviour
         _reversing = reversing;
         _isEndStation = isEndStation;
         DisableInteractionTriggers();
-        transform.position = _reversing ? startPositionLeft : startPositionRight;
+        
+        if(!isEndStation)
+            transform.position = _reversing ? startPositionLeft : startPositionRight;
+        else
+            transform.position = !_reversing ? startPositionLeft : startPositionRight;
+
         transform.DOLocalMove(destinationPosition, 12f).OnComplete(ArrivalComplete);
     }
 
@@ -60,11 +85,20 @@ public class TrainExterior : MonoBehaviour
     {
         EnableInteractionTriggers();
         StartCoroutine(WaitAtStation());
+        
+        foreach (var door in _doors)
+        {
+            door.OpenDoorAnim();
+        }
     }
 
     public void DepartFromStation()
     {
         DisableInteractionTriggers();
+        foreach (var door in _doors)
+        {
+            door.CloseDoorAnim();
+        }
         StartCoroutine(DepartStationAnim());
     }
 
@@ -97,7 +131,7 @@ public class TrainExterior : MonoBehaviour
         var timeExpired = 0f;
         var exitDirection = _reversing ? 2f : -2f;
 
-        exitDirection = _isEndStation ? exitDirection * -1 : exitDirection;
+        //exitDirection = _isEndStation ? exitDirection * -1 : exitDirection;
         
         while (true)
         {

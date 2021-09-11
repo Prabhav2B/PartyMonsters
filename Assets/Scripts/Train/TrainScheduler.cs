@@ -266,6 +266,8 @@ public class TrainLine
 
         _stationsList.AddRange(stationsInOrder);
         _currentStation = _stationsList[_counter];
+        _reversing = false;
+        _isEndStation = true;
         _counter += _incrementor;
         _nextStation = _stationsList[_counter];
     }
@@ -273,10 +275,8 @@ public class TrainLine
     public void MoveToNextStation()
     {
         _timer = 0f;
-        _currentStation = _nextStation;
-
-        _reversing = _incrementor < 0;
         _isEndStation = _counter == 0 || _counter == _stationMax - 1;
+        _currentStation = _nextStation;
 
         if (_counter + _incrementor >= _stationMax)
         {
@@ -289,7 +289,9 @@ public class TrainLine
 
         _counter += _incrementor;
         _nextStation = _stationsList[_counter];
-
+        
+        _reversing = _incrementor < 0;
+        
         NewStation = true;
 
         // DebugCurrentPlatform();

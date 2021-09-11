@@ -2192,6 +2192,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4634911487255249784, guid: af920904698c62a4eb27520192f3800c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
       value: Train Door (3)
@@ -2288,6 +2292,10 @@ PrefabInstance:
     - target: {fileID: 3683669653684134134, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634911487255249784, guid: af920904698c62a4eb27520192f3800c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
@@ -2386,6 +2394,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4634911487255249784, guid: af920904698c62a4eb27520192f3800c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
       value: Train Door
@@ -2482,6 +2494,10 @@ PrefabInstance:
     - target: {fileID: 3683669653684134134, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634911487255249784, guid: af920904698c62a4eb27520192f3800c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name

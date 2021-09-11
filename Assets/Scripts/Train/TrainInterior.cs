@@ -8,48 +8,58 @@ public class TrainInterior : MonoBehaviour
 {
     [SerializeField] private TrainInteriorData trainInteriorData;
     [SerializeField] private SpriteRenderer trainInteriorSprite;
-    
+
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
     private TrainBackground[] _backgrounds;
     private TrainRattle _trainRattle;
-    
+
     private TrainScheduler _trainScheduler;
-    
+
     private TrainLineColor _trainLineColor;
     private float _waitDuration;
     private bool _reversing;
     private bool _isEndStation;
     private bool _interactionPerformed;
+    private TrainDoor[] _doors;
 
     public UnityEvent OnTrainStop;
     public UnityEvent OnTrainStart;
-    
+
     public bool InteractionPerformed
     {
         get => _interactionPerformed;
         set => _interactionPerformed = value;
     }
-    
+
     void Awake()
     {
         _trainScheduler = FindObjectOfType<TrainScheduler>();
-        
+
         _trainLineColor = trainInteriorData.trainTrainLineColor;
         trainInteriorSprite.sprite = trainInteriorData.trainInterior;
 
         _trainRattle = GetComponent<TrainRattle>();
         _backgrounds = GetComponentsInChildren<TrainBackground>();
-        var doors = GetComponentsInChildren<TrainDoor>();
         _interactionColliders = new List<BoxCollider2D>();
+        _doors = GetComponentsInChildren<TrainDoor>();
 
-        foreach (var door in doors)
+        foreach (var door in _doors)
         {
             _interactionColliders.Add(door.GetComponentInChildren<BoxCollider2D>());
         }
-        
-        
+
+
         _waitDuration = trainInteriorData.waitDuration;
     }
+
+    private void OnEnable()
+    {
+        foreach (var door in _doors)
+        {
+            door.OnDoorClose();
+        }
+    }
+
 
     public void SetInitialReverseValue(bool reversing)
     {
@@ -75,19 +85,19 @@ public class TrainInterior : MonoBehaviour
 
         StartCoroutine(WaitTillHalt());
     }
-    
+
     private void ArrivalComplete()
     {
         foreach (var background in _backgrounds)
         {
-            background.Reversing = _isEndStation ? !_reversing : _reversing;
+            background.Reversing = _reversing;
         }
 
         OnTrainStop?.Invoke();
         EnableInteractionTriggers();
         StartCoroutine(WaitAtStation());
     }
-    
+
     public void DepartFromStation()
     {
         OnTrainStart?.Invoke();
@@ -98,13 +108,12 @@ public class TrainInterior : MonoBehaviour
         }
 
         StartCoroutine(WaitTillUnHalt());
-        
     }
-    
+
     IEnumerator WaitAtStation()
     {
         var timeExpired = 0f;
-        
+
         while (true)
         {
             if (timeExpired >= _waitDuration)
@@ -122,40 +131,45 @@ public class TrainInterior : MonoBehaviour
             timeExpired += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-
     }
+
     IEnumerator WaitTillHalt()
     {
         var timeExpired = 0f;
-        
+
         while (true)
         {
             if (timeExpired >= 6f)
             {
                 break;
             }
+
             timeExpired += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+
         ArrivalComplete();
     }
+
     IEnumerator WaitTillUnHalt()
     {
         var timeExpired = 0f;
-        
+
         while (true)
         {
             if (timeExpired >= 6f)
             {
                 break;
             }
+
             timeExpired += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+
         _trainRattle.Stopped = false;
         _trainScheduler.ResumeTrain();
     }
-    
+
     // IEnumerator DepartStationAnim()
     // {
     //     var timeExpired = 0f;
@@ -178,12 +192,12 @@ public class TrainInterior : MonoBehaviour
     //     _departed = true;
     //     Deactivate();
     // }
-    
+
     public void Activate()
     {
         gameObject.SetActive(true);
     }
-    
+
     public void Deactivate()
     {
         gameObject.SetActive(false);
@@ -196,7 +210,7 @@ public class TrainInterior : MonoBehaviour
             col.enabled = true;
         }
     }
-    
+
     public void DisableInteractionTriggers()
     {
         foreach (var col in _interactionColliders)

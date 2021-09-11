@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &740595687737275631
 Transform:
   m_ObjectHideFlags: 0
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d690131ac7e34419ba82c5e81cb19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainDoorTransform: {fileID: 740595687737275631}
   _closedSign: {fileID: 1354953395380103928}
   _openSign: {fileID: 6168359491084480943}
 --- !u!1 &5794392182610579708
