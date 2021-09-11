@@ -120,7 +120,8 @@ public class PlayerManager : SingleInstance<PlayerManager>
     
     public void OnMainMenu(InputAction.CallbackContext context)
     {
-        _mainMenu.TriggerMainMenu();
+        if(context.performed)
+            _mainMenu.TriggerMainMenu();
     }
 
     public void OnMove(InputAction.CallbackContext context)
