@@ -125,16 +125,20 @@ public class RoloManager : MonoBehaviour
                             stationTransform.position.y <= MapSystem.gridHeight / 2 + transform.position.y)
                         {
                             StartDrawingLine();
-                            AddStationToTheLine(stationTransform);
+                            // AddStationToTheLine(stationTransform);
                         }
                         else
                         {
-                            line = new GameObject();
-                            line.name = "dummy";
+                            isDragTokenMode = true;
+                            ToggleTool();
+                            // line = new GameObject();
+                            // line.name = "dummy";
                         }
+                        // StartDrawingLine();
+                        AddStationToTheLine(stationTransform);
                     }
 
-                    else if (isDragTokenMode && stationTransform != null)
+                    if (isDragTokenMode && stationTransform != null)
                     {
                         UpdateLineEndingsOnDrag();
                     }
@@ -158,8 +162,7 @@ public class RoloManager : MonoBehaviour
                 if (toggleTransform != null)
                 {
                     isDragTokenMode = toggleTransform.gameObject == MoveIcon ? true : false;
-                    MoveIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(isDragTokenMode);
-                    DrawIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(!isDragTokenMode);
+                    ToggleTool();
 
                     return;
                 }
@@ -209,6 +212,12 @@ public class RoloManager : MonoBehaviour
         }
     }
 
+    void ToggleTool()
+    {
+        MoveIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(isDragTokenMode);
+        DrawIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(!isDragTokenMode);
+    }
+
     void AddStationToTheLine(Transform t)
     {
         if (line != null)
@@ -222,7 +231,6 @@ public class RoloManager : MonoBehaviour
     void StartDrawingLine()
     {
         lineStartPos = new Vector2(stationTransform.position.x, stationTransform.position.y);
-        ;
         line = Instantiate(LinePrefab, LineHolder.transform, LineHolder);
         lineRenderer = line.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, lineStartPos);
@@ -275,15 +283,15 @@ public class RoloManager : MonoBehaviour
         Transform tCollider = null;
         Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector2(Mouse.current.position.x.ReadValue(),
             Mouse.current.position.y.ReadValue()));
-        Collider2D collider = Physics2D.OverlapPoint((Vector2) mousePos, RaycastLayers);
-        if (collider != null)
+        Collider2D[] colliders = Physics2D.OverlapPointAll((Vector2) mousePos, RaycastLayers);
+        foreach (var collider in colliders)
         {
             if (collider.gameObject.layer == LayerMask.NameToLayer(layerName))
             {
                 tCollider = collider.transform;
+                return tCollider;
             }
         }
-
         return tCollider;
     }
 
