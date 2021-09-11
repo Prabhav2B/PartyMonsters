@@ -15,4 +15,4 @@ MonoBehaviour:
   stationName: Elysia
   stationBackground: {fileID: 21300000, guid: 28f880a2e7c07f549af8f1dbc1bc8aab, type: 3}
   stationForeground: {fileID: 21300000, guid: e3ec5d2336b72f24eb7b813d169666cd, type: 3}
-  musicIndex: -1
+  musicIndex: 3

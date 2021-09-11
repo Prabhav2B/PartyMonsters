@@ -185,6 +185,36 @@ Transform:
   m_Father: {fileID: 8959599745128778887}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1645824510177999868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6094382282338910899}
+  m_Layer: 6
+  m_Name: Door Signs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6094382282338910899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645824510177999868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8959599746810714330}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2449974229904808604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,10 +1168,106 @@ MonoBehaviour:
   trainInteriorSprite: {fileID: 8959599746810714331}
   OnTrainStop:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4542033727570971855}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6723269776407090825}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1553125712442872346}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8666074905293667763}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTrainStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4542033727570971855}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6723269776407090825}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1553125712442872346}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8666074905293667763}
+        m_TargetAssemblyTypeName: TrainDoor, Assembly-CSharp
+        m_MethodName: OnDoorClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8959599745275448276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1615,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.8816795, y: 0.50854015, z: 0.42210048}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6094382282338910899}
   m_Father: {fileID: 8959599747039922275}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1740,7 +1867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
-      value: Interactable Door (4)
+      value: Train Door (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Layer
@@ -1833,7 +1960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
-      value: Interactable Door (2)
+      value: Train Door (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Layer
@@ -1885,6 +2012,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af920904698c62a4eb27520192f3800c, type: 3}
+--- !u!114 &6723269776407090825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8985811745292136816, guid: af920904698c62a4eb27520192f3800c, type: 3}
+  m_PrefabInstance: {fileID: 2448232037442054137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d690131ac7e34419ba82c5e81cb19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5356288830330000952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7758719602070172097, guid: af920904698c62a4eb27520192f3800c, type: 3}
@@ -1915,7 +2053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
-      value: Interactable Door
+      value: Train Door
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Layer
@@ -1972,6 +2110,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7758719602070172097, guid: af920904698c62a4eb27520192f3800c, type: 3}
   m_PrefabInstance: {fileID: 4880934082795388351}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4542033727570971855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8985811745292136816, guid: af920904698c62a4eb27520192f3800c, type: 3}
+  m_PrefabInstance: {fileID: 4880934082795388351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d690131ac7e34419ba82c5e81cb19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7582315435115504490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1997,7 +2146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Name
-      value: Interactable Door (3)
+      value: Train Door (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4991651970987010483, guid: af920904698c62a4eb27520192f3800c, type: 3}
       propertyPath: m_Layer
@@ -2049,6 +2198,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af920904698c62a4eb27520192f3800c, type: 3}
+--- !u!114 &1553125712442872346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8985811745292136816, guid: af920904698c62a4eb27520192f3800c, type: 3}
+  m_PrefabInstance: {fileID: 7582315435115504490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d690131ac7e34419ba82c5e81cb19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &186136227974861483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7758719602070172097, guid: af920904698c62a4eb27520192f3800c, type: 3}

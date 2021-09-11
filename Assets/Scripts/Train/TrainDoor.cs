@@ -4,6 +4,11 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class TrainDoor : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _closedSign = null;
+    [SerializeField]
+    private GameObject _openSign = null;
+
     private SceneFadeManager _sceneFadeManager;
     private SceneChangeManager _sceneChangeManager;
 
@@ -27,5 +32,17 @@ public class TrainDoor : MonoBehaviour
         f += _sceneChangeManager.SwitchToStation;
         
         _sceneFadeManager.FadeOut(f);
+    }
+
+    public void OnDoorOpen()
+    {
+        _closedSign.SetActive(false);
+        _openSign.SetActive(true);
+    }
+
+    public void OnDoorClose()
+    {
+        _closedSign.SetActive(true);
+        _openSign.SetActive(false);
     }
 }
