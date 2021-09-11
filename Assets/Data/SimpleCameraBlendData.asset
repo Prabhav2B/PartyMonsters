@@ -16,7 +16,7 @@ MonoBehaviour:
   - m_From: '**ANY CAMERA**'
     m_To: Static VCam Right Train
     m_Blend:
-      m_Style: 1
+      m_Style: 2
       m_Time: 1.5
       m_CustomCurve:
         serializedVersion: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
   - m_From: '**ANY CAMERA**'
     m_To: Static VCam Left Train
     m_Blend:
-      m_Style: 1
+      m_Style: 2
       m_Time: 1.5
       m_CustomCurve:
         serializedVersion: 2
@@ -38,7 +38,7 @@ MonoBehaviour:
   - m_From: '**ANY CAMERA**'
     m_To: Static VCam Right  Station
     m_Blend:
-      m_Style: 1
+      m_Style: 2
       m_Time: 1.5
       m_CustomCurve:
         serializedVersion: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
   - m_From: '**ANY CAMERA**'
     m_To: Static VCam Left Station
     m_Blend:
-      m_Style: 1
+      m_Style: 2
       m_Time: 1.5
       m_CustomCurve:
         serializedVersion: 2

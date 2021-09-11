@@ -200,7 +200,7 @@ MonoBehaviour:
     stationName: 8
   - station: {fileID: 786142568}
     stationName: 9
-  startStation: 3
+  startStation: 2
 --- !u!4 &3742132
 Transform:
   m_ObjectHideFlags: 0

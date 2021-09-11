@@ -3460,9 +3460,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4714430360237212625, guid: e2ad9d48025b2a1449bdbf0f9267f478, type: 3}
+      propertyPath: m_Size.x
+      value: 12.924435
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714430360237212625, guid: e2ad9d48025b2a1449bdbf0f9267f478, type: 3}
+      propertyPath: m_Offset.x
+      value: -2.6986656
+      objectReference: {fileID: 0}
     - target: {fileID: 5572904453218828418, guid: e2ad9d48025b2a1449bdbf0f9267f478, type: 3}
       propertyPath: m_Name
       value: Cinemachine Transition Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473753891453451043, guid: e2ad9d48025b2a1449bdbf0f9267f478, type: 3}
+      propertyPath: m_Size.x
+      value: 12.731873
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473753891453451043, guid: e2ad9d48025b2a1449bdbf0f9267f478, type: 3}
+      propertyPath: m_Offset.x
+      value: 3.6557655
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ad9d48025b2a1449bdbf0f9267f478, type: 3}
