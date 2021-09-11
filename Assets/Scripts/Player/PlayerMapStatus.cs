@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerMapStatus : MonoBehaviour
@@ -18,7 +17,6 @@ public class PlayerMapStatus : MonoBehaviour
 
     public void CollectDrawnLines()
     {
-        
         drawnLines.Clear();
         var mapLines = lineParent.GetComponentsInChildren<ConnectionLineBehaviour>();
 
@@ -28,9 +26,8 @@ public class PlayerMapStatus : MonoBehaviour
             line._stations.Add(mapLine.connectedStations[0].myName);
             line._stations.Add(mapLine.connectedStations[1].myName);
 
-            line._lineColor = mapLine.myColor;
-             drawnLines.Add(line);
-
+            line._lineColors.Add(mapLine.myColor);
+            drawnLines.Add(line);
         }
     }
 
@@ -42,13 +39,12 @@ public class PlayerMapStatus : MonoBehaviour
         {
             StationName nameA = connection._stations[0];
             StationName nameB = connection._stations[1];
-
-            TrainLineColor color = connection._lineColor;
             
-            evaluation = drawnLines.Exists(line => line._stations.Contains(nameA) && line._stations.Contains(nameB) && line._lineColor == color );
+            evaluation = drawnLines.Exists(
+                line => line._stations.Contains(nameA) && line._stations.Contains(nameB) && connection._lineColors.Intersect(line._lineColors).Any()
+            );
         }
 
         return evaluation;
-
     }
 }

@@ -5,9 +5,15 @@ public class NPCAnimation : MonoBehaviour
 {
     private static readonly int _speakParameterId = Animator.StringToHash("Speak");
 
-    private Animator _animator = null;
+    private Animator[] _animators = null;
 
-    private void Awake() => _animator = GetComponentInChildren<Animator>();
+    private void Awake() => _animators = GetComponentsInChildren<Animator>();
 
-    public void Speak() => _animator.SetTrigger(_speakParameterId);
+    public void Speak()
+    {
+        foreach (var animator in _animators)
+        {
+            animator.SetTrigger(_speakParameterId);
+        }
+    }
 }

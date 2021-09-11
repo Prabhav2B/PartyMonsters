@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: Quest Dialogue 3
   m_EditorClassIdentifier: 
   _sequence:
-  - text: Can you tell me, which line can take me to New Moon?
+  - text: 'Hey ummm...
+
+      Do you have a map or something?'
     quest: {fileID: 0}
-    questFailText: Are you sure? I know that line already...
-  - text: "Magnificent! I\u2019m gonna go to that blooming place!\nHere, I can pass
-      you this green line ticket."
+    questFailText: 
+  - text: Could you show me how to get from here to New Moon?
+    quest: {fileID: 11400000, guid: 00c2b6ee0a72777488edfb9f34b69dd2, type: 2}
+    questFailText: You sure? That can't be it...
+  - text: "Magnificent! I\u2019m gonna go to that blooming place!\nHere, let me give
+      you this <color=\"green\">green</green> line ticket as a token of gratitude."
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence:

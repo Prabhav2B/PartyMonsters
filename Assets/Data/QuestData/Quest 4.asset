@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab3a2d3129c1bb740a13a15533d7e179, type: 3}
-  m_Name: TestMapQuest
+  m_Name: Quest 4
   m_EditorClassIdentifier: 
   reward: {fileID: 11400000, guid: 314253842a0372b43b9a4e26de1a79d0, type: 2}
   requiredConnections:
-  - _stations: 0100000004000000
+  - _stations: 0600000005000000
+    _lineColors: 01000000
+  - _stations: 0500000004000000
+    _lineColors: 01000000
+  - _stations: 0400000001000000
     _lineColors: 0400000003000000
-  - _stations: 0400000002000000
-    _lineColors: 04000000

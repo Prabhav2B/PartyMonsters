@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,5 +15,5 @@ public class LineConnection
 {
     public List<StationName> _stations = new List<StationName>();
 
-    public TrainLineColor _lineColor;
+    public List<TrainLineColor> _lineColors = new List<TrainLineColor>();
 }
