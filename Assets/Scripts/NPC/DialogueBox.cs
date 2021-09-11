@@ -58,12 +58,15 @@ public class DialogueBox : MonoBehaviour
 
     public void EndDialogue()
     {
-        _canvas.enabled = false;
-        _currentLine = -1;
-        _questFailed = false;
-        _textComponent.text = string.Empty;
-        _onEndDialogue.Invoke();
-        PlayerManager.ActiveInteractableLocked = false;
+        if (_currentLine > -1)
+        {
+            _canvas.enabled = false;
+            _currentLine = -1;
+            _questFailed = false;
+            _textComponent.text = string.Empty;
+            _onEndDialogue.Invoke();
+            PlayerManager.ActiveInteractableLocked = false;
+        }
     }
 
     private void StartDialogue()
