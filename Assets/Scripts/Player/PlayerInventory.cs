@@ -26,6 +26,7 @@ public class PlayerInventory : MonoBehaviour
         _items.Remove(item);
         OnRemoveItem.Invoke(item);
     }
+    
 
     public static bool ContainsItemOfType(ItemType type) => _items.Exists(item => item.type == type);
 }
