@@ -120,7 +120,7 @@ public class TrainScheduler : MonoBehaviour
                         else
                         {
                             if (_waitList.Contains(trainLine) || _trainOnStation == _trainDict[trainLine.trainLine])
-                                return;
+                                continue;
 
                             trainLine.Waiting = true;
                             _waitList.Enqueue(trainLine);
@@ -202,6 +202,8 @@ public class TrainScheduler : MonoBehaviour
             item.Waiting = false;
             item.OffsetTimer(i++ * -10);
         }
+        
+        _waitList.Clear();
     }
 
     public void ClearNewStationFlag()
@@ -293,8 +295,7 @@ public class TrainLine
         _reversing = _incrementor < 0;
         
         NewStation = true;
-
-        // DebugCurrentPlatform();
+        DebugCurrentPlatform();
     }
 
     public void Tick()
