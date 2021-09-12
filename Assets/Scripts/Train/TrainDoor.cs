@@ -18,6 +18,7 @@ public class TrainDoor : MonoBehaviour
     private Vector3 _spriteATransform;
     private Vector3 _spriteBTransform;
 
+    public static event Action OnInvalidTicket = delegate {};
 
     private void Awake()
     {
@@ -71,11 +72,13 @@ public class TrainDoor : MonoBehaviour
         }
     }
 
-
     public void EnterTrain()
     {
         if (!PlayerInventory.ContainsItemOfType(_myTicket))
+        {
+            OnInvalidTicket.Invoke();
             return;
+        }
 
         SceneFadeManager.PostFadeOut f = () => { };
         f += _sceneChangeManager.SwitchToTrainInterior;

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   itemType: 6
-  itemIcon: {fileID: 21300000, guid: 11e6ac9fe8ac211419cb01a085d8d866, type: 3}
+  itemIcon: {fileID: 21300000, guid: c9f1f80d66fc3fa44a213fd8040c6ef6, type: 3}
   itemName: a hat

@@ -13,6 +13,8 @@ public class NotificationUI : MonoBehaviour
     [SerializeField]
     private Image _iconImage = null;
     [SerializeField]
+    private Sprite _invalidTicketSprite = null;
+    [SerializeField]
     private CanvasGroup _canvasGroup = null;
     [
         SerializeField,
@@ -41,11 +43,13 @@ public class NotificationUI : MonoBehaviour
     private void OnEnable()
     {
         PlayerInventory.OnAddItem += EnqueueItemNotification;
+        TrainDoor.OnInvalidTicket += EnqueueInvalidTicketNotification; 
     }
 
     private void OnDisable()
     {
         PlayerInventory.OnAddItem -= EnqueueItemNotification;
+        TrainDoor.OnInvalidTicket -= EnqueueInvalidTicketNotification; 
     }
 
     private void StartProcessingNotifications()
@@ -81,6 +85,13 @@ public class NotificationUI : MonoBehaviour
         string message = string.Format("Received {0}!", item.itemName);
         Sprite icon = item.itemIcon;
         _notificationQueue.Enqueue((message, icon));
+        StartProcessingNotifications();
+    }
+
+    private void EnqueueInvalidTicketNotification()
+    {
+        string message = "You don't have a valid ticket for this line!";
+        _notificationQueue.Enqueue((message, _invalidTicketSprite));
         StartProcessingNotifications();
     }
 
