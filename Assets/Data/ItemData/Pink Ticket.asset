@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pink Ticket
   m_EditorClassIdentifier: 
   itemType: 4
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 21ce419bc4051364ea9d6901d366492c, type: 3}
   itemName: a <color=#ff69b4>pink line</color> ticket

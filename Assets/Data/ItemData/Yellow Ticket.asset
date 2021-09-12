@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Yellow Ticket
   m_EditorClassIdentifier: 
   itemType: 3
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: aa30f04c131335e44b5fae71ded00634, type: 3}
   itemName: a <color=#ffff66>yellow line</color> ticket

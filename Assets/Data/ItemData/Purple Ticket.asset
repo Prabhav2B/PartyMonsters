@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Purple Ticket
   m_EditorClassIdentifier: 
   itemType: 1
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: abedc25da5ead2e4d898d539c30422bb, type: 3}
   itemName: a <color=#ba55d3>purple line</color> ticket
