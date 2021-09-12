@@ -27,8 +27,8 @@ MonoBehaviour:
 
       I can''t be bothered to go all the way
       back there...'
-  - text: "<b>(Gives the hat)</b>\nOh wow! Thank you so much!\nHere, take my ticket
-      as a reward, I don\u2019t need it anymore."
+  - text: "<b>(Gives the hat)</b>\nOh wow! Thank you so much!\nHere, take my <color=#FF69B4>pink</color>
+      ticket as a reward, I don\u2019t need it anymore."
     delay: 2
     quest: {fileID: 0}
     questFailText: 
