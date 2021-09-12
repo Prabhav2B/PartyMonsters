@@ -52,9 +52,9 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
 
     public void SwitchToStation()
     {
-        _trainScheduler.PlayerLocation = PlayerLocation.station;
         _trainScheduler.SetCurrentStation();
         _trainScheduler.PushTrainsForward();
+        _trainScheduler.PlayerLocation = PlayerLocation.station;
         _trainScheduler.ResumeTrain();
 
 
