@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sequence:
   - text: Elysia station? That's miles away!
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
-  - text: I think it's on the white line or something...
+  - text: I think it's on the <color=#ba55d3>purple line</color> or something...
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: Well, good luck!
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []
