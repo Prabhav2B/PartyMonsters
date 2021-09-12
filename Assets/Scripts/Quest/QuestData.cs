@@ -8,12 +8,20 @@ public abstract class QuestData : ScriptableObject
     [NonSerialized]
     public bool accomplished = false;
 
+    public Action OnAccomplished = delegate {};
+    public Action OnFailed = delegate {};
+
     public bool TryAccomplishQuest()
     {
         accomplished = EvaluateRequirements();
         if (accomplished && reward != null)
         {
             PlayerInventory.AddItem(reward);
+            OnAccomplished.Invoke();
+        }
+        else
+        {
+            OnFailed.Invoke();
         }
         return accomplished;
     }

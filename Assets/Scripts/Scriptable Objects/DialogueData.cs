@@ -6,6 +6,8 @@ public struct DialogueItem
 {
     [TextArea(3, 3)]
     public string text;
+    [Min(0f)]
+    public float delay;
     public QuestData quest;
     [TextArea(3, 3)]
     public string questFailText;
