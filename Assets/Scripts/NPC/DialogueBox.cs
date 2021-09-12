@@ -105,8 +105,6 @@ public class DialogueBox : MonoBehaviour
             }
             else if (_currentLine > -1)
             {
-                yield return FadeFromTo(1f, 0f, _fadeOutDuration);
-
                 EndDialogue();
             }
             _dialogueData.questLineFinished = _questAccomplished;
@@ -124,9 +122,14 @@ public class DialogueBox : MonoBehaviour
 
     public void EndDialogue()
     {
+        StartCoroutine(EndDialogueCoroutine());
+    }
+
+    private IEnumerator EndDialogueCoroutine()
+    {
         if (_currentLine > -1)
         {
-            StopAllCoroutines();
+            yield return FadeFromTo(1f, 0f, _fadeOutDuration);
             _canvas.enabled = false;
             _currentLine = -1;
             _questFailed = false;
