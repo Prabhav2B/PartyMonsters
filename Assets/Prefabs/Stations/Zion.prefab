@@ -154,6 +154,50 @@ MonoBehaviour:
   - {x: 114.86209, y: 3.0954247, z: 0}
   - {x: 114.86209, y: 17.095425, z: 0}
   - {x: -2.1379051, y: 17.095425, z: 0}
+--- !u!114 &7565936767745948110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379413607338951844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f73da2353646549be217c290a8891b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quest: {fileID: 11400000, guid: e889041b01e910848861bc49eb5fc853, type: 2}
+  _onAccomplished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6246967593861132785}
+        m_TargetAssemblyTypeName: AnimationTrigger, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFailed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6246967593861132785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379413607338951844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a48cc9f39bb4e4cb5839fd4f549576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerName: Give
 --- !u!1001 &776459326056190143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,6 +471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
+--- !u!1 &7379413607338951844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6699385507684711029, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
+  m_PrefabInstance: {fileID: 4219888296268742353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5770883049958694863
 PrefabInstance:
   m_ObjectHideFlags: 0

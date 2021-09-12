@@ -120,6 +120,13 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public void StartReactivationTimer()
+    {
+        Deactivate();
+        StopAllCoroutines();
+        StartCoroutine(ReactivationTimer());
+    }
+
     private IEnumerator ReactivationTimer()
     {
         _canBeActivated = false;

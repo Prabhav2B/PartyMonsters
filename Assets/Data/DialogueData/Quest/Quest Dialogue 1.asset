@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sequence:
   - text: "Ahh, I think I found my station!\nIt\u2019s so fierce!"
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: 'Too bad I left my <b>HAT</b> at the Lotus station!
 
       Did you happen
       to see it?'
+    delay: 0
     quest: {fileID: 11400000, guid: e889041b01e910848861bc49eb5fc853, type: 2}
     questFailText: 'No? <i>*sigh*</i>
 
@@ -27,9 +29,11 @@ MonoBehaviour:
       back there...'
   - text: "<b>(Gives the hat)</b>\nOh wow! Thank you so much!\nHere, take my ticket
       as a reward, I don\u2019t need it anymore."
+    delay: 2
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence:
   - text: Thanks again for finding my hat!
+    delay: 0
     quest: {fileID: 0}
     questFailText: 

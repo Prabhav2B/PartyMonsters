@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 800407464038215768}
-  - component: {fileID: 7621625028358839474}
+  - component: {fileID: 7544081283279664862}
   m_Layer: 0
   m_Name: NPC Sprite
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 5505685002654875743}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7621625028358839474
+--- !u!114 &7544081283279664862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1109226170504475765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f890efb6c293474ba9eba4bdc3257fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f0a48cc9f39bb4e4cb5839fd4f549576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _triggerName: Speak
 --- !u!1 &5505685002654875742
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +118,10 @@ PrefabInstance:
     - target: {fileID: 6091324752317813657, guid: d78372bd5e921334f9a962c66451e7d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091324752352538562, guid: d78372bd5e921334f9a962c66451e7d4, type: 3}
+      propertyPath: _reactivationInterval
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6091324752352538562, guid: d78372bd5e921334f9a962c66451e7d4, type: 3}
       propertyPath: _onActivate.m_PersistentCalls.m_Calls.Array.size
@@ -341,11 +346,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -364,7 +369,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
@@ -374,7 +387,11 @@ PrefabInstance:
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 7621625028358839474}
+      objectReference: {fileID: 7544081283279664862}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 5207093746942381148}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -382,7 +399,11 @@ PrefabInstance:
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7621625028358839474}
+      objectReference: {fileID: 7544081283279664862}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5207093746942381148}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowInteractionSprite
@@ -396,20 +417,36 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HideInteractionSprite
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Speak
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartReactivationTimer
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Speak
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartReactivationTimer
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -421,11 +458,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: NPCAnimation, Assembly-CSharp
+      value: AnimationTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Interactable, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NPCAnimation, Assembly-CSharp
+      value: AnimationTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Interactable, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -440,7 +485,15 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onStartDialogue.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
       propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372238848122873701, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
+      propertyPath: _onAdvanceDialogue.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5374630967199621395, guid: 7cedc98c998e2b145b4399b1e0aec7aa, type: 3}
