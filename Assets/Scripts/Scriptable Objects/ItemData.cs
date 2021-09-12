@@ -8,7 +8,8 @@ public enum ItemType
     TicketYellow,
     TicketPink,
     TicketBlue,
-    Hat
+    Hat,
+    TicketWhite
 }
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "Data/Item")]

@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: Quest Dialogue 5
   m_EditorClassIdentifier: 
   _sequence:
-  - text: "Hi dear, long time no see! I\u2019m glad you found your way here."
+  - text: "Hi dear, long time no see!\nI\u2019m glad you found your way here."
     delay: 0
     quest: {fileID: 0}
     questFailText: 
-  - text: I have purchased tickets to the white line metro for both of us! Should
-      we take the next train to our own spirit station, or do you still need more
-      time?
+  - text: I have purchased tickets to the white line metro for both of us!
+    delay: 0
+    quest: {fileID: 11400000, guid: 1ca29a9388f13ce4ea7e82ce50569437, type: 2}
+    questFailText: 
+  - text: Should we take the next train to our own spirit station, or do you still
+      need more time?
     delay: 0
     quest: {fileID: 0}
     questFailText: 
-  _afterQuestSequence: []
+  _afterQuestSequence:
+  - text: Should we take the next train to our own spirit station, or do you still
+      need more time?
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
