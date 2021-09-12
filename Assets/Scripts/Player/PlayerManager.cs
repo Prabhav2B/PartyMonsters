@@ -115,7 +115,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     private void UpdateCurrentScheme(string schemeName)
     {
-        CurrentControlScheme = schemeName.Equals("Gamepad") ? ControlScheme.Gamepad : ControlScheme.KeyboardAndMouse;
+        //CurrentControlScheme = schemeName.Equals("Gamepad") ? ControlScheme.Gamepad : ControlScheme.KeyboardAndMouse;
     }
     
     public void OnMainMenu(InputAction.CallbackContext context)

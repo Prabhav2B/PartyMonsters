@@ -37,22 +37,28 @@ public class SceneFadeManager : MonoBehaviour
 
     public void FadeIn(PostFadeIn f)
     {
+        _transitionImage.enabled = true;
+        f += () => _transitionImage.enabled = false;
         _transitionImage.DOFade(0f, fadeInDuration).OnComplete(f.Invoke);
     }
 
     public void FadeOut(PostFadeOut f)
     {
+        _transitionImage.enabled = true;
+        f += () => _transitionImage.enabled = false;
         _transitionImage.DOFade(1f, fadeInDuration).OnComplete(f.Invoke);
     }
 
     public void FadeIn()
     {
-        _transitionImage.DOFade(0f, fadeInDuration);
+        _transitionImage.enabled = true;
+        _transitionImage.DOFade(0f, fadeInDuration).OnComplete(() => _transitionImage.enabled = false);
     }
     
     public void FadeOut()
     {
-        _transitionImage.DOFade(1f, fadeInDuration);
+        _transitionImage.enabled = true;
+        _transitionImage.DOFade(1f, fadeInDuration).OnComplete(() => _transitionImage.enabled = false);
     }
 
     private IEnumerator StaggeredGameStart()
