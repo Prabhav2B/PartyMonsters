@@ -24,8 +24,12 @@ MonoBehaviour:
 
       If only someone had a map of this
       place.'
-  - text: "Oh thank you!\nHere, you can have my ticket for the <color=#ffff66>yellow
-      line</color>\xB4.\nI have no use for it anymore."
+  - text: 'Oh thank you!
+
+      Here, you can have my ticket for the <color=#ffff66>yellow
+      line</color>.
+
+      I have no use for it anymore.'
     delay: 0
     quest: {fileID: 0}
     questFailText: 
