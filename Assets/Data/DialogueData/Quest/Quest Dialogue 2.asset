@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sequence:
   - text: "Hey umm\u2026 I\u2019m lost."
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: You wouldn't happen to know how I can get to the Lilith station?
+    delay: 0
     quest: {fileID: 11400000, guid: c025f2b4448e5f54f82526249e1a4345, type: 2}
     questFailText: 'You don''t? Oh well...
 
       If only someone had a map of this
       place.'
-  - text: 'Oh thank you!
-
-      Here, you can have my ticket for the <color="yellow">yellow</color>
-      line.
-
-      I have no use for it anymore.'
+  - text: "Oh thank you!\nHere, you can have my ticket for the <color=#ffff66>yellow
+      line</color>\xB4.\nI have no use for it anymore."
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence:
   - text: "I think I\u2019ll just stay here for a while."
+    delay: 0
     quest: {fileID: 0}
     questFailText: 

@@ -14,5 +14,7 @@ public enum ItemType
 [CreateAssetMenu(fileName = "ItemData", menuName = "Data/Item")]
 public class ItemData : ScriptableObject
 {
-    public ItemType type = default(ItemType);
+    public ItemType itemType = default(ItemType);
+    public Sprite itemIcon = null;
+    public string itemName = string.Empty;
 }

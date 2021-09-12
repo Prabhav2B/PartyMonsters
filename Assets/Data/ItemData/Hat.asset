@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f70b7e3851ea1d4fa37de01e36f6dec, type: 3}
   m_Name: Hat
   m_EditorClassIdentifier: 
-  type: 6
+  itemType: 6
+  itemIcon: {fileID: 0}
+  itemName: a hat

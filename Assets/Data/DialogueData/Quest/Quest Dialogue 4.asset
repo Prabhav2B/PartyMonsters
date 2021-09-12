@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sequence:
   - text: Can you help me?
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: 'I have an <i>*cough*</i> appointment with someone.
@@ -22,25 +23,30 @@ MonoBehaviour:
       pink cotton candy.
 
       Has a moustache.'
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: 'Have you seen someone like that?
 
       Could you show me how I can get
       to them?'
+    delay: 0
     quest: {fileID: 11400000, guid: 75e1b70039777ec41a36a1102918204e, type: 2}
     questFailText: "Nah...that can\u2019t be it."
   - text: "Wonderful! I'll go to meet that spirit.\n<i>I\u2019ll just sharpen my
       blade first...</i>"
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: 'As a reward for your keen eye...ta-dah!
 
-      A <color="purple">purple</color>
-      line ticket!'
+      A <color=#ba55d3>purple
+      line</color> ticket!'
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence:
   - text: I love my job!
+    delay: 0
     quest: {fileID: 0}
     questFailText: 

@@ -28,5 +28,5 @@ public class PlayerInventory : MonoBehaviour
     }
     
 
-    public static bool ContainsItemOfType(ItemType type) => _items.Exists(item => item.type == type);
+    public static bool ContainsItemOfType(ItemType type) => _items.Exists(item => item.itemType == type);
 }

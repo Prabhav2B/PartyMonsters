@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f70b7e3851ea1d4fa37de01e36f6dec, type: 3}
   m_Name: Green Ticket
   m_EditorClassIdentifier: 
-  type: 2
+  itemType: 2
+  itemIcon: {fileID: 0}
+  itemName: a <color=#32cd32>green line</color> ticket

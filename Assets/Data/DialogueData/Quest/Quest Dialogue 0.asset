@@ -16,35 +16,44 @@ MonoBehaviour:
   - text: 'Hello there!
 
       Welcome to the Spirit Metro!'
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: I heard your aunt is waiting for you at Elysia station.
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: "Don\u2019t keep her waiting too long.\nThe poor lady has been there for
       a while..."
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: "Let\u2019s check your ticket\u2026"
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: "Oh you don\u2019t have one!\nOn this metro line, nobody travels without
       a ticket!"
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: "Well, since you are a newbie, I make this easy for you:\nHere\u2019s a
-      ticket to the <color=\"blue\">blue line</color>!\nIt\u2019s valid in all the
+      ticket to the <color=#00bfff>blue line</color>!\nIt\u2019s valid in all the
       blue metro connections."
+    delay: 0
     quest: {fileID: 11400000, guid: ab98fce04b73006429a4f1364972ddf2, type: 2}
     questFailText: 
   - text: Just be sure you have the matching color ticket the next time you enter
       a train.
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   - text: Have a good journey, keep your spirits high!
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence:
   - text: Have a good journey, keep your spirits high!
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
