@@ -1626,7 +1626,7 @@ RectTransform:
   m_Children:
   - {fileID: 840126719}
   m_Father: {fileID: 1656311870}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1643,6 +1643,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8959599745128778887, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
   m_PrefabInstance: {fileID: 8959599745515149451}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &765563512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 626658866887087704, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
+  m_PrefabInstance: {fileID: 626658866918798741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &786142566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1785,7 +1796,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnGameStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840126722}
+        m_TargetAssemblyTypeName: DummyTrainAnimation, Assembly-CSharp
+        m_MethodName: ScriptedTrainEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 765563512}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &840126718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e60f3473a47f0438329b4289d3ef37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuVisuals: {fileID: 1452607836}
   positionA: -4834
   positionB: -43506
 --- !u!1 &856246705
@@ -3224,6 +3260,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1431282533}
+  - {fileID: 1829218882}
   m_Father: {fileID: 1656311870}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3783,7 +3820,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1452607837}
-  - {fileID: 1829218882}
   - {fileID: 655514287}
   m_Father: {fileID: 838264230}
   m_RootOrder: 0
@@ -4037,12 +4073,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829218881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 0.75}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 0.74999994}
   m_Children:
   - {fileID: 1056166807}
-  m_Father: {fileID: 1656311870}
+  m_Father: {fileID: 1452607837}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4074,7 +4110,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.7216981, b: 0.91531634, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4098,6 +4134,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameStart, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1829218883}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
