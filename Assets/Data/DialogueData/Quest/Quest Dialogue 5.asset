@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sequence:
   - text: "Hi dear, long time no see! I\u2019m glad you found your way here."
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
-  - text: ' I have purchased tickets to the white line metro for both of us! Should
+  - text: I have purchased tickets to the white line metro for both of us! Should
       we take the next train to our own spirit station, or do you still need more
-      time?'
+      time?
+    delay: 0
     quest: {fileID: 0}
     questFailText: 
   _afterQuestSequence: []

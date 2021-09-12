@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &284468417353291114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597411566484997719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f73da2353646549be217c290a8891b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quest: {fileID: 11400000, guid: c025f2b4448e5f54f82526249e1a4345, type: 2}
+  _onAccomplished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1297153384534423049}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 84cd6d712db373746a340ff83ac9cba8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFailed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7708857807156002534
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +560,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4933630423054337184, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: faf454442d09ca645926b0f412e92614, type: 3}
     - target: {fileID: 8564434602852135495, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -579,6 +614,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
+--- !u!1 &1597411566484997719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4637733177083311358, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
+  m_PrefabInstance: {fileID: 6230638393414939305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1297153384534423049 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4933630423054337184, guid: e001d2fcc28c2db4782bba5386b4e4c6, type: 3}
+  m_PrefabInstance: {fileID: 6230638393414939305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6576283707991652116
 PrefabInstance:
   m_ObjectHideFlags: 0

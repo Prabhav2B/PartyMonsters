@@ -154,6 +154,19 @@ MonoBehaviour:
   - {x: 114.86209, y: 3.0954247, z: 0}
   - {x: 114.86209, y: 17.095425, z: 0}
   - {x: -2.1379051, y: 17.095425, z: 0}
+--- !u!114 &6246967593861132785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379413607338951844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a48cc9f39bb4e4cb5839fd4f549576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerName: Give
 --- !u!114 &7565936767745948110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,22 +195,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7080712950183474426}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 84cd6d712db373746a340ff83ac9cba8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onFailed:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6246967593861132785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379413607338951844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a48cc9f39bb4e4cb5839fd4f549576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerName: Give
 --- !u!1001 &776459326056190143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -373,6 +385,10 @@ PrefabInstance:
       propertyPath: _dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: b6b28d7646512124d88b78250c30beb3, type: 2}
+    - target: {fileID: 6400653995481532971, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: faf454442d09ca645926b0f412e92614, type: 3}
     - target: {fileID: 6699385507684711028, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -474,6 +490,11 @@ PrefabInstance:
 --- !u!1 &7379413607338951844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6699385507684711029, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
+  m_PrefabInstance: {fileID: 4219888296268742353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7080712950183474426 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6400653995481532971, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
   m_PrefabInstance: {fileID: 4219888296268742353}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5770883049958694863
