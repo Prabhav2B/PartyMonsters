@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-using System.Collections;
+using DG.Tweening;
 
 [
     DisallowMultipleComponent,
@@ -13,6 +14,16 @@ public class DialogueBox : MonoBehaviour
     private TMP_Text _textComponent = null;
     [SerializeField]
     private DialogueData _dialogueData = null;
+    [
+        SerializeField,
+        Min(0f)
+    ]
+    private float _fadeInDuration = 0f;
+    [
+        SerializeField,
+        Min(0f)
+    ]
+    private float _fadeOutDuration = 0f;
     [SerializeField]
     private UnityEvent _onAdvanceDialogue = new UnityEvent();
     [SerializeField]
@@ -24,10 +35,15 @@ public class DialogueBox : MonoBehaviour
     private bool _questFailed = false;
     private bool _questAccomplished = false;
     private Canvas _canvas = null;
+    private CanvasGroup _canvasGroup = null;
 
     private bool _lockDialogue = false;
 
-    private void Awake() => _canvas = GetComponent<Canvas>();
+    private void Awake()
+    {
+        _canvas = GetComponent<Canvas>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+    }
 
     public void StartOrAdvanceDialogue()
     {
@@ -41,6 +57,7 @@ public class DialogueBox : MonoBehaviour
     {
         if (_dialogueData != null)
         {
+            _lockDialogue = true;
             if (_currentLine < _dialogueData.sequence.Length - 1 && !_questFailed)
             {
                 bool started = false;
@@ -51,6 +68,8 @@ public class DialogueBox : MonoBehaviour
                 }
                 else
                 {
+                    yield return FadeFromTo(1f, 0f, _fadeOutDuration);
+
                     var quest = _dialogueData.sequence[_currentLine].quest;
                     if (quest != null)
                     {
@@ -60,6 +79,8 @@ public class DialogueBox : MonoBehaviour
                         {
                             _textComponent.text = _dialogueData.sequence[_currentLine].questFailText;
                             _onAdvanceDialogue.Invoke();
+                            yield return FadeFromTo(0f, 1f, _fadeInDuration);
+                            _lockDialogue = false;
                             yield break;
                         }
                     }
@@ -68,7 +89,6 @@ public class DialogueBox : MonoBehaviour
                 _textComponent.text = nextLine.text;
                 if (nextLine.delay > 0f)
                 {
-                    _lockDialogue = true;
                     _canvas.enabled = false;
                     yield return new WaitForSeconds(nextLine.delay);
                     _canvas.enabled = true;
@@ -81,15 +101,25 @@ public class DialogueBox : MonoBehaviour
                 {
                     _onAdvanceDialogue.Invoke();
                 }
+                yield return FadeFromTo(0f, 1f, _fadeInDuration);
             }
             else if (_currentLine > -1)
             {
+                yield return FadeFromTo(1f, 0f, _fadeOutDuration);
+
                 EndDialogue();
             }
+            _dialogueData.questLineFinished = _questAccomplished;
+            _lockDialogue = false;
         }
-        _dialogueData.questLineFinished = _questAccomplished;
-        _lockDialogue = false;
         yield return null;
+    }
+
+    private IEnumerator FadeFromTo(float from, float to, float duration)
+    {
+        _canvasGroup.alpha = from;
+        var fade = _canvasGroup.DOFade(to, duration);
+        yield return fade.WaitForCompletion();
     }
 
     public void EndDialogue()
@@ -111,7 +141,6 @@ public class DialogueBox : MonoBehaviour
     {
         _canvas.enabled = true;
         _currentLine = -1;
-        _lockDialogue = false;
         PlayerManager.ActiveInteractableLocked = true;
     }
 }

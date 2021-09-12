@@ -27,13 +27,19 @@ public class Interactable : MonoBehaviour
     private bool _active = false;
     public bool Active => _active;
 
-    private SpriteRenderer _interactionSprite = null;
+    private SpriteRenderer[] _interactionSprites = null;
+    private SpriteFade[] _spriteFades = null;
     private WaitForSeconds _waitForReactivationInterval = null;
     private PlayerManager _playerManager = null;
     
     private void Awake()
     {
-        _interactionSprite = GetComponentInChildren<SpriteRenderer>();
+        _interactionSprites = GetComponentsInChildren<SpriteRenderer>();
+        _spriteFades = new SpriteFade[_interactionSprites.Length];
+        for (int i = 0; i < _spriteFades.Length; i++)
+        {
+            _spriteFades[i] = _interactionSprites[i].GetComponent<SpriteFade>();
+        }
         _waitForReactivationInterval = new WaitForSeconds(_reactivationInterval);
         Deactivate();
     }
@@ -83,9 +89,19 @@ public class Interactable : MonoBehaviour
     {
         if (_canBeActivated)
         {
-            if (_interactionSprite != null && !_hideInteractionSprite)
+            if (_interactionSprites != null && !_hideInteractionSprite)
             {
-                _interactionSprite.enabled = true;
+                for (int i = 0; i < _interactionSprites.Length; i++)
+                {
+                    if (_spriteFades[i] != null)
+                    {
+                        _spriteFades[i].FadeIn();
+                    }
+                    else if (_interactionSprites[i] != null)
+                    {
+                        _interactionSprites[i].enabled = true;
+                    }
+                }
             }
             _active = true;
             _onActivate.Invoke();
@@ -94,9 +110,19 @@ public class Interactable : MonoBehaviour
 
     public void Deactivate()
     {
-        if (_interactionSprite != null)
+        if (_interactionSprites != null)
         {
-            _interactionSprite.enabled = false;
+            for (int i = 0; i < _interactionSprites.Length; i++)
+            {
+                if (_spriteFades[i] != null)
+                {
+                    _spriteFades[i].FadeOut();
+                }
+                else if (_interactionSprites[i] != null)
+                {
+                    _interactionSprites[i].enabled = false;
+                }
+            }
         }
         _active = false;
         _onDeactivate.Invoke();
@@ -105,19 +131,25 @@ public class Interactable : MonoBehaviour
     public void ShowInteractionSprite()
     {
         _hideInteractionSprite = false;
-        if (_interactionSprite != null && _active)
-        {
-            _interactionSprite.enabled = true;
-        }
+        // if (_interactionSprites != null && _active)
+        // {
+        //     foreach (var sprite in _interactionSprites)
+        //     {
+        //         sprite.enabled = true;
+        //     }
+        // }
     }
 
     public void HideInteractionSprite()
     {
         _hideInteractionSprite = true;
-        if (_interactionSprite != null)
-        {
-            _interactionSprite.enabled = false;
-        }
+        // if (_interactionSprites != null)
+        // {
+        //     foreach (var sprite in _interactionSprites)
+        //     {
+        //         sprite.enabled = false;
+        //     }
+        // }
     }
 
     public void StartReactivationTimer()

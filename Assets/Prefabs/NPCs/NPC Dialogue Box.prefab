@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 5777442330642304129}
   - component: {fileID: 5450152634829777063}
   - component: {fileID: 1531793498860988148}
+  - component: {fileID: 8997848592949105679}
   - component: {fileID: 4372238848122873701}
   m_Layer: 0
   m_Name: NPC Dialogue Box
@@ -346,6 +347,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!225 &8997848592949105679
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536914299454236691}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!114 &4372238848122873701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textComponent: {fileID: 3285258390823339168}
   _dialogueData: {fileID: 11400000, guid: d815087ed70b6d64ab6eb06fb58d6a4d, type: 2}
+  _fadeInDuration: 0.4
+  _fadeOutDuration: 0.2
   _onAdvanceDialogue:
     m_PersistentCalls:
       m_Calls: []
@@ -477,13 +492,14 @@ GameObject:
   - component: {fileID: 3166649685274479890}
   - component: {fileID: 8857013960041646782}
   - component: {fileID: 1199635559505896180}
+  - component: {fileID: 4798164412391920553}
   m_Layer: 0
   m_Name: Continue Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5253481015910956483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -518,7 +534,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8994126393945504723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -561,3 +577,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &4798164412391920553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994126393945504723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc1515bcc15ed746aa1554af8054a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeInDuration: 0.2
+  _fadeOutDuration: 0.2
+  _image: {fileID: 8857013960041646782}
