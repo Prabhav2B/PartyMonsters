@@ -154,19 +154,6 @@ MonoBehaviour:
   - {x: 114.86209, y: 3.0954247, z: 0}
   - {x: 114.86209, y: 17.095425, z: 0}
   - {x: -2.1379051, y: 17.095425, z: 0}
---- !u!114 &6246967593861132785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379413607338951844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a48cc9f39bb4e4cb5839fd4f549576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerName: Give
 --- !u!114 &7565936767745948110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,17 +170,17 @@ MonoBehaviour:
   _onAccomplished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6246967593861132785}
-        m_TargetAssemblyTypeName: AnimationTrigger, Assembly-CSharp
-        m_MethodName: Trigger
-        m_Mode: 1
+      - m_Target: {fileID: 9163647005911808287}
+        m_TargetAssemblyTypeName: AnimationBool, Assembly-CSharp
+        m_MethodName: SetBool
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 7080712950183474426}
         m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
@@ -210,6 +197,19 @@ MonoBehaviour:
   _onFailed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9163647005911808287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2694328600082231439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd2cdbf8986b294781506f6eb5fc803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boolName: Hat
 --- !u!1001 &776459326056190143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,6 +495,11 @@ GameObject:
 --- !u!212 &7080712950183474426 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6400653995481532971, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
+  m_PrefabInstance: {fileID: 4219888296268742353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2694328600082231439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2302504453942447710, guid: 394ff530bad6d78429a6da72a5c1046e, type: 3}
   m_PrefabInstance: {fileID: 4219888296268742353}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5770883049958694863
