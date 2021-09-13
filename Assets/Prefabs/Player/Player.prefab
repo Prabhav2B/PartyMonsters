@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 626658866887087711}
   - component: {fileID: 626658866887087704}
   - component: {fileID: 617110158490516820}
-  - component: {fileID: 6904054749862519317}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -213,18 +212,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 626658866887087710}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: ToggleBlockMovement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMapStatus, Assembly-CSharp
         m_MethodName: CollectDrawnLines
@@ -310,13 +297,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startItems:
   - {fileID: 11400000, guid: ee0a891a678d768478aa9e246c991262, type: 2}
---- !u!114 &6904054749862519317
+--- !u!114 &2462394714720106824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626658866887087699}
+  m_GameObject: {fileID: 3506018894410087769}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9196b18d5793d46428dff06781799d05, type: 3}
@@ -333,6 +320,10 @@ PrefabInstance:
     - target: {fileID: 4602424290850003465, guid: 56bdb6ab127d9fa448debb5ee867213e, type: 3}
       propertyPath: m_Name
       value: Player Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602424290850003465, guid: 56bdb6ab127d9fa448debb5ee867213e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4602424290850003508, guid: 56bdb6ab127d9fa448debb5ee867213e, type: 3}
       propertyPath: m_RootOrder
@@ -380,6 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bdb6ab127d9fa448debb5ee867213e, type: 3}
+--- !u!1 &3506018894410087769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4602424290850003465, guid: 56bdb6ab127d9fa448debb5ee867213e, type: 3}
+  m_PrefabInstance: {fileID: 1114914797178103632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3506018894410087780 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4602424290850003508, guid: 56bdb6ab127d9fa448debb5ee867213e, type: 3}

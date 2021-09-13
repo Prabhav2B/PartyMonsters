@@ -27,6 +27,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     private Vector3 _initalPosition;
     private bool _pause;
     private bool _blockMovement;
+    private bool _initialized = false;
 
     private readonly List<Interactable> _interactables = new List<Interactable>();
     private Interactable _activeInteractable = null;
@@ -44,20 +45,31 @@ public class PlayerManager : SingleInstance<PlayerManager>
     {
         base.Awake();
         _input = GetComponent<PlayerInput>();
-        _animation = GetComponent<PlayerAnimation>();
         _characterController = GetComponent<CharController>();
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
         _trainScheduler = FindObjectOfType<TrainScheduler>();
         _mainMenu = FindObjectOfType<MainMenu>();
-
-        _characterSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _spriteRendererTransform = _characterSpriteRenderer.transform;
-
-        //_particleSystem = this.GetComponentInChildren<ParticleSystem>();
         UpdateCurrentScheme(_input.currentControlScheme);
+        Deactivate();
+    }
 
-        //Deactivate();
+    public void Initialize()
+    {
+        if (!_initialized)
+        {
+            _characterSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _animation = GetComponentInChildren<PlayerAnimation>();
+            _spriteRendererTransform = _characterSpriteRenderer.transform;
+
+            InputUser.onChange += OnInputDeviceChange;
+            _characterController.OnJump += _animation.Jump;
+
+            //_particleSystem = this.GetComponentInChildren<ParticleSystem>();
+            Activate();
+
+            _initialized = true;
+        }
     }
 
     private void Start()
@@ -69,14 +81,20 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     protected void OnEnable()
     {
-        InputUser.onChange += OnInputDeviceChange;
-        _characterController.OnJump += _animation.Jump;
+        if (_initialized)
+        {
+            InputUser.onChange += OnInputDeviceChange;
+            _characterController.OnJump += _animation.Jump;
+        }
     }
 
     protected void OnDisable()
     {
-        InputUser.onChange -= OnInputDeviceChange;
-        _characterController.OnJump -= _animation.Jump;
+        if (_initialized)
+        {
+            InputUser.onChange -= OnInputDeviceChange;
+            _characterController.OnJump -= _animation.Jump;
+        }
     }
 
     public void ResetScene()
@@ -126,7 +144,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(_pause || _blockMovement)
+        if(_pause || _blockMovement || !_initialized)
             return;
         
         ReceivedInput = context.ReadValue<Vector2>();
@@ -135,7 +153,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(_pause || _blockMovement)
+        if(_pause || _blockMovement || !_initialized)
             return;
         
         if (Math.Abs(context.ReadValue<float>() - 1f) < 0.5f)
@@ -207,6 +225,8 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     private void Update()
     {
+        if (!_initialized) return;
+
         if (_characterController.IsStill)
         {
             if (_movementTweenFlag != 0)
