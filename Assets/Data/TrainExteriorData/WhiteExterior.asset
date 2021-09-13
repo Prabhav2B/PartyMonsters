@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trainTrainLineColor: 5
   trainExterior: {fileID: 21300000, guid: ee25e14b8dcc1614d8c19f3c04fdda84, type: 3}
-  trainDoor: {fileID: 21300000, guid: ee25e14b8dcc1614d8c19f3c04fdda84, type: 3}
+  trainDoor: {fileID: 21300000, guid: b0f9c3da9f86a404fb62f94e442e1100, type: 3}
   waitDuration: 3

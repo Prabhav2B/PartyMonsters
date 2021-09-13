@@ -60,6 +60,26 @@ public class SceneFadeManager : MonoBehaviour
         _transitionImage.enabled = true;
         _transitionImage.DOFade(1f, fadeInDuration).OnComplete(() => _transitionImage.enabled = false);
     }
+    
+    public void WhiteIn(PostFadeIn f)
+    {
+        var col = Color.white;
+        _transitionImage.color = col;
+        _transitionImage.enabled = true;
+        f += () => _transitionImage.enabled = false;
+        _transitionImage.DOFade(0f, 4f).OnComplete(f.Invoke);
+    }
+
+    public void WhiteOut(PostFadeOut f)
+    {
+        var col = Color.white;
+        col.a = 0f;
+        _transitionImage.color = col;
+        _transitionImage.enabled = true;
+        //f += () => _transitionImage.enabled = false;
+        _transitionImage.DOFade(1f, 4f).OnComplete(f.Invoke);
+    }
+
 
     private IEnumerator StaggeredGameStart()
     {

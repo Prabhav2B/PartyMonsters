@@ -295,7 +295,7 @@ public class TrainLine
         _reversing = _incrementor < 0;
         
         NewStation = true;
-        DebugCurrentPlatform();
+        //DebugCurrentPlatform();
     }
 
     public void Tick()
