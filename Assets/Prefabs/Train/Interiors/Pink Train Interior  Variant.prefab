@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: _dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 5baa580006727314bbf9348cf7e30ff9, type: 2}
+    - target: {fileID: 3597979946683311287, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597979946683311287, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819953666300452536, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.19
+      objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311358, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_Name
       value: Cottoncount NPC
@@ -21,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.876978
+      value: 17.54
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.2232
+      value: 10.15
       objectReference: {fileID: 0}
     - target: {fileID: 4637733177083311359, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 4637733177083311359, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933630423029790947, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8564434602852135495, guid: ce2da12405e88b34ea421d70b69df8d5, type: 3}
       propertyPath: m_AnchorMax.y
