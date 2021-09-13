@@ -21,14 +21,17 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        var state = _animator.GetCurrentAnimatorStateInfo(0);
-        if (state.IsName("Base Layer.Player_idle"))
+        if (_animator != null)
         {
-            _idleDisplayObject.SetActive(true);
-        }
-        else
-        {
-            _idleDisplayObject.SetActive(false);
+            var state = _animator.GetCurrentAnimatorStateInfo(0);
+            if (state.IsName("Base Layer.Player_idle"))
+            {
+                _idleDisplayObject.SetActive(true);
+            }
+            else
+            {
+                _idleDisplayObject.SetActive(false);
+            }
         }
     }
 }

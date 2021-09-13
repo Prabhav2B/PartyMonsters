@@ -324,11 +324,11 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void Deactivate()
     {
-        GetComponent<PlayerInput>().enabled = false;
+        _input.enabled = false;
     }
 
     public void Activate()
     {
-        GetComponent<PlayerInput>().enabled = true;
+        _input.enabled = true;
     }
 }

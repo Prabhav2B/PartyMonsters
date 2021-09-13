@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class SceneFadeManager : MonoBehaviour
 {
-    private PlayerManager playerManager;
     [SerializeField] private float fadeInDuration = 1f;
 
     private Image _transitionImage;
@@ -19,8 +18,6 @@ public class SceneFadeManager : MonoBehaviour
 
     public void Start()
     {
-        if (playerManager == null) playerManager = FindObjectOfType<PlayerManager>();
-
         _transitionImage = GetComponentInChildren<Image>();
         var transitionImageColor = _transitionImage.color;
         transitionImageColor.a = 1f;
@@ -83,7 +80,7 @@ public class SceneFadeManager : MonoBehaviour
 
     private IEnumerator StaggeredGameStart()
     {
-        yield return new WaitForSeconds(1f);
-        FadeIn(playerManager.Activate);
+        yield return new WaitForSeconds(1.2f);
+        FadeIn();
     }
 }

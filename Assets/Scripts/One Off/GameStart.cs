@@ -1,23 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[DisallowMultipleComponent]
 public class GameStart : MonoBehaviour
 {
-    private PlayerManager _playerManger;
-
     public UnityEvent OnGameStart;
-    
-    void Awake()
-    {
-        _playerManger = FindObjectOfType<PlayerManager>();
-        _playerManger.GetComponent<PlayerInput>().enabled = false;
-    }
+
+    private bool _started = false;
 
     public void StartGame()
     {
+        _started = true;
         OnGameStart?.Invoke();
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.anyKey.wasPressedThisFrame && !_started)
+        {
+            StartGame();
+        }
     }
 }

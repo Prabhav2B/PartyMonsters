@@ -23,6 +23,8 @@ public class UIImageFade : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            DOTween.Kill(_image);
+            StopAllCoroutines();
             StartCoroutine(FadeInCoroutine());
         }
     }
@@ -31,19 +33,23 @@ public class UIImageFade : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            DOTween.Kill(_image);
+            StopAllCoroutines();
             StartCoroutine(FadeOutCoroutine());
         }
     }
 
     private IEnumerator FadeInCoroutine()
     {
+        float currentFade = _image.color.a;
         _image.enabled = true;
-        yield return FadeFromTo(0f, 1f, _fadeInDuration);
+        yield return FadeFromTo(currentFade, 1f, _fadeInDuration);
     }
 
     private IEnumerator FadeOutCoroutine()
     {
-        yield return FadeFromTo(1f, 0f, _fadeOutDuration);
+        float currentFade = _image.color.a;
+        yield return FadeFromTo(currentFade, 0f, _fadeOutDuration);
         _image.enabled = false;
     }
 

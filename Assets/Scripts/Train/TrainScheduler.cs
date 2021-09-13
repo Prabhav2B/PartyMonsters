@@ -29,6 +29,7 @@ public class TrainScheduler : MonoBehaviour
     //private bool _isTrainOnStation;
 
     private static bool _stationOccupied;
+    private static bool _initialized = false;
 
     public PlayerLocation PlayerLocation
     {
@@ -38,42 +39,49 @@ public class TrainScheduler : MonoBehaviour
     public bool CurrentTrainReversing => _currentTrain.Reversing;
     public bool OnTrain { get; set; }
 
-    private void Awake()
+    public void Initialize()
     {
-        _playerLocation = PlayerLocation.station;
-        _currentStation = startStation;
-
-        foreach (var train in trainLookup)
+        if (!_initialized)
         {
-            _trainDict.Add(train.trainTrainLineColor, train.trainExterior);
+            _playerLocation = PlayerLocation.station;
+            _currentStation = startStation;
+
+            foreach (var train in trainLookup)
+            {
+                _trainDict.Add(train.trainTrainLineColor, train.trainExterior);
+            }
+
+            foreach (var station in stationLookup)
+            {
+                _stationDict.Add(station.stationName, station.station);
+            }
+
+            foreach (var trainLine in trainLines)
+            {
+                trainLine.Initialize();
+                _trainLinesDict.Add(trainLine.trainLine, trainLine);
+            }
+
+            foreach (var station in _stationDict)
+            {
+                station.Value.Deactivate();
+            }
+
+            _stationDict[_currentStation].Activate();
+
+            _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
+            _musicManager = FindObjectOfType<MusicManager>();
+            _musicManager.Play(_stationDict[_currentStation].StationData.musicIndex);
+            _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
+
+            _initialized = true;
         }
-
-        foreach (var station in stationLookup)
-        {
-            _stationDict.Add(station.stationName, station.station);
-        }
-
-        foreach (var trainLine in trainLines)
-        {
-            trainLine.Initialize();
-            _trainLinesDict.Add(trainLine.trainLine, trainLine);
-        }
-
-        foreach (var station in _stationDict)
-        {
-            station.Value.Deactivate();
-        }
-
-        _stationDict[_currentStation].Activate();
-
-        _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
-        _musicManager = FindObjectOfType<MusicManager>();
-        _musicManager.Play(_stationDict[_currentStation].StationData.musicIndex);
-        _sceneChangeManager.CurrentStation = _stationDict[_currentStation];
     }
 
     private void Update()
     {
+        if (!_initialized) return;
+
         switch (_playerLocation)
         {
             case PlayerLocation.station:

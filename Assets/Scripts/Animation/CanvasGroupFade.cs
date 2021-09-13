@@ -22,6 +22,8 @@ public class CanvasGroupFade : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            DOTween.Kill(_canvasGroup);
+            StopAllCoroutines();
             StartCoroutine(FadeInCoroutine());
         }
     }
@@ -30,18 +32,22 @@ public class CanvasGroupFade : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            DOTween.Kill(_canvasGroup);
+            StopAllCoroutines();
             StartCoroutine(FadeOutCoroutine());
         }
     }
 
     private IEnumerator FadeInCoroutine()
     {
-        yield return FadeFromTo(0f, 1f, _fadeInDuration);
+        float currentFade = _canvasGroup.alpha;
+        yield return FadeFromTo(currentFade, 1f, _fadeInDuration);
     }
 
     private IEnumerator FadeOutCoroutine()
     {
-        yield return FadeFromTo(1f, 0f, _fadeOutDuration);
+        float currentFade = _canvasGroup.alpha;
+        yield return FadeFromTo(currentFade, 0f, _fadeOutDuration);
     }
 
     private IEnumerator FadeFromTo(float from, float to, float duration)

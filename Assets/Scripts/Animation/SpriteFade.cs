@@ -22,6 +22,8 @@ public class SpriteFade : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            DOTween.Kill(_renderer);
+            StopAllCoroutines();
             StartCoroutine(FadeInCoroutine());
         }
     }
@@ -30,19 +32,23 @@ public class SpriteFade : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            DOTween.Kill(_renderer);
+            StopAllCoroutines();
             StartCoroutine(FadeOutCoroutine());
         }
     }
 
     private IEnumerator FadeInCoroutine()
     {
+        float currentFade = _renderer.color.a;
         _renderer.enabled = true;
-        yield return FadeFromTo(0f, 1f, _fadeInDuration);
+        yield return FadeFromTo(currentFade, 1f, _fadeInDuration);
     }
 
     private IEnumerator FadeOutCoroutine()
     {
-        yield return FadeFromTo(1f, 0f, _fadeOutDuration);
+        float currentFade = _renderer.color.a;
+        yield return FadeFromTo(currentFade, 0f, _fadeOutDuration);
         _renderer.enabled = false;
     }
 
