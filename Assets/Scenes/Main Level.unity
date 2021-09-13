@@ -1090,6 +1090,26 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 11e6ac9fe8ac211419cb01a085d8d866, type: 3}
+    - target: {fileID: 3096380344119230190, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096380344314000731, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096380344579734302, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096380345037778119, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096380346049795057, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 3505008864708202405, guid: b8348152f724f0b43ac07f56a06f5877, type: 3}
       propertyPath: OnOpen.m_PersistentCalls.m_Calls.Array.size
       value: 1

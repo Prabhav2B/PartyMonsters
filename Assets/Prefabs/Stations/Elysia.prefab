@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f73da2353646549be217c290a8891b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _quest: {fileID: 11400000, guid: 75e1b70039777ec41a36a1102918204e, type: 2}
+  _quest: {fileID: 11400000, guid: 1ca29a9388f13ce4ea7e82ce50569437, type: 2}
   _onAccomplished:
     m_PersistentCalls:
       m_Calls:

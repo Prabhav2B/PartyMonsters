@@ -27,6 +27,7 @@ public class TicketUi : MonoBehaviour
         _ticketSprites[2].sprite = PlayerInventory.ContainsItemOfType(ItemType.TicketGreen) ? greenTicket : missingTicket;
         _ticketSprites[3].sprite = PlayerInventory.ContainsItemOfType(ItemType.TicketYellow) ? yellowTicket : missingTicket;
         _ticketSprites[4].sprite = PlayerInventory.ContainsItemOfType(ItemType.TicketPurple) ? purpleTicket : missingTicket;
+        _ticketSprites[5].sprite = PlayerInventory.ContainsItemOfType(ItemType.TicketWhite) ? whiteTicket : missingTicket;
 
     }
 }

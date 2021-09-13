@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f70b7e3851ea1d4fa37de01e36f6dec, type: 3}
-  m_Name: White Ticket
+  m_Script: {fileID: 11500000, guid: e43775c343b0d744fb282ba1d0d41a48, type: 3}
+  m_Name: Quest 5
   m_EditorClassIdentifier: 
-  itemType: 7
-  itemIcon: {fileID: 21300000, guid: 19afe2eca1068934f86636b4f609f2e1, type: 3}
-  itemName: a white line ticket
+  reward: {fileID: 11400000, guid: d0dddddfc2a6b7c4b8baccc2bf569ae4, type: 2}
+  requiredItemType: 0
