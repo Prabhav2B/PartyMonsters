@@ -320,6 +320,7 @@ public class PlayerManager : SingleInstance<PlayerManager>
     public void ToggleBlockMovement()
     {
         _blockMovement = !_blockMovement;
+        _characterController.Move(Vector2.zero);
     }
 
     public void Deactivate()
