@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6091324752352538562, guid: d78372bd5e921334f9a962c66451e7d4, type: 3}
       propertyPath: _reactivationInterval
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6091324752352538562, guid: d78372bd5e921334f9a962c66451e7d4, type: 3}
       propertyPath: _onActivate.m_PersistentCalls.m_Calls.Array.size
