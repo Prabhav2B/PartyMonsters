@@ -12,5 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
   m_Name: Conductor_Green_Dialogue
   m_EditorClassIdentifier: 
-  _sequence: []
-  _afterQuestSequence: []
+  _sequence:
+  - text: I don't bother getting off on all stations myself whenever travelling.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: But you totally should though. There's a lot of stuff to see.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: And weird people to meet.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence:
+  - text: Have a good journey, keep your spirits high!
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 

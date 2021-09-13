@@ -12,5 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
   m_Name: Conductor_Yellow_Dialogue
   m_EditorClassIdentifier: 
-  _sequence: []
-  _afterQuestSequence: []
+  _sequence:
+  - text: Some stations have several lines crossing.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: You can tell which ones from the signs.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: Who knows where they actually go or why?
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: Looping around and going into dead ends where nobody lives.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence:
+  - text: Have a good journey, keep your spirits high!
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 

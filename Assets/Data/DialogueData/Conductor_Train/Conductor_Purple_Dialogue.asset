@@ -12,5 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
   m_Name: Conductor_Purple_Dialogue
   m_EditorClassIdentifier: 
-  _sequence: []
-  _afterQuestSequence: []
+  _sequence:
+  - text: We're getting close now, you know. Hope your aunt is still at the station.
+      Maybe she got bored and went home?
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: Nah I'm just messing with you. She wouldn't do that. She's too sweet.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: Oh by the way, I heard you met that Reaper guy.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: I'm a big fan! Would you mind getting me his autograph if you see him again?
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence:
+  - text: Have a good journey, keep your spirits high!
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 

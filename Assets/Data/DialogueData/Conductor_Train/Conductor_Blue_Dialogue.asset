@@ -12,5 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6b79f1dee84da4f8c80860af8e0e35, type: 3}
   m_Name: Conductor_Blue_Dialogue
   m_EditorClassIdentifier: 
-  _sequence: []
-  _afterQuestSequence: []
+  _sequence:
+  - text: These tunnels can be a little confusin, I know.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: We don't have any maps here either, because the lines need to be redrawn
+      so frequently.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: But I see that you have a nifty hnotebook there.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  - text: That's probably handy for keeping track of where you are.
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence:
+  - text: Have a good journey, keep your spirits high!
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
