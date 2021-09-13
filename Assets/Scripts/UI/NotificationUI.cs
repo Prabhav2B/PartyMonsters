@@ -5,6 +5,26 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
+public enum NotificationType
+{
+    Item,
+    InvalidTicket
+}
+
+public struct Notification
+{
+    public NotificationType Type;
+    public string Message;
+    public Sprite Icon;
+
+    public Notification(NotificationType type, string message, Sprite icon)
+    {
+        Type = type;
+        Message = message;
+        Icon = icon;
+    }
+}
+
 [DisallowMultipleComponent]
 public class NotificationUI : MonoBehaviour
 {
@@ -32,8 +52,9 @@ public class NotificationUI : MonoBehaviour
     ]
     private float _fadeOutDuration = 0f;
 
-    private Queue<(string, Sprite)> _notificationQueue = new Queue<(string, Sprite)>();
+    private Queue<Notification> _notificationQueue = new Queue<Notification>();
     private bool _processingNotifications = false;
+    private Notification _currentNotification = default(Notification);
 
     private void Awake()
     {
@@ -65,34 +86,41 @@ public class NotificationUI : MonoBehaviour
         _processingNotifications = true;
         while (_notificationQueue.Count > 0)
         {
-            var notification = _notificationQueue.Dequeue();
-            DisplayNotification(notification.Item1, notification.Item2);
+            _currentNotification = _notificationQueue.Dequeue();
+            DisplayNotification(_currentNotification);
             yield return FadeInCoroutine();
             yield return new WaitForSeconds(_displayTime);
             yield return FadeOutCoroutine();
         }
+        _currentNotification = default(Notification);
         _processingNotifications = false;
     }
 
-    private void DisplayNotification(string message, Sprite icon)
+    private void DisplayNotification(Notification notification)
     {
-        _textComponent.text = message;
-        _iconImage.sprite = icon;
+        _textComponent.text = notification.Message;
+        _iconImage.sprite = notification.Icon;
     }
 
     private void EnqueueItemNotification(ItemData item)
     {
+        var type = NotificationType.Item;
         string message = string.Format("Received {0}!", item.itemName);
         Sprite icon = item.itemIcon;
-        _notificationQueue.Enqueue((message, icon));
+        _notificationQueue.Enqueue(new Notification(type, message, icon));
         StartProcessingNotifications();
     }
 
     private void EnqueueInvalidTicketNotification()
     {
-        string message = "You don't have a valid ticket for this line!";
-        _notificationQueue.Enqueue((message, _invalidTicketSprite));
-        StartProcessingNotifications();
+        if (!(_processingNotifications && _currentNotification.Type == NotificationType.InvalidTicket))
+        {
+            var type = NotificationType.InvalidTicket;
+            string message = "You don't have a valid ticket for this line!";
+            Sprite icon = _invalidTicketSprite;
+            _notificationQueue.Enqueue(new Notification(type, message, icon));
+            StartProcessingNotifications();
+        }
     }
 
     private IEnumerator FadeInCoroutine()
