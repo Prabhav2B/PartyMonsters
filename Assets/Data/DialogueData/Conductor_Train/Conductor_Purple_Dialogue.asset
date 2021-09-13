@@ -30,6 +30,10 @@ MonoBehaviour:
     delay: 0
     quest: {fileID: 0}
     questFailText: 
+  - text: Thanks in advance! Have a good journey, keep your spirits high!
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
   _afterQuestSequence:
   - text: Have a good journey, keep your spirits high!
     delay: 0

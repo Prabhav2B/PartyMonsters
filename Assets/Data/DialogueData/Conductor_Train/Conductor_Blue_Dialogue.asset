@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Conductor_Blue_Dialogue
   m_EditorClassIdentifier: 
   _sequence:
-  - text: These tunnels can be a little confusin, I know.
+  - text: These tunnels can be a little confusing, I know.
     delay: 0
     quest: {fileID: 0}
     questFailText: 
@@ -22,7 +22,7 @@ MonoBehaviour:
     delay: 0
     quest: {fileID: 0}
     questFailText: 
-  - text: But I see that you have a nifty hnotebook there.
+  - text: But I see that you have a nifty notebook over there.
     delay: 0
     quest: {fileID: 0}
     questFailText: 
@@ -30,8 +30,12 @@ MonoBehaviour:
     delay: 0
     quest: {fileID: 0}
     questFailText: 
-  _afterQuestSequence:
   - text: Have a good journey, keep your spirits high!
+    delay: 0
+    quest: {fileID: 0}
+    questFailText: 
+  _afterQuestSequence:
+  - text: 
     delay: 0
     quest: {fileID: 0}
     questFailText: 
