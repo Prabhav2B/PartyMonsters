@@ -12,7 +12,7 @@ public class MapSystem : MonoBehaviour
     [Range(2, 10)]
     public int gridHeight = 2;
 
-    [SerializeField] GameObject mapBackgrouund;
+    [SerializeField] GameObject mapBackground;
     [SerializeField] GameObject dot;
     [SerializeField] GameObject gridHolder;
     [SerializeField] GameObject lineHolder;
@@ -24,13 +24,16 @@ public class MapSystem : MonoBehaviour
     public float localOffsetX;
     public float localOffsetY;
 
+    Camera _camera;
+
     void Start()
     {
         //mapBackgrouund.transform.localScale = new Vector2(gridWidth, gridHeight);
-        localOffsetX = mapBackgrouund.transform.position.x;
-        localOffsetY = mapBackgrouund.transform.position.y;
+        _camera = Camera.main;
+        localOffsetX = mapBackground.transform.position.x;
+        localOffsetY = mapBackground.transform.position.y;
 
-        if(gridWidth % 2 == 0)
+        if (gridWidth % 2 == 0)
             offsetX = -gridWidth / 2 + 0.5f;
         else
             offsetX = -gridWidth / 2;
@@ -51,8 +54,8 @@ public class MapSystem : MonoBehaviour
             {
                 GameObject go = Instantiate(dot, gridHolder.transform);
 
-                float posX = offsetX + x + localOffsetX;
-                float posY = offsetY + y + localOffsetY;
+                float posX = offsetX + x + localOffsetX - _camera.transform.position.x;
+                float posY = offsetY + y + localOffsetY - _camera.transform.position.y;
 
                 go.transform.localPosition = new Vector2(posX, posY);
                 go.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);

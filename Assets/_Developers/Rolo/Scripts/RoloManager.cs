@@ -356,24 +356,33 @@ public class RoloManager : MonoBehaviour
                 }
                 else if (!isPressed)
                 {
-                    Vector2 snapTo = new Vector2(Mathf.Floor(stationTransform.position.x) + 0.5f,
-                        Mathf.Floor(stationTransform.position.y + 0.5f));
+                    Vector2 snapTo = new Vector2(Mathf.Round(stationTransform.localPosition.x),
+                        Mathf.Round(stationTransform.localPosition.y));
 
-                    if (snapTo.x >= -MapSystem.gridWidth / 2 + transform.position.x &&
-                        snapTo.x <= MapSystem.gridWidth / 2 + transform.position.x &&
-                        snapTo.y >= -MapSystem.gridHeight / 2 + transform.position.y &&
-                        snapTo.y <= MapSystem.gridHeight / 2 + transform.position.y)
+                    Debug.Log("Released at: " + snapTo);
+                    Debug.Log("(float)((float)-MapSystem.gridWidth / 2 + BackgroundImage.transform.localPosition.x) = " + (float)(-MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x));
+                    Debug.Log("(float)((float)MapSystem.gridWidth / 2 + BackgroundImage.transform.localPosition.x) = " + (float)(MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x));
+                    Debug.Log("(float)((float)-MapSystem.gridHeight / 2 + BackgroundImage.transform.localPosition.y) = " + (float)(-MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y));
+                    Debug.Log("(float)((float)MapSystem.gridHeight / 2 + BackgroundImage.transform.localPosition.y) = " + (float)(MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y));
+
+                    if (snapTo.x >= (float)(-MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x) &&
+                        snapTo.x <= (float)(MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x) &&
+                        snapTo.y >= (float)(-MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y) &&
+                        snapTo.y <= (float)(MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y))
                     {
-                        stationTransform.position = snapTo;
-                        stationTransform.GetComponent<StationBehaviour>().previousPos = snapTo;
+                        float delta = 0f;
 
-                        SnapLineToToken(snapTo);
+                        delta = snapTo.x < 0 ? 0.5f : -0.5f;
+                        stationTransform.localPosition = new Vector2(snapTo.x + delta, snapTo.y);
+                        stationTransform.GetComponent<StationBehaviour>().previousPos = new Vector2(snapTo.x + delta, snapTo.y);
+
+                        SnapLineToToken(new Vector2(snapTo.x + delta, snapTo.y));
                         UpdateLineColliders();
                     }
                     else
                     {
-                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
-                        stationTransform.position = snapTo;
+                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;                        
+                        stationTransform.localPosition = snapTo;
                         SnapLineToToken(snapTo);
                     }
 
