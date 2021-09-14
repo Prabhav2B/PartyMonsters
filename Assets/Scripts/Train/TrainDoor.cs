@@ -20,7 +20,7 @@ public class TrainDoor : MonoBehaviour
 
     public static event Action OnInvalidTicket = delegate {};
 
-    private void Awake()
+    private void Start()
     {
         _sceneChangeManager = FindObjectOfType<SceneChangeManager>();
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();

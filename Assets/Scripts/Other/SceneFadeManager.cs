@@ -23,7 +23,7 @@ public class SceneFadeManager : MonoBehaviour
         transitionImageColor.a = 1f;
         _transitionImage.color = transitionImageColor;
 
-        if(SceneManager.GetActiveScene().buildIndex == 1)
+        if(SceneManager.GetActiveScene().buildIndex == 0)
             StartCoroutine(StaggeredGameStart());
     }
 
