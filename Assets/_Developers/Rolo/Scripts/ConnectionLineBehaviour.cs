@@ -10,6 +10,6 @@ public class ConnectionLineBehaviour : MonoBehaviour
     private void Awake()
     {
         connectedStations = new List<StationBehaviour>();
-        myColor = TrainLineColor._null;
+        myColor = TrainLineColor.blue;
     }
 }

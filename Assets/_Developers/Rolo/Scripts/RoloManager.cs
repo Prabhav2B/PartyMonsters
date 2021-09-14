@@ -151,13 +151,7 @@ public class RoloManager : MonoBehaviour
                 lineTransform = CheckIfCursorOnMapItem("ConnectionLine");
                 if (lineTransform != null)
                 {
-                    isPickingColor = true;
-                    var lr = lineTransform.GetComponent<LineRenderer>();
-                    var displacement = lr.GetPosition(0) - lr.GetPosition(1);
-                    Palette.transform.position =
-                        lineTransform.TransformPoint(lr.GetPosition(1) + (displacement * 0.5f));
-                    isPressed = false;
-                    Palette.SetActive(true);
+                    EnableColorPalette();
                     return;
                 }
 
@@ -174,7 +168,26 @@ public class RoloManager : MonoBehaviour
             }
             case true when isPickingColor:
             {
-                Transform paletteTransform = CheckIfCursorOnMapItem("PaletteColor");
+                PickTheColor();
+                return;
+            }
+        }
+    }
+
+    void EnableColorPalette()
+    {
+        isPickingColor = true;
+        var lr = lineTransform.GetComponent<LineRenderer>();
+        var displacement = lr.GetPosition(0) - lr.GetPosition(1);
+        Palette.transform.position =
+            lineTransform.TransformPoint(lr.GetPosition(1) + (displacement * 0.5f));
+        isPressed = false;
+        Palette.SetActive(true);
+    }
+
+    void PickTheColor()
+    { 
+        Transform paletteTransform = CheckIfCursorOnMapItem("PaletteColor");
                 if (paletteTransform != null)
                 {
                     Color lineColor = paletteTransform.gameObject.GetComponent<SpriteRenderer>().color;
@@ -214,9 +227,6 @@ public class RoloManager : MonoBehaviour
                 isPickingColor = false;
                 isPressed = false;
                 Palette.SetActive(false);
-                return;
-            }
-        }
     }
 
     void ToggleTool()
@@ -421,6 +431,8 @@ public class RoloManager : MonoBehaviour
                         {
                             SnapLineToGrid();
                             AddStationToTheLine(stationTransform);
+                            lineTransform = line.transform;
+                            EnableColorPalette();
                         }
                     }
                     else
