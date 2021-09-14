@@ -84,19 +84,20 @@ public class RoloManager : MonoBehaviour
 
     void DeleteConnectedLinesFromGUI(Transform t)
     {
-        GameObject[] connectionLines = GameObject.FindGameObjectsWithTag("ConnectionLine");
+        var lines = FindObjectsOfType<ConnectionLineBehaviour>();
 
-        if (connectedLines != null)
+        if (lines == null)
+            return;
+
+        foreach (var line in lines)
         {
-            foreach (GameObject connectionLine in connectionLines)
+            for (int i = 0; i < 2; i++)
             {
-                for (int i = 0; i < 2; i++)
+                float distance = Vector2.Distance((Vector2) line.connectedStations[i].transform.localPosition,
+                    (Vector2) t.localPosition);
+                if (distance <= 0.01f)
                 {
-                    if (connectionLine.GetComponent<LineRenderer>().GetPosition(i) == t.position)
-                    {
-                        Destroy(connectionLine);
-                        break;
-                    }
+                    Destroy(line.gameObject);
                 }
             }
         }
@@ -134,6 +135,7 @@ public class RoloManager : MonoBehaviour
                             // line = new GameObject();
                             // line.name = "dummy";
                         }
+
                         // StartDrawingLine();
                         AddStationToTheLine(stationTransform);
                     }
@@ -152,7 +154,8 @@ public class RoloManager : MonoBehaviour
                     isPickingColor = true;
                     var lr = lineTransform.GetComponent<LineRenderer>();
                     var displacement = lr.GetPosition(0) - lr.GetPosition(1);
-                    Palette.transform.position = lineTransform.TransformPoint(lr.GetPosition(1) + (displacement * 0.5f));
+                    Palette.transform.position =
+                        lineTransform.TransformPoint(lr.GetPosition(1) + (displacement * 0.5f));
                     isPressed = false;
                     Palette.SetActive(true);
                     return;
@@ -181,13 +184,16 @@ public class RoloManager : MonoBehaviour
                     switch (ColorUtility.ToHtmlStringRGB(lineColor))
                     {
                         case ("005DE4"):
-                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.blue;
+                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor =
+                                TrainLineColor.blue;
                             break;
                         case ("0D4D26"):
-                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.green;
+                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor =
+                                TrainLineColor.green;
                             break;
                         case ("FF89C8"):
-                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor.pink;
+                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor =
+                                TrainLineColor.pink;
                             break;
                         case ("42007B"):
                             lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor =
@@ -198,7 +204,8 @@ public class RoloManager : MonoBehaviour
                                 TrainLineColor.yellow;
                             break;
                         default:
-                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor = TrainLineColor._null;
+                            lineTransform.gameObject.GetComponent<ConnectionLineBehaviour>().myColor =
+                                TrainLineColor._null;
                             break;
                     }
                 }
@@ -246,7 +253,7 @@ public class RoloManager : MonoBehaviour
             for (int i = 0; i < 2; i++)
             {
                 float distance = Vector2.Distance((Vector2) line.connectedStations[i].transform.position,
-                    (Vector2) stationTransform.position );
+                    (Vector2) stationTransform.position);
                 if (distance <= 0.01f)
                 {
                     connectedLines.Add(line.transform, i);
@@ -292,6 +299,7 @@ public class RoloManager : MonoBehaviour
                 return tCollider;
             }
         }
+
         return tCollider;
     }
 
@@ -318,7 +326,10 @@ public class RoloManager : MonoBehaviour
         {
             foreach (var connectedLine in connectedLines)
             {
-                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value, connectedLine.Key.InverseTransformPoint(target));
+                // var tmp = connectedLine.Key.position;
+                // var newTransform = new Vector2(tmp.x + target.x, tmp.y + target.y);
+                connectedLine.Key.GetComponent<LineRenderer>().SetPosition(connectedLine.Value,
+                    connectedLine.Key.InverseTransformPoint(target));
             }
         }
     }
@@ -359,29 +370,27 @@ public class RoloManager : MonoBehaviour
                     Vector2 snapTo = new Vector2(Mathf.Round(stationTransform.localPosition.x),
                         Mathf.Round(stationTransform.localPosition.y));
 
-                    Debug.Log("Released at: " + snapTo);
-                    Debug.Log("(float)((float)-MapSystem.gridWidth / 2 + BackgroundImage.transform.localPosition.x) = " + (float)(-MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x));
-                    Debug.Log("(float)((float)MapSystem.gridWidth / 2 + BackgroundImage.transform.localPosition.x) = " + (float)(MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x));
-                    Debug.Log("(float)((float)-MapSystem.gridHeight / 2 + BackgroundImage.transform.localPosition.y) = " + (float)(-MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y));
-                    Debug.Log("(float)((float)MapSystem.gridHeight / 2 + BackgroundImage.transform.localPosition.y) = " + (float)(MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y));
 
-                    if (snapTo.x >= (float)(-MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x) &&
-                        snapTo.x <= (float)(MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x) &&
-                        snapTo.y >= (float)(-MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y) &&
-                        snapTo.y <= (float)(MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y))
+                    if (snapTo.x >= (float) (-MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x) &&
+                        snapTo.x <= (float) (MapSystem.gridWidth / 2f + BackgroundImage.transform.localPosition.x) &&
+                        snapTo.y >= (float) (-MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y) &&
+                        snapTo.y <= (float) (MapSystem.gridHeight / 2f + BackgroundImage.transform.localPosition.y))
                     {
                         float delta = 0f;
 
                         delta = snapTo.x < 0 ? 0.5f : -0.5f;
                         stationTransform.localPosition = new Vector2(snapTo.x + delta, snapTo.y);
-                        stationTransform.GetComponent<StationBehaviour>().previousPos = new Vector2(snapTo.x + delta, snapTo.y);
+                        stationTransform.GetComponent<StationBehaviour>().previousPos =
+                            new Vector2(snapTo.x + delta, snapTo.y);
 
-                        SnapLineToToken(new Vector2(snapTo.x + delta, snapTo.y));
+                        snapTo = transform.TransformPoint(new Vector2(snapTo.x + delta, snapTo.y));
+
+                        SnapLineToToken(snapTo);
                         UpdateLineColliders();
                     }
                     else
                     {
-                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;                        
+                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
                         stationTransform.localPosition = snapTo;
                         SnapLineToToken(snapTo);
                     }
