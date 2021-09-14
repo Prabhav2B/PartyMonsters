@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8115544280528304233}
     m_Modifications:
+    - target: {fileID: 1691006126385745265, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
+      propertyPath: _dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 231f316e4a1686546babc4c5a80f09e1, type: 2}
     - target: {fileID: 4637733177083311358, guid: 0b2d8229181b9894fae3d9fb63d4eede, type: 3}
       propertyPath: m_Name
       value: Genericsoul NPC
@@ -281,6 +285,10 @@ PrefabInstance:
       propertyPath: toCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7276313696891523334, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7393167076318550384, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: toCamera
       value: 
@@ -291,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 938c029a10dcf054d962557361391600, type: 2}
     - target: {fileID: 8959599745128778880, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: m_Name
-      value: Blue Train Interior
+      value: Blue Train Interior Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8959599745128778880, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: m_IsActive
@@ -348,6 +356,10 @@ PrefabInstance:
     - target: {fileID: 8959599746810714331, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
       propertyPath: m_SortingLayer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188436189066133386, guid: 04506e3989058524f83e9b828d786eaa, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7787308
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04506e3989058524f83e9b828d786eaa, type: 3}

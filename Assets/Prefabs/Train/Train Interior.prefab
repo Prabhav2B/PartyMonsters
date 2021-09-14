@@ -2426,6 +2426,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4933630423029790947, guid: 3874808f85f6ea048bbd770288af893d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.26
+      objectReference: {fileID: 0}
     - target: {fileID: 8564434602852135495, guid: 3874808f85f6ea048bbd770288af893d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2473,6 +2477,10 @@ PrefabInstance:
     - target: {fileID: 8693484411961799707, guid: 3874808f85f6ea048bbd770288af893d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932714202758440597, guid: 3874808f85f6ea048bbd770288af893d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3874808f85f6ea048bbd770288af893d, type: 3}
@@ -2693,6 +2701,10 @@ PrefabInstance:
     - target: {fileID: 463194323593514562, guid: 6ec9e456d0488914ba26aa5e3c3a2b76, type: 3}
       propertyPath: m_Name
       value: Player VCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870879047269946471, guid: 6ec9e456d0488914ba26aa5e3c3a2b76, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 7270291287535088460, guid: 6ec9e456d0488914ba26aa5e3c3a2b76, type: 3}
       propertyPath: m_RootOrder
