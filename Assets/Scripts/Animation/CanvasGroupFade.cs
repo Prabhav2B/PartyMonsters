@@ -42,10 +42,14 @@ public class CanvasGroupFade : MonoBehaviour
     {
         float currentFade = _canvasGroup.alpha;
         yield return FadeFromTo(currentFade, 1f, _fadeInDuration);
+        _canvasGroup.interactable = true;
+        _canvasGroup.blocksRaycasts = true;
     }
 
     private IEnumerator FadeOutCoroutine()
     {
+        _canvasGroup.interactable = false;
+        _canvasGroup.blocksRaycasts = false;
         float currentFade = _canvasGroup.alpha;
         yield return FadeFromTo(currentFade, 0f, _fadeOutDuration);
     }

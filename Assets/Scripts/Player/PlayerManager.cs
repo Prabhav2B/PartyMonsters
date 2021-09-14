@@ -339,7 +339,12 @@ public class PlayerManager : SingleInstance<PlayerManager>
 
     public void ToggleBlockMovement()
     {
-        _blockMovement = !_blockMovement;
+        SetBlockMovement(!_blockMovement);
+    }
+
+    public void SetBlockMovement(bool value)
+    {
+        _blockMovement = value;
         _characterController.Move(Vector2.zero);
     }
 
