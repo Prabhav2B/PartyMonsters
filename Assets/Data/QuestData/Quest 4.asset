@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reward: {fileID: 11400000, guid: 314253842a0372b43b9a4e26de1a79d0, type: 2}
   requiredConnections:
-  - _stations: 0600000005000000
-    _lineColors: 01000000
   - _stations: 0500000004000000
     _lineColors: 01000000
   - _stations: 0400000001000000
