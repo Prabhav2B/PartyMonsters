@@ -46,17 +46,15 @@ public class TrainExterior : MonoBehaviour
         _interactionColliders = new List<BoxCollider2D>(GetComponentsInChildren<BoxCollider2D>());
         
         _doors = GetComponentsInChildren<TrainDoor>();
-
-        _waitDuration = trainExteriorData.waitDuration;
-    }
-
-    private void Start()
-    {
         foreach (var door in _doors)
         {
-            door.SetDoorSprite(trainExteriorData.trainDoor);
+            door.DoorSprite = trainExteriorData.trainDoor;
         }
+        
+        _waitDuration = trainExteriorData.waitDuration;
+
     }
+    
 
     private void OnEnable()
     {

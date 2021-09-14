@@ -7471,6 +7471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pink Train Exterior
       objectReference: {fileID: 0}
+    - target: {fileID: 2699556237319319947, guid: 0b9542160ed08ad49a84e57fbb99e841, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5463346641476893615, guid: 0b9542160ed08ad49a84e57fbb99e841, type: 3}
       propertyPath: trainInterior
       value: 
@@ -7860,6 +7864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Train Exterior
       objectReference: {fileID: 0}
+    - target: {fileID: 1022430179530106724, guid: fea575d87e347b34394079c9cf643d1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1022430179530106731, guid: fea575d87e347b34394079c9cf643d1f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7972,6 +7980,10 @@ PrefabInstance:
     - target: {fileID: 823565115503957871, guid: 7f48b8e2c0f1685478ceed58e8631e11, type: 3}
       propertyPath: m_Name
       value: 'Purple Train Exterior '
+      objectReference: {fileID: 0}
+    - target: {fileID: 823565115503957871, guid: 7f48b8e2c0f1685478ceed58e8631e11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7334834169200139595, guid: 7f48b8e2c0f1685478ceed58e8631e11, type: 3}
       propertyPath: trainInterior

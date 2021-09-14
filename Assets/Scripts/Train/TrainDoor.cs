@@ -18,6 +18,12 @@ public class TrainDoor : MonoBehaviour
     private Vector3 _spriteATransform;
     private Vector3 _spriteBTransform;
 
+    public Sprite DoorSprite
+    {
+        get;
+        set;
+    }
+
     public static event Action OnInvalidTicket = delegate {};
 
     private void Start()
@@ -26,7 +32,7 @@ public class TrainDoor : MonoBehaviour
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
 
         _doorSprites = trainDoorTransform.GetComponentsInChildren<SpriteRenderer>();
-
+        SetDoorSprite(DoorSprite);
         if (_doorSprites.Length > 0)
         {
             _spriteATransform = _doorSprites[0].transform.localPosition;
