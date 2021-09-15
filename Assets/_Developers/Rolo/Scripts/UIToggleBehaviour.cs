@@ -9,7 +9,7 @@ public class UIToggleBehaviour : MonoBehaviour
     [SerializeField] bool initialState;
     [SerializeField] Sprite[] sprites;
 
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         ToggleSprite(initialState);

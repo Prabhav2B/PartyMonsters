@@ -26,6 +26,7 @@ public class RoloManager : MonoBehaviour
     private Transform stationTransform;
     private Transform lineTransform;
     private Transform toggleTransform;
+    private CursorManager cursorManager;
 
     private Vector2 lineStartPos;
     private Camera mainCam;
@@ -34,16 +35,31 @@ public class RoloManager : MonoBehaviour
 
     private Dictionary<Transform, int> connectedLines;
 
+    private void Awake()
+    {
+        mainCam = Camera.main;
+        cursorManager = FindObjectOfType<CursorManager>();
+        isDragTokenMode = true;
+        isPickingColor = false;
+    }
 
     private void Start()
     {
-        mainCam = Camera.main;
-
         tokens = new List<GameObject>();
         tokens.AddRange(GameObject.FindGameObjectsWithTag("Token"));
+    }
 
+    private void OnEnable()
+    {
+        ToggleToolCursor();
+    }
+
+    private void OnDisable()
+    {
         isDragTokenMode = true;
         isPickingColor = false;
+        ToggleToolSprite();
+        cursorManager.ResetCursor();
     }
 
     public void OnToggleMap()
@@ -131,7 +147,8 @@ public class RoloManager : MonoBehaviour
                         else
                         {
                             isDragTokenMode = true;
-                            ToggleTool();
+                            ToggleToolSprite();
+                            ToggleToolCursor();
                             // line = new GameObject();
                             // line.name = "dummy";
                         }
@@ -159,7 +176,8 @@ public class RoloManager : MonoBehaviour
                 if (toggleTransform != null)
                 {
                     isDragTokenMode = toggleTransform.gameObject == MoveIcon ? true : false;
-                    ToggleTool();
+                    ToggleToolSprite();
+                    ToggleToolCursor();
 
                     return;
                 }
@@ -229,10 +247,16 @@ public class RoloManager : MonoBehaviour
                 Palette.SetActive(false);
     }
 
-    void ToggleTool()
+    void ToggleToolSprite()
     {
         MoveIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(isDragTokenMode);
         DrawIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(!isDragTokenMode);
+    }
+
+    void ToggleToolCursor()
+    {
+        int cursorIndex = (isDragTokenMode) ? 0 : 1;
+        cursorManager.SetCursor(cursorIndex);
     }
 
     void AddStationToTheLine(Transform t)
