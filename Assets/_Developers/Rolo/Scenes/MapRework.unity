@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RaycastLayers:
     serializedVersion: 2
-    m_Bits: 1696
+    m_Bits: 5792
 --- !u!114 &562890720
 MonoBehaviour:
   m_ObjectHideFlags: 0
