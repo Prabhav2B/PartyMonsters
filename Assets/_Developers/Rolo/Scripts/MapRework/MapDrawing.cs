@@ -10,27 +10,13 @@ public class MapDrawing : MonoBehaviour
     [SerializeField] private GameObject MapSlot;
     [SerializeField] private Transform MapSlotHolder;
 
-    private float gridOffsetX;
-    private float gridOffsetY;
+    private float gridOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        gridOffsetX = SetGridOffset(mapWidth);
-        gridOffsetY = SetGridOffset(mapHeight);
+        gridOffset = 0.5f;
         DrawMap();
-    }
-
-    private float SetGridOffset(int value)
-    {
-        if (value % 2 == 0)
-        {
-            return 0.5f;
-        }
-        else
-        {
-            return 0f;
-        }
     }
 
     private void DrawMap()
@@ -42,8 +28,8 @@ public class MapDrawing : MonoBehaviour
         {
             for (float y = -heightWithOffset; y < heightWithOffset; y++)
             {
-                float posX = x + gridOffsetX;
-                float posY = y + gridOffsetY;
+                float posX = x + gridOffset;
+                float posY = y + gridOffset;
                 float collider2DScale = 1f / tokenScale;
                 Vector2 slotPosition = new Vector2(posX, posY);
 

@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ae6de559dbf374db9f2f2a7032ecc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 16
-  mapHeight: 8
+  mapWidth: 17
+  mapHeight: 9
   tokenScale: 0.25
   MapSlot: {fileID: 279458877383932927, guid: 28ca53fcb9cc03f45b2e63b1a0f07914, type: 3}
   MapSlotHolder: {fileID: 65910721}
