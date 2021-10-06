@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +11,11 @@ public class StationBehaviour : MonoBehaviour
 
     public StationName myName;
 
+    [SerializeField] private Text StationTitleText;
+
     private void Start()
     {
+        StationTitleText.text = myName.ToString().ToUpper().Replace('_', ' ');
         defaultPos = transform.localPosition;
         previousPos = defaultPos;
     }
