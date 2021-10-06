@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapDrawing : MonoBehaviour
-{ 
+{
+    [Range(2, 20)]
     [SerializeField] private int mapWidth;
+    [Range(2, 10)]
     [SerializeField] private int mapHeight;
+
     [SerializeField] private float tokenScale;
     [SerializeField] private GameObject MapSlot;
     [SerializeField] private Transform MapSlotHolder;

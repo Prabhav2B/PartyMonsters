@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapSlotBehaviour : MonoBehaviour
 {
     public bool isSlotTaken;
+
     // StationToken stationToken;
 
     // Start is called before the first frame update
