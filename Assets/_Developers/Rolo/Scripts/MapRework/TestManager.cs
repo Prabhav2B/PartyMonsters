@@ -6,11 +6,9 @@ using UnityEngine.InputSystem;
 public class TestManager : MonoBehaviour
 {
     [SerializeField] private GameObject MapCanvas;
-    public int xx;
 
     public void OnToggleMap()
     {
-        bool toggleMap = MapCanvas.activeInHierarchy ? false : true;
-        MapCanvas.SetActive(toggleMap);
+        bool toggleMap = !MapCanvas.activeInHierarchy;
     }
 }

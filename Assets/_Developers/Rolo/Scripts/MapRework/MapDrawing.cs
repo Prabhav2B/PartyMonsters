@@ -18,7 +18,7 @@ public class MapDrawing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridOffset = 0.5f;
+        gridOffset = 0.5f; // cosmetitc value that ensures that slots are centered nicely
         DrawMap();
     }
 
@@ -33,7 +33,7 @@ public class MapDrawing : MonoBehaviour
             {
                 float posX = x + gridOffset;
                 float posY = y + gridOffset;
-                float collider2DScale = 1f / tokenScale;
+                float collider2DScale = 1f / tokenScale; // ensures that collider is 1 unit high and wide
                 Vector2 slotPosition = new Vector2(posX, posY);
 
                 GameObject slot = Instantiate(MapSlot, MapSlotHolder);
@@ -41,6 +41,7 @@ public class MapDrawing : MonoBehaviour
                 slot.transform.localScale = new Vector3(tokenScale, tokenScale, tokenScale);
 
                 BoxCollider2D collider = slot.AddComponent<BoxCollider2D>();
+                collider.isTrigger = true;
                 collider.size = new Vector2(collider2DScale, collider2DScale);
             }
         }

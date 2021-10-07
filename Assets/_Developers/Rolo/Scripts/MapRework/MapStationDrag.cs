@@ -10,23 +10,30 @@ public class MapStationDrag : MonoBehaviour
     Transform stationTransform;
 
     bool isPressed;
+
+    int layerStation;
+    int layerSlot;
+
+
     // Start is called before the first frame update
     void Start()
     {
         stationTransform = null;
+        layerStation = LayerMask.NameToLayer("Token");
+        layerSlot = LayerMask.NameToLayer("StationSlot");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (stationTransform == null)
+            return;
+
         if (isPressed)
         {
-            if (stationTransform != null)
-            {
-                DragStation();
-            }
+             DragStation();
         }
-        else if (!isPressed && stationTransform != null)
+        else if (!isPressed)
         {
             SnapStationInPlace();
         }
@@ -35,7 +42,8 @@ public class MapStationDrag : MonoBehaviour
     private void SnapStationInPlace()
     {
         StationBehaviour sb = stationTransform.gameObject.GetComponent<StationBehaviour>();
-        Transform stationSlot = CheckIfCursorOnMapItem("StationSlot");
+        Transform stationSlot = CheckIfCursorOnMapItem(layerSlot);
+
         if (stationSlot != null)
         {
             stationTransform.position = stationSlot.position;
@@ -73,15 +81,11 @@ public class MapStationDrag : MonoBehaviour
 
         if (isPressed)
         {
-            stationTransform = CheckIfCursorOnMapItem("Token");
-            if (stationTransform != null)
-            {
-                
-            }
+            stationTransform = CheckIfCursorOnMapItem(layerStation);
         }
     }
 
-    Transform CheckIfCursorOnMapItem(string layerName)
+    Transform CheckIfCursorOnMapItem(int layer)
     {
         Transform targetTransform = null;
         Vector3 mousePosition = GetCursorPositionInWorld();
@@ -89,7 +93,7 @@ public class MapStationDrag : MonoBehaviour
 
         foreach (var collider in colliders)
         {
-            if (collider.gameObject.layer == LayerMask.NameToLayer(layerName))
+            if (collider.gameObject.layer == layer)
             {
                 targetTransform = collider.transform;
                 break;
