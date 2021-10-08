@@ -5,21 +5,31 @@ using UnityEngine.InputSystem;
 
 public class MapStationActions : MonoBehaviour
 {
+    [SerializeField] private CursorManager cursorManager;
+
     [SerializeField] private LayerMask RaycastLayers = default(LayerMask);
 
-    Transform stationTransform;
+    [SerializeField] private Transform MoveIcon;
+    [SerializeField] private Transform DrawIcon;
 
-    bool isPressed;
-
-    int layerStation;
-    int layerSlot;
+    private Transform stationTransform;
+    private Transform uiButtonTransform;
+    
+    private bool isDragMode;
+    private bool isPressed;
+     
+    private int layerStation;
+    private int layerSlot;
+    private int layerUI;
 
     // Start is called before the first frame update
     void Start()
     {
+        isDragMode = true;
         stationTransform = null;
         layerStation = LayerMask.NameToLayer("Token");
         layerSlot = LayerMask.NameToLayer("StationSlot");
+        layerUI = LayerMask.NameToLayer("UI");
     }
 
     // Update is called once per frame
@@ -28,14 +38,15 @@ public class MapStationActions : MonoBehaviour
         if (stationTransform == null)
             return;
 
-        if (isPressed)
+        if (isPressed && isDragMode)
         {
              DragStation();
         }
-        else if (!isPressed)
+        else if (!isPressed && isDragMode)
         {
             SnapStationInPlace();
         }
+        //handle drawing
     }
 
     private void SnapStationInPlace()
@@ -59,7 +70,6 @@ public class MapStationActions : MonoBehaviour
                 //set slot to be taken //making a function with 3 variables here doesn't make sense to me :/
                 stationSlotBehaviour.stationMapItemOnThisSlot = stationBehaviour.stationMapItem;
                 stationBehaviour.stationMapItem.slotStationIsOn = stationSlot; //adds current slot to Station's variable
-                stationSlotBehaviour.isStationTaken = true; //TODO remove this line after the rework is done
 
                 stationTransform = null;
                 return;
@@ -75,7 +85,6 @@ public class MapStationActions : MonoBehaviour
         if (stationBehaviour.stationMapItem.slotStationIsOn != null)
         {
             stationBehaviour.stationMapItem.slotStationIsOn.GetComponent<StationSlotBehaviour>().stationMapItemOnThisSlot = null;
-            stationBehaviour.stationMapItem.slotStationIsOn.GetComponent<StationSlotBehaviour>().isStationTaken = false; //TODO remove this line and variable after rework is done, might be useful later
         }
     }
 
@@ -104,6 +113,15 @@ public class MapStationActions : MonoBehaviour
         if (isPressed)
         {
             stationTransform = CheckIfCursorOnMapItem(layerStation);
+            if (stationTransform != null) return;
+
+            uiButtonTransform = CheckIfCursorOnMapItem(layerUI);
+            if (uiButtonTransform != null) 
+            {
+                Debug.Log(uiButtonTransform.name);
+                SwitchCursorMode();
+                return;
+            }
         }
     }
 
@@ -114,23 +132,36 @@ public class MapStationActions : MonoBehaviour
 
         Transform objectToReset;
 
-        //place station to default pos
+        //place station to default position
         objectToReset = CheckIfCursorOnMapItem(layerStation);
         if (objectToReset != null)
         {
             ResetStationPosition(objectToReset);
-            ResetMapSlot(objectToReset);
-            //release map slot
-            //disconnect all connected lines
+            //TODO disconnect all connected lines
             return;
         }        
 
-        //delete line
+        //TODO delete line
     }
 
-    void ResetMapSlot(Transform objectToReset)
-    { 
+    void SwitchCursorMode()
+    {
+        isDragMode = uiButtonTransform == MoveIcon ? true : false;
+        Debug.Log("isDragMode: " + isDragMode);
+        ToggleToolSprite();
+        ToggleToolCursor();
+    }
 
+    void ToggleToolSprite()
+    {
+        MoveIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(isDragMode);
+        DrawIcon.GetComponent<UIToggleBehaviour>().ToggleSprite(!isDragMode);
+    }
+
+    void ToggleToolCursor()
+    {
+        int cursorIndex = (isDragMode) ? 0 : 1;
+        cursorManager.SetCursor(cursorIndex);
     }
 
     void ResetStationPosition(Transform objectToReset)
