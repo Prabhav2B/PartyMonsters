@@ -9,15 +9,22 @@ public class MapStationActions : MonoBehaviour
 
     [SerializeField] private LayerMask RaycastLayers = default(LayerMask);
 
-    [SerializeField] private Transform MoveIcon;
     [SerializeField] private Transform DrawIcon;
+    [SerializeField] private Transform MoveIcon;
+    [SerializeField] private Transform LineHolder;
+
+    private EdgeCollider2D edgeCollider2D;
+
+    private LineRenderer lineRenderer;
 
     private Transform stationTransform;
     private Transform uiButtonTransform;
     
     private bool isDragMode;
+    private bool isDrawing;
     private bool isPressed;
-     
+
+    private int layerLine;
     private int layerStation;
     private int layerSlot;
     private int layerUI;
@@ -26,7 +33,10 @@ public class MapStationActions : MonoBehaviour
     void Start()
     {
         isDragMode = true;
+        isDrawing = false;
         stationTransform = null;
+
+        layerLine = LayerMask.NameToLayer("ConnectionLine");
         layerStation = LayerMask.NameToLayer("Token");
         layerSlot = LayerMask.NameToLayer("StationSlot");
         layerUI = LayerMask.NameToLayer("UI");
@@ -40,13 +50,79 @@ public class MapStationActions : MonoBehaviour
 
         if (isPressed && isDragMode)
         {
-             DragStation();
+            DragStation();
         }
         else if (!isPressed && isDragMode)
         {
             SnapStationInPlace();
         }
-        //handle drawing
+        else if (isPressed && !isDragMode && !isDrawing)
+        {
+            StartDrawingLine();
+        }
+        else if (isPressed && !isDragMode && isDrawing)
+        {
+            UpdateLineEndPoint();
+        }
+        else if (!isPressed && !isDragMode && isDrawing)
+        {
+            EndDrawingLine();
+        }
+    }
+
+    private void EndDrawingLine()
+    {
+        Transform station = CheckIfCursorOnMapItem(layerStation);
+        Transform slot = CheckIfCursorOnMapItem(layerSlot);
+        if (station == null || slot == null)
+            Destroy(lineRenderer.gameObject);
+
+        lineRenderer.SetPosition(1, station.transform.position);
+
+        List<Vector2> pointList = new List<Vector2>() 
+        {
+            lineRenderer.GetPosition(0),
+            lineRenderer.GetPosition(1)
+        };
+
+        edgeCollider2D.SetPoints(pointList);
+
+        isDrawing = false;
+        edgeCollider2D = null;
+        lineRenderer = null;
+    }
+
+    private void UpdateLineEndPoint()
+    {
+        Vector3 cursorPosition = GetCursorPositionInWorld();
+        lineRenderer.SetPosition(1, cursorPosition);
+    }
+
+    private void StartDrawingLine()
+    {
+        Transform station = CheckIfCursorOnMapItem(layerStation);
+        Transform slot = CheckIfCursorOnMapItem(layerSlot);
+        if (slot == null || station == null)
+            return;
+
+        GameObject line = new GameObject();
+        line.name = "Line";
+        line.transform.parent = LineHolder;
+        line.layer = layerLine;
+
+        lineRenderer = line.AddComponent<LineRenderer>();
+        lineRenderer.SetPosition(0, stationTransform.position);
+        lineRenderer.startWidth = 0.4f;
+        lineRenderer.endWidth = 0.4f;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.startColor = Color.green;
+        lineRenderer.endColor = Color.green;
+
+        edgeCollider2D = line.AddComponent<EdgeCollider2D>();
+        edgeCollider2D.isTrigger = true;
+        edgeCollider2D.edgeRadius = 0.25f;
+
+        isDrawing = true;
     }
 
     private void SnapStationInPlace()
@@ -118,7 +194,6 @@ public class MapStationActions : MonoBehaviour
             uiButtonTransform = CheckIfCursorOnMapItem(layerUI);
             if (uiButtonTransform != null) 
             {
-                Debug.Log(uiButtonTransform.name);
                 SwitchCursorMode();
                 return;
             }
@@ -139,15 +214,20 @@ public class MapStationActions : MonoBehaviour
             ResetStationPosition(objectToReset);
             //TODO disconnect all connected lines
             return;
-        }        
+        }
 
-        //TODO delete line
+        objectToReset = CheckIfCursorOnMapItem(layerLine);
+        if (objectToReset != null)
+        {
+            //TODO remove connections in connected stations
+            Destroy(objectToReset.gameObject);
+            return;
+        }
     }
 
     void SwitchCursorMode()
     {
         isDragMode = uiButtonTransform == MoveIcon ? true : false;
-        Debug.Log("isDragMode: " + isDragMode);
         ToggleToolSprite();
         ToggleToolCursor();
     }
