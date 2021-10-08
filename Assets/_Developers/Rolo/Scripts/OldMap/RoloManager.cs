@@ -94,8 +94,8 @@ public class RoloManager : MonoBehaviour
     void ResetTokenPlacement(Transform t)
     {
         StationBehaviour sb = t.GetComponent<StationBehaviour>();
-        t.localPosition = sb.defaultPos;
-        sb.previousPos = sb.defaultPos;
+        t.localPosition = sb.stationMapItem.defaultPosition;
+        sb.stationMapItem.previousPosition = sb.stationMapItem.defaultPosition;
     }
 
     void DeleteConnectedLinesFromGUI(Transform t)
@@ -322,8 +322,7 @@ public class RoloManager : MonoBehaviour
     Transform CheckIfCursorOnMapItem(string layerName)
     {
         Transform tCollider = null;
-        Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector2(Mouse.current.position.x.ReadValue(),
-            Mouse.current.position.y.ReadValue()));
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector2(Mouse.current.position.x.ReadValue(),Mouse.current.position.y.ReadValue()));
         Collider2D[] colliders = Physics2D.OverlapPointAll((Vector2) mousePos, RaycastLayers);
         foreach (var collider in colliders)
         {
@@ -414,7 +413,7 @@ public class RoloManager : MonoBehaviour
 
                         delta = snapTo.x < 0 ? 0.5f : -0.5f;
                         stationTransform.localPosition = new Vector2(snapTo.x + delta, snapTo.y);
-                        stationTransform.GetComponent<StationBehaviour>().previousPos =
+                        stationTransform.GetComponent<StationBehaviour>().stationMapItem.previousPosition =
                             new Vector2(snapTo.x + delta, snapTo.y);
 
                         snapTo = transform.TransformPoint(new Vector2(snapTo.x + delta, snapTo.y));
@@ -424,7 +423,7 @@ public class RoloManager : MonoBehaviour
                     }
                     else
                     {
-                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().previousPos;
+                        snapTo = stationTransform.gameObject.GetComponent<StationBehaviour>().stationMapItem.previousPosition;
                         stationTransform.localPosition = snapTo;
                         SnapLineToToken(snapTo);
                     }
