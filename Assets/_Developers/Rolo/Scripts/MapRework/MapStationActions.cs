@@ -75,6 +75,20 @@ public class MapStationActions : MonoBehaviour
         }
     }
 
+    private bool CheckIfConnectionAlreadyExists(StationBehaviour stationA, StationBehaviour stationB)
+    {
+        LineBehaviour[] lines = FindObjectsOfType<LineBehaviour>();
+
+        foreach (LineBehaviour line in lines)
+        {
+            if ((line.stationA == stationA || line.stationA == stationB) &&
+               (line.stationB == stationA || line.stationB == stationB))
+                return true;
+        }
+
+        return false;
+    }
+
     private void SnapConnectedLinesInPlace()
     {
         if (connectedLines != null)
@@ -91,24 +105,36 @@ public class MapStationActions : MonoBehaviour
         //check if button released over station AND map slot
         Transform station = CheckIfCursorOnMapItem(layerStation);
         Transform slot = CheckIfCursorOnMapItem(layerSlot);
-        if ((station == null || slot == null) && lineRenderer != null)
+        if ((station == null || slot == null))
+        {
             Destroy(lineRenderer.gameObject);
-
+        }
         else
         {
             LineBehaviour lineBehaviour = lineRenderer.gameObject.GetComponent<LineBehaviour>();
-            lineBehaviour.stationB = station.gameObject.GetComponent<StationBehaviour>();
+            StationBehaviour stationB = station.GetComponent<StationBehaviour>();
+            bool connectionExists = CheckIfConnectionAlreadyExists(lineBehaviour.stationA, stationB);
 
-            //snaps ending right under the station position
-            lineRenderer.SetPosition(1, station.transform.position);
-
-            List<Vector2> pointList = new List<Vector2>()
+            if (connectionExists)
             {
-                lineRenderer.GetPosition(0),
-                lineRenderer.GetPosition(1)
-            };
+                Destroy(lineRenderer.gameObject);
+            }
+            else
+            {
 
-            edgeCollider2D.SetPoints(pointList);
+                lineBehaviour.stationB = stationB;
+
+                //snaps ending right under the station position
+                lineRenderer.SetPosition(1, station.transform.position);
+
+                List<Vector2> pointList = new List<Vector2>()
+                {
+                    lineRenderer.GetPosition(0),
+                    lineRenderer.GetPosition(1)
+                };
+
+                edgeCollider2D.SetPoints(pointList);
+            }
         }
 
         isDrawing = false;
