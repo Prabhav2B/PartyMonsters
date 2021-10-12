@@ -15,7 +15,7 @@ public class MapStationActions : MonoBehaviour
 
     private Dictionary<LineRenderer, int> connectedLines;
 
-    private EdgeCollider2D edgeCollider2D;
+    //private EdgeCollider2D edgeCollider2D;
 
     private LineRenderer lineRenderer;
 
@@ -58,6 +58,7 @@ public class MapStationActions : MonoBehaviour
         {
             SnapStationInPlace();
             SnapConnectedLinesInPlace();
+            UpdateLineColliders();
 
             stationTransform = null;
         }
@@ -73,6 +74,26 @@ public class MapStationActions : MonoBehaviour
         {
             EndDrawingLine();
         }
+    }
+
+    private void UpdateLineColliders()
+    {
+        foreach (var line in connectedLines)
+        {
+            EdgeCollider2D edgeCollider2D = line.Key.gameObject.GetComponent<EdgeCollider2D>();
+            SetEdgeCollider2DPoints(line.Key, edgeCollider2D);           
+        }
+    }
+
+    private void SetEdgeCollider2DPoints(LineRenderer lineRenderer, EdgeCollider2D edgeCollider2D)
+    {
+        List<Vector2> pointList = new List<Vector2>()
+                {
+                    lineRenderer.GetPosition(0),
+                    lineRenderer.GetPosition(1)
+                };
+
+        edgeCollider2D.SetPoints(pointList);
     }
 
     private bool CheckIfConnectionAlreadyExists(StationBehaviour stationA, StationBehaviour stationB)
@@ -127,18 +148,13 @@ public class MapStationActions : MonoBehaviour
                 //snaps ending right under the station position
                 lineRenderer.SetPosition(1, station.transform.position);
 
-                List<Vector2> pointList = new List<Vector2>()
-                {
-                    lineRenderer.GetPosition(0),
-                    lineRenderer.GetPosition(1)
-                };
-
-                edgeCollider2D.SetPoints(pointList);
+                //sets EdgeCollider2D in place
+                EdgeCollider2D edgeCollider2D = lineRenderer.gameObject.GetComponent<EdgeCollider2D>();
+                SetEdgeCollider2DPoints(lineRenderer, edgeCollider2D);                
             }
         }
 
         isDrawing = false;
-        edgeCollider2D = null;
         lineRenderer = null;
     }
 
@@ -168,7 +184,7 @@ public class MapStationActions : MonoBehaviour
         lineRenderer.startColor = Color.green;
         lineRenderer.endColor = Color.green;
 
-        edgeCollider2D = line.AddComponent<EdgeCollider2D>();
+        EdgeCollider2D edgeCollider2D = line.AddComponent<EdgeCollider2D>();
         edgeCollider2D.isTrigger = true;
         edgeCollider2D.edgeRadius = 0.25f;
 
