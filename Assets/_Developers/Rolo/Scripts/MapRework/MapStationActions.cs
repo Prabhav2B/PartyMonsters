@@ -13,6 +13,8 @@ public class MapStationActions : MonoBehaviour
     [SerializeField] private Transform MoveIcon;
     [SerializeField] private Transform LineHolder;
 
+    private Dictionary<LineRenderer, int> connectedLines;
+
     private EdgeCollider2D edgeCollider2D;
 
     private LineRenderer lineRenderer;
@@ -55,6 +57,9 @@ public class MapStationActions : MonoBehaviour
         else if (!isPressed && isDragMode)
         {
             SnapStationInPlace();
+            SnapConnectedLinesInPlace();
+
+            stationTransform = null;
         }
         else if (isPressed && !isDragMode && !isDrawing)
         {
@@ -70,22 +75,41 @@ public class MapStationActions : MonoBehaviour
         }
     }
 
+    private void SnapConnectedLinesInPlace()
+    {
+        if (connectedLines != null)
+        {
+            foreach (var line in connectedLines)
+            {
+                line.Key.SetPosition(line.Value, stationTransform.position);
+            }
+        }
+    }
+
     private void EndDrawingLine()
     {
+        //check if button released over station AND map slot
         Transform station = CheckIfCursorOnMapItem(layerStation);
         Transform slot = CheckIfCursorOnMapItem(layerSlot);
-        if (station == null || slot == null)
+        if ((station == null || slot == null) && lineRenderer != null)
             Destroy(lineRenderer.gameObject);
 
-        lineRenderer.SetPosition(1, station.transform.position);
-
-        List<Vector2> pointList = new List<Vector2>() 
+        else
         {
-            lineRenderer.GetPosition(0),
-            lineRenderer.GetPosition(1)
-        };
+            LineBehaviour lineBehaviour = lineRenderer.gameObject.GetComponent<LineBehaviour>();
+            lineBehaviour.stationB = station.gameObject.GetComponent<StationBehaviour>();
 
-        edgeCollider2D.SetPoints(pointList);
+            //snaps ending right under the station position
+            lineRenderer.SetPosition(1, station.transform.position);
+
+            List<Vector2> pointList = new List<Vector2>()
+            {
+                lineRenderer.GetPosition(0),
+                lineRenderer.GetPosition(1)
+            };
+
+            edgeCollider2D.SetPoints(pointList);
+        }
 
         isDrawing = false;
         edgeCollider2D = null;
@@ -122,6 +146,9 @@ public class MapStationActions : MonoBehaviour
         edgeCollider2D.isTrigger = true;
         edgeCollider2D.edgeRadius = 0.25f;
 
+        LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
+        lineBehaviour.stationA = station.gameObject.GetComponent<StationBehaviour>();
+
         isDrawing = true;
     }
 
@@ -147,13 +174,11 @@ public class MapStationActions : MonoBehaviour
                 stationSlotBehaviour.stationMapItemOnThisSlot = stationBehaviour.stationMapItem;
                 stationBehaviour.stationMapItem.slotStationIsOn = stationSlot; //adds current slot to Station's variable
 
-                stationTransform = null;
                 return;
             }                        
         }
 
         stationTransform.position = stationBehaviour.stationMapItem.previousPosition;
-        stationTransform = null;
     }
 
     private void ResetPreviousSlot(StationBehaviour stationBehaviour)
@@ -169,6 +194,33 @@ public class MapStationActions : MonoBehaviour
         Vector3 mousePosition = GetCursorPositionInWorld();
         Vector2 tokenTranslation = mousePosition - stationTransform.position;
         stationTransform.Translate(tokenTranslation);
+        UpdateConnectedLines();
+    }
+
+    private void UpdateConnectedLines()
+    {
+        foreach (var line in connectedLines)
+        {
+            line.Key.SetPosition(line.Value, stationTransform.position);
+        }
+    }
+
+    private void GetConnectedLines()
+    {
+        StationBehaviour stationBehaviour = stationTransform.gameObject.GetComponent<StationBehaviour>();
+
+        connectedLines = new Dictionary<LineRenderer, int>();
+
+        LineBehaviour[] lines = FindObjectsOfType<LineBehaviour>();
+        foreach (LineBehaviour line in lines)
+        {
+            if (line.stationA == stationBehaviour || line.stationB == stationBehaviour)
+            {
+                LineRenderer lineRenderer = line.GetComponent<LineRenderer>();
+                int endingId = line.stationA == stationBehaviour ? 0 : 1;
+                connectedLines.Add(lineRenderer, endingId);
+            }
+        }
     }
 
     private Vector3 GetCursorPositionInWorld()
@@ -189,7 +241,11 @@ public class MapStationActions : MonoBehaviour
         if (isPressed)
         {
             stationTransform = CheckIfCursorOnMapItem(layerStation);
-            if (stationTransform != null) return;
+            if (stationTransform != null)
+            {
+                GetConnectedLines();
+                return;
+            }
 
             uiButtonTransform = CheckIfCursorOnMapItem(layerUI);
             if (uiButtonTransform != null) 
