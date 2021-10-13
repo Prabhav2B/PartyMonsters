@@ -145,13 +145,14 @@ public class TrainScheduler : MonoBehaviour
                     trainLine.Tick();
                 }
 
-                if (_currentTrain.NewStation)
+                if (_currentTrain.ReachedNewStation)
                 {
-                    _currentTrain.NewStation = false;
+                    _currentTrain.ReachedNewStation = false;
                     _currentTrain.TrainOnCurrentStation = true;
-                    
+
                     //_trainDict[_currentTrain.trainLine].CurrentTrainInterior.SetInitialReverseValue(_currentTrain.Reversing);
-                    _trainDict[_currentTrain.trainLine].CurrentTrainInterior.ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
+                    _trainDict[_currentTrain.trainLine].CurrentTrainInterior
+                        .ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
                 }
 
                 break;
@@ -210,15 +211,14 @@ public class TrainScheduler : MonoBehaviour
             item.Waiting = false;
             item.OffsetTimer(i++ * -10);
         }
-        
+
         _waitList.Clear();
     }
 
     public void ClearNewStationFlag()
     {
-        _currentTrain.NewStation = false;
+        _currentTrain.ReachedNewStation = false;
     }
-
 }
 
 
@@ -265,7 +265,7 @@ public class TrainLine
     }
 
     public bool Waiting { get; set; }
-    public bool NewStation { get; set; }
+    public bool ReachedNewStation { get; set; }
     public bool IsEndStation => _isEndStation;
     public bool Reversing => _reversing;
     public StationName CurrentStation => _currentStation;
@@ -299,10 +299,10 @@ public class TrainLine
 
         _counter += _incrementor;
         _nextStation = _stationsList[_counter];
-        
+
         _reversing = _incrementor < 0;
-        
-        NewStation = true;
+
+        ReachedNewStation = true;
         //DebugCurrentPlatform();
     }
 

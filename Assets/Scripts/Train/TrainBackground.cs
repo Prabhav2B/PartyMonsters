@@ -6,22 +6,26 @@ using DG.Tweening;
 
 public class TrainBackground : MonoBehaviour
 {
-    [SerializeField] private Sprite _sprite;
-    
     [SerializeField] private Vector3 leftPosition;
     [SerializeField] private Vector3 rightPosition;
     [SerializeField] private Vector3 centrePosition;
 
-    [SerializeField] private float maxSpeed = 1;
-
+    private Sprite _transitionSprite;
+    private Sprite _stationSprite;
+    private Sprite _backGroundSprite;
+                     
+    //Two Sprites that rotate in order to create the
+    //Illusion of a infinite background
     private SpriteRenderer _spriteA;
     private SpriteRenderer _spriteB;
 
     private bool _reversing;
     private float _offset;
     private SpriteRenderer[] _sprites;
-
-    private float speed;
+    private float _maxSpeed;
+    private float _speed;
+    private BackgroundState _backgroundFlag;
+    private HaltingState _haltingFlag;
     
     public bool Reversing
     {
@@ -33,7 +37,9 @@ public class TrainBackground : MonoBehaviour
 
     private void Start()
     {
-        speed = maxSpeed;
+        _speed = _maxSpeed;
+        _backgroundFlag = BackgroundState.background;
+        _haltingFlag = HaltingState._null;
     }
 
     private void OnEnable()
@@ -44,20 +50,24 @@ public class TrainBackground : MonoBehaviour
         _spriteA = _sprites[0];
         _spriteB = _sprites[1];
         
-        _spriteA.sprite = _sprite;
-        _spriteB.sprite = _sprite;
+        _spriteA.sprite = _backGroundSprite;
+        _spriteB.sprite = _backGroundSprite;
 
         _offset = centrePosition.x - leftPosition.x;
-        speed = maxSpeed;
+        _speed = _maxSpeed;
     }
 
-    public void Halt()
+    public void Halt(float timeTillHalt)
     {
-        DOTween.To(() => speed, x => speed = x, 0f, 5f);
+        _backgroundFlag = BackgroundState.transition;
+        _haltingFlag = HaltingState.halting;
+        DOTween.To(() => _speed, x => _speed = x, 0f, timeTillHalt);
     }
-    public void UnHalt()
+    public void UnHalt(float timeTillStart)
     {
-        DOTween.To(() => speed, x => speed = x, maxSpeed, 5f);
+        _backgroundFlag = BackgroundState.transition;
+        _haltingFlag = HaltingState.starting;
+        DOTween.To(() => _speed, x => _speed = x, _maxSpeed, timeTillStart);
     }
 
     public void Init()
@@ -71,25 +81,84 @@ public class TrainBackground : MonoBehaviour
 
         foreach (var spr in _sprites)
         {
-            if (_reversing)
+            if (  ( _reversing && spr.transform.position.x > ClippingPoint) || ( !_reversing && spr.transform.position.x > ClippingPoint) )
             {
-                if (spr.transform.position.x > ClippingPoint)
+                var direction = _reversing ? Vector3.left : Vector3.right;
+                spr.transform.position += direction * (_offset * 2);
+
+                
+                if (_haltingFlag != HaltingState._null)
                 {
-                    spr.transform.position += Vector3.left * (_offset * 2);
-                }
-            }
-            else
-            {
-                if (spr.transform.position.x < ClippingPoint)
-                {
-                    spr.transform.position += Vector3.right * (_offset * 2);
+                    switch (_backgroundFlag)
+                    {
+                        case BackgroundState.background:
+                        {
+                            // this is not really correct
+                            spr.sprite = _backGroundSprite;
+                            _backgroundFlag = BackgroundState._null;
+                            _haltingFlag = HaltingState._null;
+                            break;
+                        }
+                        case BackgroundState.transition:
+                        {
+                            spr.sprite = _transitionSprite;
+                            _backgroundFlag = _haltingFlag == HaltingState.halting
+                                ? BackgroundState.station
+                                : BackgroundState.background;
+                            break;
+                        }
+                        case BackgroundState.station:
+                        {
+                            // this is not really correct
+                            spr.sprite = _stationSprite;
+                            _backgroundFlag = BackgroundState._null;
+                            _haltingFlag = HaltingState._null;
+                            break;
+                        }
+                        case BackgroundState._null:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
             }
 
-            spr.transform.position = new Vector3(spr.transform.position.x + (Direction * speed * Time.deltaTime), spr.transform.position.y, spr.transform.position.z);
+            var transform1 = spr.transform;
+            var position = transform1.position;
+            position = new Vector3(position.x + (Direction * _speed * Time.deltaTime), position.y, position.z);
+            transform1.position = position;
         }
+    }
 
+    public void SetSpriteAndSpeed(Sprite backgroundSprite, float speed)
+    {
+        _backGroundSprite = backgroundSprite;
+        _maxSpeed = speed;
+    }
+
+    public void SetTransitionSprite(Sprite transitionSprite)
+    {
+        _transitionSprite = transitionSprite;
     }
     
+    public void SetStationSprite(Sprite stationSprite)
+    {
+        _stationSprite = stationSprite;
+    }
+
+
+    private enum  BackgroundState
+    {
+        background,
+        transition,
+        station,
+        _null
+    }
     
+    private enum  HaltingState
+    {
+        halting,
+        starting,
+        _null
+    }
 }

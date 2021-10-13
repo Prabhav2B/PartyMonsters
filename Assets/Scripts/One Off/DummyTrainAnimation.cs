@@ -16,8 +16,7 @@ public class DummyTrainAnimation : MonoBehaviour
 
     private bool _scriptedTrainEvent;
     private bool _finished = false;
-    private bool _startScreenRevealed = false;
-    
+
     private IEnumerator Start()
     {
         _trainTransform = GetComponent<RectTransform>();
@@ -31,7 +30,6 @@ public class DummyTrainAnimation : MonoBehaviour
 
     private void StartScreenRevealed()
     {
-        _startScreenRevealed = true;
         onScreenRevealed.Invoke();
         DummyWait();
     }

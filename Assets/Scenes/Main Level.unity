@@ -6781,6 +6781,10 @@ PrefabInstance:
       propertyPath: toCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1668186919178951936, guid: 5e025d7d3662074498b6b643b0ee3f7d, type: 3}
+      propertyPath: interiorBackgroundData
+      value: 
+      objectReference: {fileID: 11400000, guid: 14196be700661f94fa8f7c6e58efbd94, type: 2}
     - target: {fileID: 2087863234423872666, guid: 5e025d7d3662074498b6b643b0ee3f7d, type: 3}
       propertyPath: m_Name
       value: Blue Train Interior
