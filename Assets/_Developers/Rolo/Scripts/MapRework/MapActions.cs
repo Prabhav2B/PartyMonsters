@@ -224,7 +224,7 @@ public class MapActions : MonoBehaviour
             case (TrainLineColor.blue):
                 return new Color(0f, 0.36f, 0.89f);
             case (TrainLineColor.green):
-                return new Color(0.25f, 0.3f, 0.15f);
+                return new Color(0.05f, 0.3f, 0.15f);
             case (TrainLineColor.pink):
                 return new Color(1f, 0.54f, 0.78f);
             case (TrainLineColor.purple):
