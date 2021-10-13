@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MapStationActions : MonoBehaviour
+public class MapActions : MonoBehaviour
 {
     [SerializeField] private CursorManager cursorManager;
 
