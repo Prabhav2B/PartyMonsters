@@ -384,9 +384,13 @@ public class MapActions : MonoBehaviour
         //place station to default position
         objectToReset = CheckIfCursorOnMapItem(layerStation);
         if (objectToReset != null)
-        {
-            ResetStationPosition(objectToReset);
+        {            
             DisconnectConnectedLines(objectToReset);
+            ResetStationPosition(objectToReset);
+
+            StationBehaviour stationBehaviour = objectToReset.GetComponent<StationBehaviour>();
+            ResetPreviousSlot(stationBehaviour);
+
             return;
         }
 
