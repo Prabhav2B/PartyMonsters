@@ -19,6 +19,7 @@ public class MapActions : MonoBehaviour
 
     private LineRenderer lineRenderer; //recheck how often this is used, maybe no need to keep it like this
 
+    private Transform colorPickerTransform;
     private Transform lineTransform;
     private Transform stationTransform;
     private Transform uiButtonTransform;
@@ -40,6 +41,7 @@ public class MapActions : MonoBehaviour
         isDrawing = false;
         isPressed = false;
 
+        colorPickerTransform = null;
         lineTransform = null;
         stationTransform = null;
         uiButtonTransform = null;
@@ -211,6 +213,7 @@ public class MapActions : MonoBehaviour
         edgeCollider2D.isTrigger = true;
         edgeCollider2D.edgeRadius = 0.1f;
 
+        lineTransform = line.transform;
         isDrawing = true;
     }
 
@@ -323,8 +326,14 @@ public class MapActions : MonoBehaviour
 
         if (isPressed)
         {
-            if (ColorPicker.activeInHierarchy)
+            colorPickerTransform = CheckIfCursorOnMapItem(layerColorPicker);
+            if (ColorPicker.activeInHierarchy && colorPickerTransform == null)
                 ToggleColorPicker();
+            else if (ColorPicker.activeInHierarchy && colorPickerTransform != null)
+            {
+                SetLineColor();
+                ToggleColorPicker();
+            }
 
             stationTransform = CheckIfCursorOnMapItem(layerStation);
             if (stationTransform != null)
@@ -352,6 +361,16 @@ public class MapActions : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void SetLineColor()
+    {
+        TrainLineColor trainLineColor = colorPickerTransform.GetComponent<ColorCircleBehaviour>().circleColor;
+        LineRenderer lineRenderer = lineTransform.GetComponent<LineRenderer>();
+
+        lineRenderer.startColor = GetLineColor(trainLineColor);
+        lineRenderer.endColor = GetLineColor(trainLineColor);
+        lineTransform.GetComponent<LineBehaviour>().myColor = trainLineColor;
     }
 
     private void ToggleColorPicker()
