@@ -178,6 +178,7 @@ public class MapStationActions : MonoBehaviour
 
         lineRenderer = line.AddComponent<LineRenderer>();
         lineRenderer.SetPosition(0, stationTransform.position);
+        lineRenderer.useWorldSpace = false;
         lineRenderer.startWidth = 0.4f;
         lineRenderer.endWidth = 0.4f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
