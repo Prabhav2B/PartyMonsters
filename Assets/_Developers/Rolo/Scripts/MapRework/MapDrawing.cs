@@ -10,6 +10,7 @@ public class MapDrawing : MonoBehaviour
     [SerializeField] private int mapHeight;
 
     [SerializeField] private float tokenScale;
+    [SerializeField] private float offsetY; //offsets slot along y axis
     [SerializeField] private GameObject MapSlot;
     [SerializeField] private Transform MapSlotHolder;
 
@@ -34,7 +35,7 @@ public class MapDrawing : MonoBehaviour
                 float posX = x + gridOffset;
                 float posY = y + gridOffset;
                 float collider2DScale = 1f / tokenScale; // ensures that collider is 1 unit high and wide
-                Vector2 slotPosition = new Vector2(posX, posY);
+                Vector2 slotPosition = new Vector2(posX, posY + offsetY);
 
                 GameObject slot = Instantiate(MapSlot, MapSlotHolder);
                 slot.transform.localPosition = slotPosition;

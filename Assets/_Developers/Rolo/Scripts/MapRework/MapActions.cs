@@ -123,6 +123,7 @@ public class MapActions : MonoBehaviour
         {
             foreach (var line in connectedLines)
             {
+                line.Key.useWorldSpace = false;
                 line.Key.SetPosition(line.Value, stationTransform.localPosition);
             }
         }
@@ -153,7 +154,7 @@ public class MapActions : MonoBehaviour
                 lineBehaviour.stationB = stationB;
 
                 //snaps ending right under the station position
-                lineRenderer.SetPosition(1, station.transform.position);
+                lineRenderer.SetPosition(1, station.transform.localPosition);
 
                 //sets EdgeCollider2D in place
                 EdgeCollider2D edgeCollider2D = lineRenderer.gameObject.GetComponent<EdgeCollider2D>();
@@ -172,8 +173,10 @@ public class MapActions : MonoBehaviour
     private void UpdateLineEndPoint()
     {
         Vector3 cursorPosition = GetCursorPositionInWorld();
-        //Debug.Log("Cursor Pos in World: " + cursorPosition);
-        //Debug.Log("Camera Pos in World: " + Camera.main.transform.position);
+        Vector3 cameraPosition = Camera.main.transform.position;
+
+        cursorPosition = new Vector3(cursorPosition.x - cameraPosition.x, cursorPosition.y - cameraPosition.y, 0f);
+
         lineRenderer.SetPosition(1, cursorPosition);
     }
 
@@ -187,6 +190,7 @@ public class MapActions : MonoBehaviour
         GameObject line = new GameObject();
         line.name = "Line";
         line.transform.parent = LineHolder;
+        line.transform.localPosition = LineHolder.localPosition;
         line.layer = layerLine;
 
         LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
@@ -194,7 +198,8 @@ public class MapActions : MonoBehaviour
         lineBehaviour.myColor = TrainLineColor.blue;
 
         lineRenderer = line.AddComponent<LineRenderer>();
-        lineRenderer.SetPosition(0, stationTransform.position);
+        lineRenderer.SetPosition(0, stationTransform.localPosition);
+        lineRenderer.SetPosition(1, stationTransform.localPosition);
         lineRenderer.useWorldSpace = false;
         lineRenderer.startWidth = 0.2f;
         lineRenderer.endWidth = 0.2f;
@@ -242,8 +247,8 @@ public class MapActions : MonoBehaviour
 
             if (isStationFree)
             {
-                stationTransform.position = stationSlot.position;
-                stationBehaviour.stationMapItem.previousPosition = stationTransform.position;
+                stationTransform.localPosition = stationSlot.localPosition;
+                stationBehaviour.stationMapItem.previousPosition = stationTransform.localPosition;
 
                 //reset previous slot to be available
                 ResetPreviousSlot(stationBehaviour);
@@ -256,7 +261,7 @@ public class MapActions : MonoBehaviour
             }                        
         }
 
-        stationTransform.position = stationBehaviour.stationMapItem.previousPosition;
+        stationTransform.localPosition = stationBehaviour.stationMapItem.previousPosition;
     }
 
     private void ResetPreviousSlot(StationBehaviour stationBehaviour)
@@ -270,8 +275,8 @@ public class MapActions : MonoBehaviour
     private void DragStation()
     {
         Vector3 mousePosition = GetCursorPositionInWorld();
-        Vector2 tokenTranslation = mousePosition - stationTransform.position;
-        stationTransform.Translate(tokenTranslation);
+        Vector2 stationTranslation = mousePosition - stationTransform.position;
+        stationTransform.Translate(stationTranslation);
         UpdateConnectedLines();
     }
 
@@ -318,6 +323,9 @@ public class MapActions : MonoBehaviour
 
         if (isPressed)
         {
+            if (ColorPicker.activeInHierarchy)
+                ToggleColorPicker();
+
             stationTransform = CheckIfCursorOnMapItem(layerStation);
             if (stationTransform != null)
             {
@@ -426,7 +434,7 @@ public class MapActions : MonoBehaviour
     void ResetStationPosition(Transform objectToReset)
     {
         StationBehaviour stationBehaviour = objectToReset.GetComponent<StationBehaviour>();
-        objectToReset.transform.position = stationBehaviour.stationMapItem.defaultPosition;
+        objectToReset.transform.localPosition = stationBehaviour.stationMapItem.defaultPosition;
         stationBehaviour.stationMapItem.previousPosition = stationBehaviour.stationMapItem.defaultPosition;
     }
 

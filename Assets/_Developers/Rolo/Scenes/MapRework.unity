@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65910720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 118035636}
@@ -252,6 +252,7 @@ MonoBehaviour:
   mapWidth: 16
   mapHeight: 8
   tokenScale: 0.25
+  offsetY: -1
   MapSlot: {fileID: 279458877383932927, guid: 28ca53fcb9cc03f45b2e63b1a0f07914, type: 3}
   MapSlotHolder: {fileID: 65910721}
 --- !u!4 &118035636
