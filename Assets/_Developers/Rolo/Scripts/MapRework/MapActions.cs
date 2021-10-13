@@ -7,6 +7,8 @@ public class MapActions : MonoBehaviour
 {
     [SerializeField] private CursorManager cursorManager;
 
+    [SerializeField] private GameObject ColorPicker;
+
     [SerializeField] private LayerMask RaycastLayers = default(LayerMask);
 
     [SerializeField] private Transform DrawIcon;
@@ -15,10 +17,9 @@ public class MapActions : MonoBehaviour
 
     private Dictionary<LineRenderer, int> connectedLines;
 
-    //private EdgeCollider2D edgeCollider2D;
-
     private LineRenderer lineRenderer; //recheck how often this is used, maybe no need to keep it like this
 
+    private Transform lineTransform;
     private Transform stationTransform;
     private Transform uiButtonTransform;
     
@@ -26,6 +27,7 @@ public class MapActions : MonoBehaviour
     private bool isDrawing;
     private bool isPressed;
 
+    private int layerColorPicker;
     private int layerLine;
     private int layerStation;
     private int layerSlot;
@@ -36,8 +38,13 @@ public class MapActions : MonoBehaviour
     {
         isDragMode = true;
         isDrawing = false;
-        stationTransform = null;
+        isPressed = false;
 
+        lineTransform = null;
+        stationTransform = null;
+        uiButtonTransform = null;
+
+        layerColorPicker = LayerMask.NameToLayer("ColorPicker");
         layerLine = LayerMask.NameToLayer("ConnectionLine");
         layerStation = LayerMask.NameToLayer("Token");
         layerSlot = LayerMask.NameToLayer("StationSlot");
@@ -116,7 +123,7 @@ public class MapActions : MonoBehaviour
         {
             foreach (var line in connectedLines)
             {
-                line.Key.SetPosition(line.Value, stationTransform.position);
+                line.Key.SetPosition(line.Value, stationTransform.localPosition);
             }
         }
     }
@@ -135,8 +142,9 @@ public class MapActions : MonoBehaviour
             LineBehaviour lineBehaviour = lineRenderer.gameObject.GetComponent<LineBehaviour>();
             StationBehaviour stationB = station.GetComponent<StationBehaviour>();
             bool connectionExists = CheckIfConnectionAlreadyExists(lineBehaviour.stationA, stationB);
+            bool isTheSameStation = lineBehaviour.stationA == stationB;
 
-            if (connectionExists)
+            if (connectionExists || isTheSameStation)
             {
                 Destroy(lineRenderer.gameObject);
             }
@@ -149,7 +157,11 @@ public class MapActions : MonoBehaviour
 
                 //sets EdgeCollider2D in place
                 EdgeCollider2D edgeCollider2D = lineRenderer.gameObject.GetComponent<EdgeCollider2D>();
-                SetEdgeCollider2DPoints(lineRenderer, edgeCollider2D);                
+                SetEdgeCollider2DPoints(lineRenderer, edgeCollider2D);
+
+                ToggleColorPicker();
+                if (ColorPicker.activeInHierarchy)
+                    SetColorPickerPosition();
             }
         }
 
@@ -160,6 +172,8 @@ public class MapActions : MonoBehaviour
     private void UpdateLineEndPoint()
     {
         Vector3 cursorPosition = GetCursorPositionInWorld();
+        //Debug.Log("Cursor Pos in World: " + cursorPosition);
+        //Debug.Log("Camera Pos in World: " + Camera.main.transform.position);
         lineRenderer.SetPosition(1, cursorPosition);
     }
 
@@ -177,7 +191,7 @@ public class MapActions : MonoBehaviour
 
         LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
         lineBehaviour.stationA = station.gameObject.GetComponent<StationBehaviour>();
-        lineBehaviour.myColor = TrainLineColor.yellow;
+        lineBehaviour.myColor = TrainLineColor.blue;
 
         lineRenderer = line.AddComponent<LineRenderer>();
         lineRenderer.SetPosition(0, stationTransform.position);
@@ -265,7 +279,7 @@ public class MapActions : MonoBehaviour
     {
         foreach (var line in connectedLines)
         {
-            line.Key.SetPosition(line.Value, stationTransform.position);
+            line.Key.SetPosition(line.Value, stationTransform.localPosition);
         }
     }
 
@@ -317,13 +331,45 @@ public class MapActions : MonoBehaviour
                 SwitchCursorMode();
                 return;
             }
+
+            lineTransform = CheckIfCursorOnMapItem(layerLine);
+            if (lineTransform != null)
+            {
+                ToggleColorPicker();
+                if (ColorPicker.activeInHierarchy)
+                {
+                    SetColorPickerPosition();
+                }
+
+                return;
+            }
         }
+    }
+
+    private void ToggleColorPicker()
+    {
+        ColorPicker.SetActive(!ColorPicker.activeInHierarchy);
+    }
+
+    private void SetColorPickerPosition()
+    {
+        if(lineTransform != null)
+            lineRenderer = lineTransform.gameObject.GetComponent<LineRenderer>();
+
+        Vector3 midPointBetweenTwoPoints = (lineRenderer.GetPosition(0) + lineRenderer.GetPosition(1)) / 2;
+        ColorPicker.transform.localPosition = midPointBetweenTwoPoints;
     }
 
     public void OnResetMapItem(InputAction.CallbackContext context)
     {
         if (gameObject.activeSelf == false)
             return;
+
+        if(ColorPicker.activeInHierarchy)
+        {
+            ToggleColorPicker();
+            return;
+        }    
 
         Transform objectToReset;
 
