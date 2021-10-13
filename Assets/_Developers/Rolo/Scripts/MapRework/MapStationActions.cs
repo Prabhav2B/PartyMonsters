@@ -142,7 +142,6 @@ public class MapStationActions : MonoBehaviour
             }
             else
             {
-
                 lineBehaviour.stationB = stationB;
 
                 //snaps ending right under the station position
@@ -333,16 +332,29 @@ public class MapStationActions : MonoBehaviour
         if (objectToReset != null)
         {
             ResetStationPosition(objectToReset);
-            //TODO disconnect all connected lines
+            DisconnectConnectedLines(objectToReset);
             return;
         }
 
         objectToReset = CheckIfCursorOnMapItem(layerLine);
         if (objectToReset != null)
         {
-            //TODO remove connections in connected stations
             Destroy(objectToReset.gameObject);
             return;
+        }
+    }
+
+    private void DisconnectConnectedLines(Transform station)
+    {
+        LineBehaviour[] lines = FindObjectsOfType<LineBehaviour>();
+        StationBehaviour stationBehaviour = station.gameObject.GetComponent<StationBehaviour>();
+
+        foreach (LineBehaviour line in lines)
+        {
+            if (line.stationA == stationBehaviour || line.stationB == stationBehaviour) 
+            {
+                Destroy(line.gameObject);
+            }
         }
     }
 
