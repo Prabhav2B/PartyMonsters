@@ -52,8 +52,9 @@ public class TrainInterior : MonoBehaviour
         backgrounds[1].SetSpriteAndSpeed(interiorBackgroundData.midSprite, interiorBackgroundData.midSpeed);
         backgrounds[2].SetSpriteAndSpeed(interiorBackgroundData.frontSprite, interiorBackgroundData.frontSpeed);
         
-        backgrounds[2].SetTransitionSprite(transitionSprite);
-        backgrounds[2].SetStationSprite(stationSprite);
+        
+        
+
 
         foreach (var door in _doors)
         {
@@ -66,6 +67,17 @@ public class TrainInterior : MonoBehaviour
 
     private void OnEnable()
     {
+        //delete this later
+        var backgrounds = GetComponentsInChildren<TrainBackground>();
+        backgrounds[3].SetAsTransitionLayer();
+        //THIS NEEDS TO BE REFACTORED GOOD GOD
+        backgrounds[3].SetSpriteAndSpeed(null, 100f);
+        backgrounds[3].SetTransitionSprite(transitionSprite);
+        backgrounds[3].SetStationSprite(stationSprite);
+        
+        //backgrounds[4].SetSpriteAndSpeed(stationSprite, 20f);
+
+
         foreach (var door in _doors)
         {
             door.OnDoorClose();

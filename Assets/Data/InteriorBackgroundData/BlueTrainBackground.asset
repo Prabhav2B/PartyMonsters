@@ -15,6 +15,6 @@ MonoBehaviour:
   backSprite: {fileID: 21300000, guid: 04b366ab3541fc949a24226845365ca2, type: 3}
   midSprite: {fileID: 21300000, guid: cd3724c20d5890c439f0b3058f5ede8c, type: 3}
   frontSprite: {fileID: 21300000, guid: db930f4f9c3cb5e4c9239cc883b3d2bf, type: 3}
-  backSpeed: 1
-  midSpeed: 5
-  frontSpeed: 8
+  backSpeed: 2
+  midSpeed: 7
+  frontSpeed: 12

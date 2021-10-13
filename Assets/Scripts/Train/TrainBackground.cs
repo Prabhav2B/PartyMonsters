@@ -26,6 +26,8 @@ public class TrainBackground : MonoBehaviour
     private float _speed;
     private BackgroundState _backgroundFlag;
     private HaltingState _haltingFlag;
+
+    private bool isTransitionLayer;
     
     public bool Reversing
     {
@@ -55,6 +57,12 @@ public class TrainBackground : MonoBehaviour
 
         _offset = centrePosition.x - leftPosition.x;
         _speed = _maxSpeed;
+
+        if (_transitionSprite)
+        {
+            _spriteA.enabled = false;
+            _spriteB.enabled = false;
+        }
     }
 
     public void Halt(float timeTillHalt)
@@ -86,39 +94,45 @@ public class TrainBackground : MonoBehaviour
                 var direction = _reversing ? Vector3.left : Vector3.right;
                 spr.transform.position += direction * (_offset * 2);
 
+                //DELETE THIS LATER
                 
-                if (_haltingFlag != HaltingState._null)
-                {
-                    switch (_backgroundFlag)
-                    {
-                        case BackgroundState.background:
-                        {
-                            // this is not really correct
-                            spr.sprite = _backGroundSprite;
-                            _backgroundFlag = BackgroundState._null;
-                            _haltingFlag = HaltingState._null;
-                            break;
-                        }
-                        case BackgroundState.transition:
-                        {
-                            spr.sprite = _transitionSprite;
-                            _backgroundFlag = _haltingFlag == HaltingState.halting
-                                ? BackgroundState.station
-                                : BackgroundState.background;
-                            break;
-                        }
-                        case BackgroundState.station:
-                        {
-                            // this is not really correct
-                            spr.sprite = _stationSprite;
-                            _backgroundFlag = BackgroundState._null;
-                            _haltingFlag = HaltingState._null;
-                            break;
-                        }
-                        case BackgroundState._null:
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
+                 if (isTransitionLayer)
+                 {
+                     switch (_backgroundFlag)
+                     {
+                         case BackgroundState.background:
+                         {
+                             // this is not really correct
+                             spr.enabled = false;
+                             _backgroundFlag = BackgroundState._null;
+                             _haltingFlag = HaltingState._null;
+                             break;
+                         }
+                         case BackgroundState.transition:
+                         {
+                             spr.enabled = true;
+                             spr.sprite = _transitionSprite;
+                             _backgroundFlag = _haltingFlag == HaltingState.halting
+                                 ? BackgroundState.station
+                                 : BackgroundState.background;
+                             break;
+                         }
+                         case BackgroundState.station:
+                         {
+                             // this is not really correct
+                             spr.enabled = true;
+                             spr.sprite = _stationSprite;
+                             _backgroundFlag = BackgroundState._null;
+                             _haltingFlag = HaltingState._null;
+                             break;
+                         }
+                         case BackgroundState._null:
+                         {
+                             spr.enabled = false;
+                             break;
+                         }
+                         default:
+                             throw new ArgumentOutOfRangeException();
                     }
                 }
             }
@@ -146,7 +160,12 @@ public class TrainBackground : MonoBehaviour
         _stationSprite = stationSprite;
     }
 
-
+    public void SetAsTransitionLayer()
+    {
+        isTransitionLayer = true;
+    }
+    
+    
     private enum  BackgroundState
     {
         background,
