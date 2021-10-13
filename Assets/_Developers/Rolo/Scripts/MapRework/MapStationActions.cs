@@ -17,7 +17,7 @@ public class MapStationActions : MonoBehaviour
 
     //private EdgeCollider2D edgeCollider2D;
 
-    private LineRenderer lineRenderer;
+    private LineRenderer lineRenderer; //recheck how often this is used, maybe no need to keep it like this
 
     private Transform stationTransform;
     private Transform uiButtonTransform;
@@ -176,23 +176,45 @@ public class MapStationActions : MonoBehaviour
         line.transform.parent = LineHolder;
         line.layer = layerLine;
 
+        LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
+        lineBehaviour.stationA = station.gameObject.GetComponent<StationBehaviour>();
+        lineBehaviour.myColor = TrainLineColor.yellow;
+
         lineRenderer = line.AddComponent<LineRenderer>();
         lineRenderer.SetPosition(0, stationTransform.position);
         lineRenderer.useWorldSpace = false;
-        lineRenderer.startWidth = 0.4f;
-        lineRenderer.endWidth = 0.4f;
+        lineRenderer.startWidth = 0.2f;
+        lineRenderer.endWidth = 0.2f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.green;
-        lineRenderer.endColor = Color.green;
+        lineRenderer.startColor = GetLineColor(lineBehaviour.myColor);
+        lineRenderer.endColor = GetLineColor(lineBehaviour.myColor);
 
         EdgeCollider2D edgeCollider2D = line.AddComponent<EdgeCollider2D>();
         edgeCollider2D.isTrigger = true;
-        edgeCollider2D.edgeRadius = 0.25f;
-
-        LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
-        lineBehaviour.stationA = station.gameObject.GetComponent<StationBehaviour>();
+        edgeCollider2D.edgeRadius = 0.1f;
 
         isDrawing = true;
+    }
+
+    private Color GetLineColor(TrainLineColor lineColor)
+    {
+        switch (lineColor)
+        {
+            case (TrainLineColor.blue):
+                return new Color(0f, 0.36f, 0.89f);
+            case (TrainLineColor.green):
+                return new Color(0.25f, 0.3f, 0.15f);
+            case (TrainLineColor.pink):
+                return new Color(1f, 0.54f, 0.78f);
+            case (TrainLineColor.purple):
+                return new Color(0.26f, 0f, 0.48f);
+            case (TrainLineColor.yellow):
+                return new Color(0.86f, 0.9f, 0.17f);
+            case (TrainLineColor.white):
+                return new Color(1f, 1f, 1f);
+            default:
+                return new Color(0f, 0f, 0f);
+        }
     }
 
     private void SnapStationInPlace()
