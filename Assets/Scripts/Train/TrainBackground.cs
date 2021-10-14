@@ -89,7 +89,7 @@ public class TrainBackground : MonoBehaviour
 
         foreach (var spr in _sprites)
         {
-            if (  ( _reversing && spr.transform.position.x > ClippingPoint) || ( !_reversing && spr.transform.position.x > ClippingPoint) )
+            if (  ( _reversing && spr.transform.position.x > ClippingPoint) || ( !_reversing && spr.transform.position.x < ClippingPoint) )
             {
                 var direction = _reversing ? Vector3.left : Vector3.right;
                 spr.transform.position += direction * (_offset * 2);
@@ -122,8 +122,8 @@ public class TrainBackground : MonoBehaviour
                              // this is not really correct
                              spr.enabled = true;
                              spr.sprite = _stationSprite;
-                             _backgroundFlag = BackgroundState._null;
-                             _haltingFlag = HaltingState._null;
+                             //_backgroundFlag = BackgroundState._null;
+                             //_haltingFlag = HaltingState._null;
                              break;
                          }
                          case BackgroundState._null:
@@ -136,11 +136,8 @@ public class TrainBackground : MonoBehaviour
                     }
                 }
             }
-
-            var transform1 = spr.transform;
-            var position = transform1.position;
-            position = new Vector3(position.x + (Direction * _speed * Time.deltaTime), position.y, position.z);
-            transform1.position = position;
+            
+            spr.transform.position = new Vector3(spr.transform.position.x + (Direction * Mathf.Clamp(_speed, 0f, _maxSpeed)   * Time.deltaTime), spr.transform.position.y, spr.transform.position.z);
         }
     }
 

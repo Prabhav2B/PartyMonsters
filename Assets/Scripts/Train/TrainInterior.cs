@@ -127,7 +127,7 @@ public class TrainInterior : MonoBehaviour
         DisableInteractionTriggers();
         foreach (var background in _backgrounds)
         {
-            background.UnHalt(timeTillHalt);
+            background.UnHalt(timeTillHalt - 1f);
         }
 
         StartCoroutine(WaitTillUnHalt());
