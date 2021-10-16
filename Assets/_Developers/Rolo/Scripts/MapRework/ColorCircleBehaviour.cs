@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class ColorCircleBehaviour : MonoBehaviour
 {
-    public TrainLineColor circleColor;
+    [SerializeField] private TrainLineColor _lineColor;
+    public TrainLineColor CircleColor { get => _lineColor; }
 }

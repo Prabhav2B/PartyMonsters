@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleColor: 4
+  lineColor: 4
 --- !u!4 &312298532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7949539045081414890, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleColor: 3
+  lineColor: 3
 --- !u!1001 &860941082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleColor: 2
+  lineColor: 2
 --- !u!1001 &1005266752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1517,7 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleColor: 1
+  lineColor: 1
 --- !u!1 &1759020460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,4 +1742,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleColor: 0
+  lineColor: 0

@@ -365,7 +365,7 @@ public class MapActions : MonoBehaviour
 
     private void SetLineColor()
     {
-        TrainLineColor trainLineColor = colorPickerTransform.GetComponent<ColorCircleBehaviour>().circleColor;
+        TrainLineColor trainLineColor = colorPickerTransform.GetComponent<ColorCircleBehaviour>().CircleColor;
         LineRenderer lineRenderer = lineTransform.GetComponent<LineRenderer>();
 
         lineRenderer.startColor = GetLineColor(trainLineColor);
