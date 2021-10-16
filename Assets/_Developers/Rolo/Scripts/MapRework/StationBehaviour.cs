@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,7 +17,7 @@ public class StationBehaviour : MonoBehaviour
 
         stationMapItem.slotStationIsOn = null;
 
-        stationMapItem.stationTitleText = gameObject.GetComponentInChildren<Text>();
+        stationMapItem.stationTitleText = gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         stationMapItem.stationTitleText.text = _myName.ToString().ToUpper().Replace('_', ' ');
     }
 }
