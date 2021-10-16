@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: myName
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (6)
@@ -329,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: 4
+  _lineColor: 4
 --- !u!4 &312298532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7949539045081414890, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
@@ -708,6 +712,10 @@ PrefabInstance:
       propertyPath: myName
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (3)
@@ -780,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: 3
+  _lineColor: 3
 --- !u!1001 &860941082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,6 +798,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: myName
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
@@ -856,6 +868,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: myName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
@@ -925,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: 2
+  _lineColor: 2
 --- !u!1001 &1005266752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,6 +949,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1863893896}
     m_Modifications:
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (5)
@@ -1125,6 +1145,10 @@ PrefabInstance:
       propertyPath: myName
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (8)
@@ -1191,6 +1215,10 @@ PrefabInstance:
       propertyPath: myName
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: m_Name
       value: Station (2)
@@ -1255,6 +1283,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: myName
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
@@ -1517,7 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: 1
+  _lineColor: 1
 --- !u!1 &1759020460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1629,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
       propertyPath: myName
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5001528187136549781, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
+      propertyPath: _myName
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7824605271595262465, guid: 579d5e111b373814daf3a15be43b4306, type: 3}
@@ -1742,4 +1778,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: 0
+  _lineColor: 0

@@ -8,7 +8,6 @@ public class StationSlotBehaviour : MonoBehaviour
 
     private void Start()
     {
-        stationMapItemOnThisSlot = new StationMapItem();
-        stationMapItemOnThisSlot = null;
+        stationMapItemOnThisSlot = default(StationMapItem);
     }
 }

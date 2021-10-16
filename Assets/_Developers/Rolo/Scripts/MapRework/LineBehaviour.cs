@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LineBehaviour : MonoBehaviour
 {
-    public StationBehaviour stationA;
-    public StationBehaviour stationB;
+    public StationBehaviour StationA { get; set; }
 
-    public TrainLineColor myColor;
+    public StationBehaviour StationB { get; set; }
+
+    public TrainLineColor MyColor { get; set; }
 }

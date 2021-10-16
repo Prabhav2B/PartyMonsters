@@ -1,14 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StationMapItem
+public struct StationMapItem
 {
     public StationName myName;
-
-    public Text StationTitleText;
-
     public Transform slotStationIsOn;
-
+    public Text stationTitleText;
     public Vector2 defaultPosition;
     public Vector2 previousPosition;
 }

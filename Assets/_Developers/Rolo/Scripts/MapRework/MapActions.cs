@@ -111,8 +111,8 @@ public class MapActions : MonoBehaviour
 
         foreach (LineBehaviour line in lines)
         {
-            if ((line.stationA == stationA || line.stationA == stationB) &&
-               (line.stationB == stationA || line.stationB == stationB))
+            if ((line.StationA == stationA || line.StationA == stationB) &&
+               (line.StationB == stationA || line.StationB == stationB))
                 return true;
         }
 
@@ -144,8 +144,8 @@ public class MapActions : MonoBehaviour
         {
             LineBehaviour lineBehaviour = lineRenderer.gameObject.GetComponent<LineBehaviour>();
             StationBehaviour stationB = station.GetComponent<StationBehaviour>();
-            bool connectionExists = CheckIfConnectionAlreadyExists(lineBehaviour.stationA, stationB);
-            bool isTheSameStation = lineBehaviour.stationA == stationB;
+            bool connectionExists = CheckIfConnectionAlreadyExists(lineBehaviour.StationA, stationB);
+            bool isTheSameStation = lineBehaviour.StationA == stationB;
 
             if (connectionExists || isTheSameStation)
             {
@@ -153,7 +153,7 @@ public class MapActions : MonoBehaviour
             }
             else
             {
-                lineBehaviour.stationB = stationB;
+                lineBehaviour.StationB = stationB;
 
                 //snaps ending right under the station position
                 lineRenderer.SetPosition(1, station.transform.localPosition);
@@ -196,8 +196,8 @@ public class MapActions : MonoBehaviour
         line.layer = layerLine;
 
         LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
-        lineBehaviour.stationA = station.gameObject.GetComponent<StationBehaviour>();
-        lineBehaviour.myColor = TrainLineColor.blue;
+        lineBehaviour.StationA = station.gameObject.GetComponent<StationBehaviour>();
+        lineBehaviour.MyColor = TrainLineColor.blue;
 
         lineRenderer = line.AddComponent<LineRenderer>();
         lineRenderer.SetPosition(0, stationTransform.localPosition);
@@ -206,8 +206,8 @@ public class MapActions : MonoBehaviour
         lineRenderer.startWidth = 0.2f;
         lineRenderer.endWidth = 0.2f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = GetLineColor(lineBehaviour.myColor);
-        lineRenderer.endColor = GetLineColor(lineBehaviour.myColor);
+        lineRenderer.startColor = GetLineColor(lineBehaviour.MyColor);
+        lineRenderer.endColor = GetLineColor(lineBehaviour.MyColor);
 
         EdgeCollider2D edgeCollider2D = line.AddComponent<EdgeCollider2D>();
         edgeCollider2D.isTrigger = true;
@@ -246,7 +246,7 @@ public class MapActions : MonoBehaviour
         if (stationSlot != null)
         {
             StationSlotBehaviour stationSlotBehaviour = stationSlot.GetComponent<StationSlotBehaviour>();
-            bool isStationFree = stationSlotBehaviour.stationMapItemOnThisSlot == null;
+            bool isStationFree = stationSlotBehaviour.stationMapItemOnThisSlot.Equals(default(StationMapItem));
 
             if (isStationFree)
             {
@@ -256,7 +256,7 @@ public class MapActions : MonoBehaviour
                 //reset previous slot to be available
                 ResetPreviousSlot(stationBehaviour);
 
-                //set slot to be taken //making a function with 3 variables here doesn't make sense to me :/
+                //set slot to be taken
                 stationSlotBehaviour.stationMapItemOnThisSlot = stationBehaviour.stationMapItem;
                 stationBehaviour.stationMapItem.slotStationIsOn = stationSlot; //adds current slot to Station's variable
 
@@ -271,7 +271,7 @@ public class MapActions : MonoBehaviour
     {
         if (stationBehaviour.stationMapItem.slotStationIsOn != null)
         {
-            stationBehaviour.stationMapItem.slotStationIsOn.GetComponent<StationSlotBehaviour>().stationMapItemOnThisSlot = null;
+            stationBehaviour.stationMapItem.slotStationIsOn.GetComponent<StationSlotBehaviour>().stationMapItemOnThisSlot = default(StationMapItem);
         }
     }
 
@@ -300,10 +300,10 @@ public class MapActions : MonoBehaviour
         LineBehaviour[] lines = FindObjectsOfType<LineBehaviour>();
         foreach (LineBehaviour line in lines)
         {
-            if (line.stationA == stationBehaviour || line.stationB == stationBehaviour)
+            if (line.StationA == stationBehaviour || line.StationB == stationBehaviour)
             {
                 LineRenderer lineRenderer = line.GetComponent<LineRenderer>();
-                int endingId = line.stationA == stationBehaviour ? 0 : 1;
+                int endingId = line.StationA == stationBehaviour ? 0 : 1;
                 connectedLines.Add(lineRenderer, endingId);
             }
         }
@@ -370,7 +370,7 @@ public class MapActions : MonoBehaviour
 
         lineRenderer.startColor = GetLineColor(trainLineColor);
         lineRenderer.endColor = GetLineColor(trainLineColor);
-        lineTransform.GetComponent<LineBehaviour>().myColor = trainLineColor;
+        lineTransform.GetComponent<LineBehaviour>().MyColor = trainLineColor;
     }
 
     private void ToggleColorPicker()
@@ -428,7 +428,7 @@ public class MapActions : MonoBehaviour
 
         foreach (LineBehaviour line in lines)
         {
-            if (line.stationA == stationBehaviour || line.stationB == stationBehaviour) 
+            if (line.StationA == stationBehaviour || line.StationB == stationBehaviour) 
             {
                 Destroy(line.gameObject);
             }

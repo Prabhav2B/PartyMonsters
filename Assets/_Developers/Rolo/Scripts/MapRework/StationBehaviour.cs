@@ -6,19 +6,19 @@ using UnityEngine.InputSystem;
 
 public class StationBehaviour : MonoBehaviour
 {
-    public StationName myName;
+    [SerializeField] private StationName _myName;
     public StationMapItem stationMapItem;
 
     private void Start()
     {
-        stationMapItem = new StationMapItem();
+        stationMapItem.myName = _myName;
 
         stationMapItem.defaultPosition = transform.localPosition;
         stationMapItem.previousPosition = transform.localPosition;
 
         stationMapItem.slotStationIsOn = null;
 
-        stationMapItem.StationTitleText = gameObject.GetComponentInChildren<Text>();
-        stationMapItem.StationTitleText.text = myName.ToString().ToUpper().Replace('_', ' ');
+        stationMapItem.stationTitleText = gameObject.GetComponentInChildren<Text>();
+        stationMapItem.stationTitleText.text = _myName.ToString().ToUpper().Replace('_', ' ');
     }
 }
