@@ -59,29 +59,31 @@ public class MapActions : MonoBehaviour
         if (stationTransform == null)
             return;
 
-        if (isPressed && isDragMode)
+        switch (isPressed)
         {
-            DragStation();
-        }
-        else if (!isPressed && isDragMode)
-        {
-            SnapStationInPlace();
-            SnapConnectedLinesInPlace();
-            UpdateLineColliders();
+            case true when isDragMode:
+                DragStation();
+                break;
 
-            stationTransform = null;
-        }
-        else if (isPressed && !isDragMode && !isDrawing)
-        {
-            StartDrawingLine();
-        }
-        else if (isPressed && !isDragMode && isDrawing)
-        {
-            UpdateLineEndPoint();
-        }
-        else if (!isPressed && !isDragMode && isDrawing)
-        {
-            EndDrawingLine();
+            case false when isDragMode:
+                SnapStationInPlace();
+                SnapConnectedLinesInPlace();
+                UpdateLineColliders();
+
+                stationTransform = null;
+                break;
+
+            case true when !isDragMode && !isDrawing:
+                StartDrawingLine();
+                break;
+
+            case true when !isDragMode && isDrawing:
+                UpdateLineEndPoint();
+                break;
+
+            case false when !isDragMode && isDrawing:
+                EndDrawingLine();
+                break;
         }
     }
 
