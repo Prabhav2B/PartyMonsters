@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StationSlotBehaviour : MonoBehaviour
 {
-    public StationMapItem stationMapItemOnThisSlot;
+    public StationMapItem stationMapItemOnThisSlot { get; set; }
 
     private void Start()
     {

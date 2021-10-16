@@ -311,10 +311,11 @@ public class MapActions : MonoBehaviour
 
     private Vector3 GetCursorPositionInWorld()
     {
+        Camera camera = Camera.main;
         Vector2 mouseCoordinates = Mouse.current.position.ReadValue();
-        Vector3 mousePosition = new Vector3(mouseCoordinates.x, mouseCoordinates.y, -Camera.main.transform.position.z);
+        Vector3 mousePosition = new Vector3(mouseCoordinates.x, mouseCoordinates.y, -camera.transform.position.z);
 
-        return Camera.main.ScreenToWorldPoint(mousePosition);
+        return camera.ScreenToWorldPoint(mousePosition);
     }
 
     public void OnDragStation(InputAction.CallbackContext context)
