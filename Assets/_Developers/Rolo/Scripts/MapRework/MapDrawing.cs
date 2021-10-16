@@ -13,6 +13,7 @@ public class MapDrawing : MonoBehaviour
     [SerializeField] private float offsetY; //offsets slot along y axis
     [SerializeField] private GameObject MapSlot;
     [SerializeField] private Transform MapSlotHolder;
+    [SerializeField] private Transform DragDrawButtons;
 
     private float gridOffset;
 
@@ -20,6 +21,7 @@ public class MapDrawing : MonoBehaviour
     void Start()
     {
         gridOffset = 0.5f; // cosmetitc value that ensures that slots are centered nicely
+        DragDrawButtons.position = new Vector3(0f, offsetY, 0f); // cosmetitc adjustment so buttons align vertically to the grid
         DrawMap();
     }
 

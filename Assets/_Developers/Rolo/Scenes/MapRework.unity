@@ -259,6 +259,7 @@ MonoBehaviour:
   offsetY: -1
   MapSlot: {fileID: 279458877383932927, guid: 28ca53fcb9cc03f45b2e63b1a0f07914, type: 3}
   MapSlotHolder: {fileID: 65910721}
+  DragDrawButtons: {fileID: 727771388}
 --- !u!4 &118035636
 Transform:
   m_ObjectHideFlags: 0
@@ -376,7 +377,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.77686745, b: 0.3726415, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1035,7 +1036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046120293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.7, y: 0.9, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0.9, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 727771388}
@@ -1371,7 +1372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369392031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.7, y: -0.7, z: 0}
+  m_LocalPosition: {x: 8.9, y: -0.9, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 727771388}
