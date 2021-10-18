@@ -14,13 +14,17 @@ public class TrainInterior : MonoBehaviour
     [SerializeField] private InteriorBackgroundData interiorBackgroundData; 
     [SerializeField] private SpriteRenderer trainInteriorSprite;
 
-    [SerializeField] private Sprite stationSprite;
+    // [SerializeField] private Sprite stationSprite;
     [SerializeField] private Sprite transitionSprite;
+
+    [SerializeField] private Transform dummyStationBackdropParent;
     
     [SerializeField] private float timeTillHalt = 6f;
     
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>(); //the door colliders to exit the train
     private TrainBackground[] _backgrounds;
+    private TrainBackground _transitionBackground;
+    
     private TrainRattle _trainRattle;
 
     private TrainScheduler _trainScheduler;
@@ -28,6 +32,7 @@ public class TrainInterior : MonoBehaviour
     private float _waitDuration;
     private bool _reversing;
     private TrainDoor[] _doors;
+    private int _backgroundSortingLayerID;
 
     //Events that fire when the train starts and comes to a stop
     public UnityEvent OnTrainStop;
@@ -37,6 +42,8 @@ public class TrainInterior : MonoBehaviour
 
     private void Awake()
     {
+        _backgroundSortingLayerID = SortingLayer.NameToID("TrainBackground");
+        
         _trainScheduler = FindObjectOfType<TrainScheduler>();
         
         trainInteriorSprite.sprite = trainInteriorData.trainInterior;
@@ -51,11 +58,12 @@ public class TrainInterior : MonoBehaviour
         backgrounds[0].SetSpriteAndSpeed(interiorBackgroundData.backSprite, interiorBackgroundData.backSpeed);
         backgrounds[1].SetSpriteAndSpeed(interiorBackgroundData.midSprite, interiorBackgroundData.midSpeed);
         backgrounds[2].SetSpriteAndSpeed(interiorBackgroundData.frontSprite, interiorBackgroundData.frontSpeed);
-        
-        
-        
 
-
+        _transitionBackground = _backgrounds[3];
+        _transitionBackground.SetAsTransitionLayer();
+        _transitionBackground.SetSpriteAndSpeed(null, 100f);
+        _transitionBackground.SetTransitionSprite(transitionSprite);
+        
         foreach (var door in _doors)
         {
             _interactionColliders.Add(door.GetComponentInChildren<BoxCollider2D>());
@@ -67,17 +75,28 @@ public class TrainInterior : MonoBehaviour
 
     private void OnEnable()
     {
-        //delete this later
-        var backgrounds = GetComponentsInChildren<TrainBackground>();
-        backgrounds[3].SetAsTransitionLayer();
-        //THIS NEEDS TO BE REFACTORED GOOD GOD
-        backgrounds[3].SetSpriteAndSpeed(null, 100f);
-        backgrounds[3].SetTransitionSprite(transitionSprite);
-        backgrounds[3].SetStationSprite(stationSprite);
+        //DELETE THIS 
         
-        //backgrounds[4].SetSpriteAndSpeed(stationSprite, 20f);
+        // //delete this later
+        // var backgrounds = GetComponentsInChildren<TrainBackground>();
+        // backgrounds[3].SetAsTransitionLayer();
+        // //THIS NEEDS TO BE REFACTORED GOOD GOD
+        // backgrounds[3].SetSpriteAndSpeed(null, 100f);
+        // backgrounds[3].SetTransitionSprite(transitionSprite);
+        // backgrounds[3].SetStationSprite(stationSprite);
+        //
+        // backgrounds[4].SetAsTransitionLayer();
+        // //THIS NEEDS TO BE REFACTORED GOOD GOD
+        // backgrounds[4].SetSpriteAndSpeed(null, 100f);
+        // backgrounds[3].SetStationSprite(stationSprite);
+        //
+        // //backgrounds[4].SetSpriteAndSpeed(stationSprite, 20f);
 
 
+        foreach (Transform child in dummyStationBackdropParent)
+        {
+            Destroy(child.gameObject);
+        }
         foreach (var door in _doors)
         {
             door.OnDoorClose();
@@ -94,6 +113,28 @@ public class TrainInterior : MonoBehaviour
         }
     }
 
+    public void SetUpArrivingStationProps(Station stationArrivingAt)
+    {
+        var dummyStation = Instantiate(stationArrivingAt.gameObject, dummyStationBackdropParent);
+        //pruning the Virtual Camera
+        Destroy(dummyStation.transform.GetChild(0).gameObject);
+        
+        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+        var cols = dummyStation.GetComponentsInChildren<Collider2D>();
+        foreach (var col in cols)
+        {
+            col.enabled = false;
+        }
+        
+        var srs = dummyStation.GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sr in srs)
+        {
+            sr.sortingLayerID = _backgroundSortingLayerID;
+        }
+
+        _transitionBackground.HandOffStationProps(dummyStation);
+    }
+    
     public void ArriveAtStation(bool reversing, bool isEndStation)
     {
         _reversing = reversing;
@@ -241,4 +282,6 @@ public class TrainInterior : MonoBehaviour
             col.enabled = false;
         }
     }
+
+    
 }

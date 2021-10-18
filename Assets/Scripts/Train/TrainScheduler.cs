@@ -150,9 +150,14 @@ public class TrainScheduler : MonoBehaviour
                     _currentTrain.ReachedNewStation = false;
                     _currentTrain.TrainOnCurrentStation = true;
 
-                    //_trainDict[_currentTrain.trainLine].CurrentTrainInterior.SetInitialReverseValue(_currentTrain.Reversing);
-                    _trainDict[_currentTrain.trainLine].CurrentTrainInterior
-                        .ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
+                    var stationArrivingAt = _stationDict[_currentTrain.CurrentStation];
+                    
+                    var currentTrainInterior = _trainDict[_currentTrain.trainLine].CurrentTrainInterior;
+
+                    //Setup the props for the station arriving at 
+                    currentTrainInterior.SetUpArrivingStationProps(stationArrivingAt);
+                    //Execute arrival at Station
+                    currentTrainInterior.ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
                 }
 
                 break;
