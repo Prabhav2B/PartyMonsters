@@ -11,6 +11,8 @@ public class MapActions : MonoBehaviour
 
     [SerializeField] private LayerMask RaycastLayers = default(LayerMask);
 
+    [SerializeField] private int lineSortingOrder;
+
     [SerializeField] private Transform DrawIcon;
     [SerializeField] private Transform MoveIcon;
     [SerializeField] private Transform LineHolder;
@@ -18,6 +20,8 @@ public class MapActions : MonoBehaviour
     private Dictionary<LineRenderer, int> connectedLines;
 
     private LineRenderer lineRenderer; //recheck how often this is used, maybe no need to keep it like this
+    
+    private string lineSortingLayer;
 
     private Transform colorPickerTransform;
     private Transform lineTransform;
@@ -37,6 +41,8 @@ public class MapActions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lineSortingLayer = "UI";
+
         isDragMode = true;
         isDrawing = false;
         isPressed = false;
@@ -202,6 +208,8 @@ public class MapActions : MonoBehaviour
         lineBehaviour.MyColor = TrainLineColor.blue;
 
         lineRenderer = line.AddComponent<LineRenderer>();
+        lineRenderer.sortingLayerName = lineSortingLayer;
+        lineRenderer.sortingOrder = lineSortingOrder;
         lineRenderer.SetPosition(0, stationTransform.localPosition);
         lineRenderer.SetPosition(1, stationTransform.localPosition);
         lineRenderer.useWorldSpace = false;

@@ -58,7 +58,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 809703695
-  m_SortingOrder: 32
+  m_SortingOrder: 36
   m_TargetDisplay: 0
 --- !u!114 &6783218801697485603
 MonoBehaviour:
@@ -310,7 +310,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809703695
   m_SortingLayer: 8
-  m_SortingOrder: 31
+  m_SortingOrder: 35
   m_Sprite: {fileID: 21300000, guid: fb6ea6eafd1b81c41bc35af22cfaae87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -395,7 +395,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809703695
   m_SortingLayer: 8
-  m_SortingOrder: 30
+  m_SortingOrder: 35
   m_Sprite: {fileID: 21300000, guid: fed59ee89f5a9de4daf9a37a35829a69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
