@@ -6490,12 +6490,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 980b064a8d401a14692a800afff3bd38, type: 2}
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.data[2]
       value: 
