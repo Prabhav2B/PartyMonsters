@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5889808965165244756
 Transform:
   m_ObjectHideFlags: 0
@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 3169801568843711797}
   - component: {fileID: 8186272798001495336}
   - component: {fileID: 2850627843501571915}
+  - component: {fileID: 290297790}
   m_Layer: 10
   m_Name: color-circle
   m_TagString: Untagged
@@ -269,6 +270,19 @@ CircleCollider2D:
   m_Offset: {x: -0.00000047683716, y: 0}
   serializedVersion: 2
   m_Radius: 1.2800001
+--- !u!114 &290297790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028518525054144296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: 4
 --- !u!1 &4185117914836769770
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +294,7 @@ GameObject:
   - component: {fileID: 5949377331615501991}
   - component: {fileID: 7713028502652280654}
   - component: {fileID: 3649635113743280741}
+  - component: {fileID: 2115812928}
   m_Layer: 10
   m_Name: color-circle
   m_TagString: Untagged
@@ -368,6 +383,19 @@ CircleCollider2D:
   m_Offset: {x: 0.00000023841858, y: 0}
   serializedVersion: 2
   m_Radius: 1.2800001
+--- !u!114 &2115812928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4185117914836769770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: 0
 --- !u!1 &5095257874079798273
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +573,7 @@ GameObject:
   - component: {fileID: 6996597902948454155}
   - component: {fileID: 7511793550345350638}
   - component: {fileID: 4883583667443811244}
+  - component: {fileID: 806421386}
   m_Layer: 10
   m_Name: color-circle
   m_TagString: Untagged
@@ -633,6 +662,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.2800001
+--- !u!114 &806421386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7999749503889879700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: 3
 --- !u!1 &8053005424509926244
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +769,7 @@ GameObject:
   - component: {fileID: 1310455949443608546}
   - component: {fileID: 6264398834153094602}
   - component: {fileID: 6325485891852827721}
+  - component: {fileID: 1640194589}
   m_Layer: 10
   m_Name: color-circle
   m_TagString: Untagged
@@ -815,6 +858,19 @@ CircleCollider2D:
   m_Offset: {x: -0.00000023841858, y: 0}
   serializedVersion: 2
   m_Radius: 1.2800001
+--- !u!114 &1640194589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309905736148181745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: 1
 --- !u!1 &8402830952633194420
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +965,7 @@ GameObject:
   - component: {fileID: 6697167004780011697}
   - component: {fileID: 2578485410227956387}
   - component: {fileID: 5663216517652880695}
+  - component: {fileID: 955958007}
   m_Layer: 10
   m_Name: color-circle
   m_TagString: Untagged
@@ -997,3 +1054,16 @@ CircleCollider2D:
   m_Offset: {x: 0.00000047683716, y: 0}
   serializedVersion: 2
   m_Radius: 1.2800001
+--- !u!114 &955958007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8784114483795902045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241e026a2a08df458ead2500a31fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: 2
