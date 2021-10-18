@@ -335,42 +335,44 @@ public class MapActions : MonoBehaviour
 
         isPressed = context.performed;
 
-        if (isPressed)
+        if (!isPressed) 
+            return;
+        
+        colorPickerTransform = CheckIfCursorOnMapItem(layerColorPicker);
+        
+        if (ColorPicker.activeInHierarchy && colorPickerTransform == null)
+            ToggleColorPicker();
+        else if (ColorPicker.activeInHierarchy && colorPickerTransform != null)
         {
-            colorPickerTransform = CheckIfCursorOnMapItem(layerColorPicker);
-            if (ColorPicker.activeInHierarchy && colorPickerTransform == null)
-                ToggleColorPicker();
-            else if (ColorPicker.activeInHierarchy && colorPickerTransform != null)
+            SetLineColor();
+            ToggleColorPicker();
+            return;
+        }
+
+        stationTransform = CheckIfCursorOnMapItem(layerStation);
+        if (stationTransform != null)
+        {
+            GetConnectedLines();
+            return;
+        }
+
+        uiButtonTransform = CheckIfCursorOnMapItem(layerUI);
+        if (uiButtonTransform != null) 
+        {
+            SwitchCursorMode();
+            return;
+        }
+
+        lineTransform = CheckIfCursorOnMapItem(layerLine);
+        if (lineTransform != null)
+        {
+            ToggleColorPicker();
+            if (ColorPicker.activeInHierarchy)
             {
-                SetLineColor();
-                ToggleColorPicker();
+                SetColorPickerPosition();
             }
 
-            stationTransform = CheckIfCursorOnMapItem(layerStation);
-            if (stationTransform != null)
-            {
-                GetConnectedLines();
-                return;
-            }
-
-            uiButtonTransform = CheckIfCursorOnMapItem(layerUI);
-            if (uiButtonTransform != null) 
-            {
-                SwitchCursorMode();
-                return;
-            }
-
-            lineTransform = CheckIfCursorOnMapItem(layerLine);
-            if (lineTransform != null)
-            {
-                ToggleColorPicker();
-                if (ColorPicker.activeInHierarchy)
-                {
-                    SetColorPickerPosition();
-                }
-
-                return;
-            }
+            return;
         }
     }
 

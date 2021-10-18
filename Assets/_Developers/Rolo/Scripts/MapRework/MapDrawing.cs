@@ -25,8 +25,8 @@ public class MapDrawing : MonoBehaviour
         gridOffset = 0.5f; // cosmetitc value that ensures that slots are centered nicely
 
         Vector3 adjustedVerticalVector = new Vector3(0f, offsetY, 0f); // cosmetitc adjustment so buttons/tickets align vertically to the grid
-        DragDrawButtons.position = adjustedVerticalVector;
-        TicketHolder.position = adjustedVerticalVector;
+        DragDrawButtons.localPosition = adjustedVerticalVector;
+        TicketHolder.localPosition = adjustedVerticalVector;
         DrawMap();
     }
 
