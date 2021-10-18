@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TrainScheduler : MonoBehaviour
 {
+    [SerializeField] private DummyStation dummyStation;
+    
     [SerializeField] private TrainLine[] trainLines;
     [SerializeField] private TrainLookupTable[] trainLookup;
     [SerializeField] private StationLookupTable[] stationLookup;
@@ -155,7 +157,7 @@ public class TrainScheduler : MonoBehaviour
                     var currentTrainInterior = _trainDict[_currentTrain.trainLine].CurrentTrainInterior;
 
                     //Setup the props for the station arriving at 
-                    currentTrainInterior.SetUpArrivingStationProps(stationArrivingAt);
+                    dummyStation.SetDummyStation(stationArrivingAt);
                     //Execute arrival at Station
                     currentTrainInterior.ArriveAtStation(_currentTrain.Reversing, _currentTrain.IsEndStation);
                 }
