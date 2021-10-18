@@ -35,19 +35,14 @@ public class DummyStation : MonoBehaviour
 
     void Awake()
     {
-
+        _backgroundSortingLayerID = SortingLayer.NameToID("TrainBackground");
         tunnelSpriteRenderer[0].sprite = tunnelSprite;
         tunnelSpriteRenderer[1].sprite = tunnelSprite;
         _interactionColliders = new List<BoxCollider2D>(GetComponentsInChildren<BoxCollider2D>());
 
         //_waitDuration = trainExteriorData.waitDuration;
     }
-
-    private void OnEnable()
-    {
-        _backgroundSortingLayerID = SortingLayer.NameToID("TrainBackground");
-    }
-
+    
     public void SetDummyStation(Station stationArrivingAt)
     {
         
@@ -58,7 +53,7 @@ public class DummyStation : MonoBehaviour
         
         var dummyStation = Instantiate(stationArrivingAt.gameObject, dummyStationParent);
         dummyStation.SetActive(true);
-        dummyStation.transform.position = Vector3.zero;
+        dummyStation.transform.localPosition = Vector3.zero;
         
         //pruning the Virtual Camera
         Destroy(dummyStation.transform.GetChild(0).gameObject);
