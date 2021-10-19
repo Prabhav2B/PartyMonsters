@@ -6032,7 +6032,7 @@ PrefabInstance:
     - target: {fileID: 91377376689591812, guid: 1bca95a13c4c9d84cb029d618f23cf09, type: 3}
       propertyPath: tunnelSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4185ef56d2ed5b642aafc15b558c89b9, type: 3}
+      objectReference: {fileID: 21300000, guid: abc0c32340e2d594d81e76e541576f75, type: 3}
     - target: {fileID: 91377376689591812, guid: 1bca95a13c4c9d84cb029d618f23cf09, type: 3}
       propertyPath: dummyStationParent
       value: 
@@ -6197,12 +6197,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 980b064a8d401a14692a800afff3bd38, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.data[2]
       value: 
@@ -6218,7 +6218,7 @@ PrefabInstance:
     - target: {fileID: 617110158490516820, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: _startItems.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 7aedaa42b32533448a4cce378a9e3a62, type: 2}
     - target: {fileID: 626658866887087699, guid: 9bc8e85a39bda504384de6d040be7570, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6738,6 +6738,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 36463561}
+    - target: {fileID: 8889682605076025646, guid: f540052c8f771204298746c1817d9b04, type: 3}
+      propertyPath: interiorBackgroundData
+      value: 
+      objectReference: {fileID: 11400000, guid: 689ca5b70e90cbe45a9dd6c0d95ae641, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f540052c8f771204298746c1817d9b04, type: 3}
 --- !u!1001 &944811525871377140
@@ -7741,6 +7745,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 36463561}
+    - target: {fileID: 6531213586023067167, guid: 95da19a7f4ecdba45bbbf40035a80a32, type: 3}
+      propertyPath: interiorBackgroundData
+      value: 
+      objectReference: {fileID: 11400000, guid: 75ab628a7f4c1bf4690c7b44889cf196, type: 2}
     - target: {fileID: 8129488946330545143, guid: 95da19a7f4ecdba45bbbf40035a80a32, type: 3}
       propertyPath: toCamera
       value: 
@@ -7806,6 +7814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Purple Train Interior '
       objectReference: {fileID: 0}
+    - target: {fileID: 5543600643676869903, guid: aab0f8d31fec96249bd8ffb44ca46b35, type: 3}
+      propertyPath: interiorBackgroundData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7676f5293e17a304da48bd6ea7d4f48e, type: 2}
     - target: {fileID: 6773126841563562341, guid: aab0f8d31fec96249bd8ffb44ca46b35, type: 3}
       propertyPath: toCamera
       value: 
@@ -8886,6 +8898,10 @@ PrefabInstance:
       propertyPath: toCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1314015459527232802, guid: 89ea8dd0135ebb1409bf569dc6229745, type: 3}
+      propertyPath: interiorBackgroundData
+      value: 
+      objectReference: {fileID: 11400000, guid: c8728d8033040d1468344a5e150f9855, type: 2}
     - target: {fileID: 1865424554353855672, guid: 89ea8dd0135ebb1409bf569dc6229745, type: 3}
       propertyPath: m_Name
       value: Yellow Train Interior

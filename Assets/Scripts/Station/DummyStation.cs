@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class DummyStation : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class DummyStation : MonoBehaviour
     private bool _reversing;
     private bool _isEndStation;
     private bool _interactionPerformed;
-    private bool _departed;
     private List<BoxCollider2D> _interactionColliders = new List<BoxCollider2D>();
     private int _backgroundSortingLayerID;
 
@@ -64,6 +64,12 @@ public class DummyStation : MonoBehaviour
         {
             col.enabled = false;
         }
+        
+        var lights = dummyStation.GetComponentsInChildren<Light2D>(true);
+        foreach (var light in lights)
+        {
+            light.enabled = false;
+        }
 
         var srs = dummyStation.GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var sr in srs)
@@ -83,7 +89,6 @@ public class DummyStation : MonoBehaviour
     public void ArriveAtStation(bool reversing, bool isEndStation, float timeToStop)
     {
         Activate();
-        _departed = false;
         _reversing = !reversing;
         _isEndStation = isEndStation;
 
@@ -135,25 +140,25 @@ public class DummyStation : MonoBehaviour
 
         while (true)
         {
-            if (timeExpired >= 10f)
+            if (timeExpired >= 6f)
             {
                 break;
             }
 
-            transform.position = new Vector3(transform.position.x + (exitDirection * timeExpired * Time.deltaTime),
+            transform.position = new Vector3(transform.position.x + (exitDirection * timeExpired * timeExpired * Time.deltaTime),
                 transform.position.y, transform.position.z);
 
             timeExpired += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-
-        _departed = true;
+        
         Deactivate();
     }
 
     public void Activate()
     {
         gameObject.SetActive(true);
+        transform.position = startPositionLeft;
     }
 
     public void Deactivate()

@@ -9,6 +9,7 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
     
     private Station _station;
     private TrainExterior _trainExterior;
+    private DummyStation _dummyStation;
     private GameObject _trainInterior;
     private TrainScheduler _trainScheduler;
 
@@ -31,10 +32,12 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
         _sceneFadeManager = FindObjectOfType<SceneFadeManager>();
         _trainScheduler = FindObjectOfType<TrainScheduler>();
         _player = FindObjectOfType<PlayerManager>();
+        _dummyStation = FindObjectOfType<DummyStation>();
     }
 
     public void SwitchToTrainInterior()
     {
+        _dummyStation.Activate();
         _trainScheduler.PlayerLocation = PlayerLocation.train;
         _trainScheduler.FlushStation();
         _trainScheduler.FlushWaitList();
@@ -52,6 +55,7 @@ public class SceneChangeManager : SingleInstance<SceneChangeManager>
 
     public void SwitchToStation()
     {
+        _dummyStation.Deactivate();
         _trainScheduler.SetCurrentStation();
         _trainScheduler.PushTrainsForward();
         _trainScheduler.PlayerLocation = PlayerLocation.station;
