@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class MapActions : MonoBehaviour
 {
+    [SerializeField] private Transform Map; //This must be uniform!!!
+
     [SerializeField] private CursorManager cursorManager;
 
     [SerializeField] private GameObject ColorPicker;
@@ -187,7 +189,7 @@ public class MapActions : MonoBehaviour
 
         cursorPosition = new Vector3(cursorPosition.x - cameraPosition.x, cursorPosition.y - cameraPosition.y, 0f);
 
-        lineRenderer.SetPosition(1, cursorPosition);
+        lineRenderer.SetPosition(1, cursorPosition * 1f/Map.localScale.x);
     }
 
     private void StartDrawingLine()
@@ -201,6 +203,7 @@ public class MapActions : MonoBehaviour
         line.name = "Line";
         line.transform.parent = LineHolder;
         line.transform.localPosition = LineHolder.localPosition;
+        line.transform.localScale = new Vector3(1, 1, 1);
         line.layer = layerLine;
 
         LineBehaviour lineBehaviour = line.AddComponent<LineBehaviour>();
