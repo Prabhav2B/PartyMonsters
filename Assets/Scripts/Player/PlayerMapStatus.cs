@@ -18,15 +18,15 @@ public class PlayerMapStatus : MonoBehaviour
     public void CollectDrawnLines()
     {
         drawnLines.Clear();
-        var mapLines = lineParent.GetComponentsInChildren<ConnectionLineBehaviour>();
+        var mapLines = lineParent.GetComponentsInChildren<LineBehaviour>();
 
         foreach (var mapLine in mapLines)
         {
             var line = new LineConnection();
-            line._stations.Add(mapLine.connectedStations[0].myName);
-            line._stations.Add(mapLine.connectedStations[1].myName);
+            line._stations.Add(mapLine.StationA.stationMapItem.myName);
+            line._stations.Add(mapLine.StationB.stationMapItem.myName);
 
-            line._lineColors.Add(mapLine.myColor);
+            line._lineColors.Add(mapLine.MyColor);
             drawnLines.Add(line);
         }
     }

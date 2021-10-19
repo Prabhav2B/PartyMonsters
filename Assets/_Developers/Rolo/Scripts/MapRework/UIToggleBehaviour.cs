@@ -15,9 +15,9 @@ public class UIToggleBehaviour : MonoBehaviour
         ToggleSprite(initialState);
     }
 
-    public void ToggleSprite(bool val)
+    public void ToggleSprite(bool value)
     {
-        if (val)
+        if (value)
         {
             spriteRenderer.sprite = sprites[0];
         }

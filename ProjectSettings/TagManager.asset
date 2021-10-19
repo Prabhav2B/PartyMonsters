@@ -17,9 +17,9 @@ TagManager:
   - Token
   - Player
   - ConnectionLine
-  - PaletteColor
+  - ColorPicker
   - Cinemachine Transition
-  - 
+  - StationSlot
   - 
   - 
   - 

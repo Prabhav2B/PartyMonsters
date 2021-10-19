@@ -54,7 +54,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "DragToken",
+                    "name": "DragStation",
                     "type": "Value",
                     "id": "ba91bbde-8913-4917-b824-d91e90a36eb3",
                     "expectedControlType": "Button",
@@ -309,7 +309,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DragToken",
+                    "action": "DragStation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
